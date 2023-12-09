@@ -8,7 +8,7 @@ const initialState = [
         description:'We value your privacy. Our Sites use Cookies and Similar Technologies on this website to improve your online experience, to analyze site usage, and to show tailored advertising to you.',
         place:'Kollimalai',
         district:'namakkal',
-        state:'Tamil nadu',
+        state:'Tamilnadu',
         country:'India',
         img:'/images/img-1.jpg',
         rating:'4.0'
@@ -20,7 +20,7 @@ const initialState = [
         description:'We value your privacy. Our Sites use Cookies and Similar Technologies on this website to improve your online experience, to analyze site usage, and to show tailored advertising to you.',
         place:'Kollimalai',
         district:'namakkal',
-        state:'Tamil nadu',
+        state:'Tamilnadu',
         country:'India',
         img:'/images/img-2.jpg',
         rating:'4.0'
@@ -31,7 +31,7 @@ const initialState = [
         description:'We value your privacy. Our Sites use Cookies and Similar Technologies on this website to improve your online experience, to analyze site usage, and to show tailored advertising to you.',
         place:'Kollimalai',
         district:'namakkal',
-        state:'Tamil nadu',
+        state:'Tamilnadu',
         country:'India',
         img:'/images/img-2.jpg',
         rating:'4.0'
@@ -42,7 +42,7 @@ const initialState = [
         description:'We value your privacy. Our Sites use Cookies and Similar Technologies on this website to improve your online experience, to analyze site usage, and to show tailored advertising to you.',
         place:'Kollimalai',
         district:'namakkal',
-        state:'Tamil nadu',
+        state:'Tamilnadu',
         country:'India',
         img:'/images/img-2.jpg',
         rating:'4.0'
@@ -53,7 +53,7 @@ const initialState = [
         description:'Located 13 kilometers away from Munnar, Mattupetty is a hill station elevated at a height of 1700 meters. The dam, famously known as Mattupetty dam, is the main attraction here that covers an area of 323.75 hectares. The dam was constructed under Pallivasal hydro-electric project for generating power and now is a vital source for supply of electricity as well as haven for the local fauna, especially the elephants, due to constant availability of water. The still water that reflects the tea gardens around is simply calming. The tourist can visit Mattupetty dam from August to March for engaging in activities like boating. We value your privacy. Our Sites use Cookies and Similar Technologies on this website to improve your online experience, to analyze site usage, and to show tailored advertising to you.',
         place:'Kollimalai',
         district:'namakkal',
-        state:'Tamil nadu',
+        state:'Tamilnadu',
         country:'India',
         img:'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Madupetty_Dam,_Munnar,_Kerala_(2).jpg/1280px-Madupetty_Dam,_Munnar,_Kerala_(2).jpg',
         rating:'4.0'

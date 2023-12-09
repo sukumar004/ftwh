@@ -5,6 +5,7 @@ import { selectPostById } from '../../feature/place/placeSlice';
 import { MdOutlineStarPurple500 } from "react-icons/md";
 import './placePage.css'
 import { FaLocationDot } from "react-icons/fa6";
+import HotelBook from './HotelBook';
 
 
 
@@ -16,7 +17,6 @@ function PlacePage() {
 
     const rating = selectedPost.rating >= 4 ? `Most vistied Place` : selectedPost.rating >=2 ? `Moderate Visited Place` : `Average Visited Place`
 
-    console.log(selectedPost.description.length);
 
   return (
     <section className='main-selected-post'>
@@ -39,7 +39,13 @@ function PlacePage() {
 
             <p className='selected-post-para' >{selectedPost.description}</p>
 
+            <p className='selected-post-para' >{selectedPost.description}</p>
+
             <hr className='line' />
+
+            <div className="hotel-book">
+              <HotelBook post = {selectedPost} />
+            </div>
 
         </div>
     </section>

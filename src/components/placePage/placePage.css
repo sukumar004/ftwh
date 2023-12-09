@@ -54,7 +54,7 @@
 }
 
 #location-icon{
-    font-size: 1.2srem;
+    font-size: 1.2rem;
     display: flex;
     align-self:first baseline;
     margin: 0 .1rem 0 0;
@@ -65,15 +65,19 @@
 }
 
 .selected-post-para{
-    font-size: 1.25srem;
+    font-size: 1.2rem;
     font-weight: 550;
     line-height: 1.5rem;
     text-justify:inter-word;
-    margin: 0 0 2rem 0;
+    margin: 2rem 0 2rem 0;
     text-indent: 1rem;
     letter-spacing: 1.5px;
 }
 
 .line{
     margin: 1rem 0;
+}
+
+.hotel-book{
+    margin: 5rem;
 }
