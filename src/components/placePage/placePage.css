@@ -84,3 +84,12 @@
     width: 100%;
 
 }
+
+.comment-page{
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2rem;
+}

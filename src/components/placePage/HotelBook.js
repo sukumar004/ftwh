@@ -148,7 +148,6 @@ function HotelBook({post}) {
 
   },[checkIn,checkOut,adult,children,amount])
 
-  console.log(adultAmount)
 
   return (
 

@@ -1,0 +1,68 @@
+.comment-parent{
+    width: 100%;
+   display: flex;
+   flex-direction: column;
+   height: max-content;
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+   margin: 0 1rem;
+   padding: 0 1rem;
+
+}
+
+.comment-parent h1{
+    margin: .5rem 0;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+.star-rating{
+    display: flex;
+    flex-direction:row;
+    margin: 1rem 0 .4rem 0;
+}
+
+.review-form{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.review-form label{
+    font-size: 1rem;
+    font-weight: 300;
+    margin: 1rem 0 .4rem 0;
+    text-transform: uppercase;
+}
+
+.review-form select{
+    width: 100%;
+    height: 2.5rem;
+    border-radius: 5px;
+    text-indent: 5px;
+    padding: 5px;
+    cursor: pointer;
+    text-transform: capitalize;
+    font-size: 1rem;
+}
+
+
+.review-form textarea{
+    width: 100%;
+    height: 8rem;
+    border-radius: 5px;
+    text-indent: 5px;
+    padding: 5px;
+    resize: none;
+}
+
+.review-form button{
+    width: 100%;
+    height: 2rem;
+    margin: 1rem 0 2rem 0;
+    font-size: 1rem;
+    text-transform: uppercase;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+

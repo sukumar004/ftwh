@@ -6,6 +6,8 @@ import { MdOutlineStarPurple500 } from "react-icons/md";
 import './placePage.css'
 import { FaLocationDot } from "react-icons/fa6";
 import HotelBook from './HotelBook';
+import CommentPage from './CommentPage';
+import ReviewPage from './ReviewPage';
 
 
 
@@ -45,6 +47,11 @@ function PlacePage() {
 
             <div className="hotel-book">
               <HotelBook post = {selectedPost} />
+            </div>
+
+            <div className="comment-page">
+              <CommentPage />
+              <ReviewPage />
             </div>
 
         </div>
