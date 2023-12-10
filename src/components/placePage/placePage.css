@@ -79,5 +79,8 @@
 }
 
 .hotel-book{
-    margin: 5rem;
+    position: sticky;
+    top: 0vh;
+    width: 100%;
+
 }

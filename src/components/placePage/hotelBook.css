@@ -1,20 +1,46 @@
+.parent-body{
+    width: 100%;
+    height: max-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 3rem 0;
+
+}
+
+.child-1{
+    width: 45vw;
+}
+
+.child-2{
+    height: 100%;
+    position: sticky;
+    top: 0;
+}
+
+
+
 .hotel{
     width: 30vw;
-    height: 63vh;
+    /* height: 63vh; */
+    height:max-content;
     /* border: 2px solid black; */
     display: flex;
     flex-direction: column;
     padding: 1rem 1rem;
     overflow: hidden;
-    /* box-shadow:rgba(0, 0, 0, 0.12) 0px 6px 16px; */
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow:rgba(0, 0, 0, 0.12) 0px 6px 16px;
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+    margin: 1rem 1rem 1rem 1rem;
+    position: sticky;
+    top: 3.5rem;
 
     
     
 }
 
-.hotel-title h1{
 
+.hotel-title h1{
     text-align: center;
     margin: .4rem 0;
     font-size: 1.3rem;
@@ -88,6 +114,15 @@
     margin: .4rem 0;
 }
 
+.h-line{
+    border-bottom:.1px solid rgba(0, 0, 0,.5);
+}
+
+.v-line{
+    border-right:.1px solid rgba(0, 0, 0,.5);
+
+}
+
 .hotel-check-dates{
     display: inline-flex;
     flex-direction: row;
@@ -122,8 +157,16 @@
     justify-content: space-between;
     margin: .4rem 1rem;
     align-items: center;
-    cursor: pointer;
+    /* cursor: pointer; */
     /* position: relative; */
+}
+
+.guest-heading{
+    cursor: pointer;
+}
+
+.guest-list{
+    cursor: pointer;
 }
 
 .guest-heading h4{
@@ -171,6 +214,8 @@
     font-weight: 300;
 }
 
+
+
 #underline{
     text-decoration: underline;
 
@@ -191,12 +236,12 @@
 
 .select-main{
     width: 28vw;
-    height: 45vh;
+    height: 33vh;
     position: absolute;
     z-index: 999;
     background-color: white;
     /* border: 2px solid black; */
-    margin: 50vh 0 0 -1.1rem;
+    margin: 50vh 0 4.5rem -1.1rem;
     border-radius: 10px;
     cursor:default;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -213,15 +258,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 1rem 0;
+    margin: .5rem 0;
 }
 
 .common-members p{
     font-weight: 100;
-    font-size: .8rem;   
+    font-size: .7rem;   
 }
 
 .common-members h3{
+    font-size: 1.3rem;
     font-weight: 600;
 }
 
@@ -233,7 +279,7 @@
 
 .adult-counter span,.children-counter span,.infants-counter span{
 
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 .button-members{
@@ -251,7 +297,7 @@
     width: 100%;
     display: flex;
     justify-content: flex-end;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .close-button button{
@@ -267,4 +313,8 @@
 #rupees{
     font-size: .9rem;
     font-weight: 300;
+}
+
+.amount-total{
+    margin-top: 0;
 }

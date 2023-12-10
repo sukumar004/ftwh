@@ -18,7 +18,12 @@ const initialState = [
             adult:'1000',
             children:'500',
             infants:'0',
+        },
+        photos:{
+            img1:'/images/ht-1.jpg',
+            img2:'/images/ht-2.jpg'
         }
+
     },
     
     {
@@ -38,6 +43,10 @@ const initialState = [
             adult:'999',
             children:'499',
             infants:'0',
+        },
+        photos:{
+            img1:'/images/ht-1.jpg',
+            img2:'/images/ht-2.jpg'
         }
 
 

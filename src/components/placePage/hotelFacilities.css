@@ -1,0 +1,111 @@
+.hotelDetails{
+    width: 100%;
+    display: inline-flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+h3{
+    font-size: 1.5rem;
+}
+
+.hotelTitle h3{
+    width: 100%;
+    margin: .5rem 0;
+    font-size: 2rem;
+    text-transform: uppercase;
+    overflow: hidden;
+}
+
+.hotel-address{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: .5rem 0 1rem 0;
+    
+}
+
+.hotel-address p{
+    font-size: .8rem;
+    display: flex;
+    text-transform: uppercase;
+    margin: 0 .2rem 0 0;
+    display: flex;
+    align-items: center;
+}
+
+.hotel-address span{
+    font-size: .8rem;
+    margin: 0 .1rem 0 0;
+}
+
+.hotel-photos{
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    margin: .5rem 0 1rem 0;
+    gap: .5rem;
+    padding: .5rem;
+    object-fit: cover;
+    cursor: pointer;
+    padding-left: 0;
+
+}
+
+.hotel-photos img{
+    width: 19rem;
+    height: 15rem;
+    border-radius: 10px;
+    
+}
+
+.hotel-photos img:hover{
+    transform: scale(1.2);
+}
+
+#amenities{
+    margin: 1rem 0 0 0;
+}
+
+.hotel-amenities{
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    grid-template-rows: repeat(3,minmax(0,1fr));
+    gap: 2.5rem;
+    margin: 2rem 0 2rem 0;
+    width: 100%;
+}
+
+.hotel-amenities p{
+
+    font-size: 1.4rem;
+    font-weight: 300;
+    display: flex;
+    align-items:center;
+
+}
+
+.hotel-amenities span{
+    font-size: 1.5rem;
+    margin: 0 .4rem 0 0;
+}
+
+.show-hotel-button{
+    width: 100%;
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.show-hotel-button button{
+    width: 10rem;
+    height: 2.3rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+hr{
+    margin: 1.5rem 0;
+    width: 100%;
+}
