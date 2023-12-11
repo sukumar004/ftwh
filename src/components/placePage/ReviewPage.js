@@ -31,37 +31,39 @@ function ReviewPage() {
 
         <div className="review-list" key={index}>
 
-            <div className="review-user-photo">
-                <img src={review.img} alt={review.name} />
-            </div>
-
             <div className="review-column-list">
+                
+                <div className="review-list-column-img">
+                    <img src={review.img} alt={review.name} />
 
-                <h1>{review.name}</h1>
+                        <div className="new-div">
+                            <h1>{review.topic}</h1>
 
-                <div className="review-ratings-date">
+                            <div className="ratins-star-column">
 
-                    <div className="rating-star">
+                                <div className="rating-star">
 
-                        {arr.map((val,index)=>(
-                            <FaStar
-                            key={index}
-                            size={20}
-                            style={{margin:'0 5px 0 0'}}
-                            color={review.rating > index ? starColor.active : starColor.inActive }
-                            
-                            />
-                        ))}
-                    </div>
+                                {arr.map((val,index)=>(
+                                <FaStar
+                                key={index}
+                                size={20}
+                                style={{margin:'0 5px 0 0'}}
+                                color={review.rating > index ? starColor.active : starColor.inActive }
 
-                    <div className="rating-date">
-                        <p>{review.date}</p>
-                    </div>
+                                />
+                                ))}
+                                </div>
 
+                                <div className="rating-date">
+                                <p>{review.date}</p>
+                                </div>
+                            </div>
+                        </div>
                 </div>
 
                 <div className="review-comments">
-                    <p>{review.comments}</p>
+                    <h3>{review.name}</h3>
+                    <p>{review.comments.length <= 500 ? review.comments : `${review.comments.substring(0,500)}...`}</p>
                 </div>
             </div>
 

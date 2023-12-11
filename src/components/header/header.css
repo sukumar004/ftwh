@@ -1,8 +1,6 @@
 header{
     width: 100vw;
-    height: 3.5rem; 
-    z-index: 999999;
-    position: relative;
+    height: 3.5rem;
     
 }
 
@@ -23,11 +21,11 @@ header{
     /* background-color: rgba(255, 255, 255, .9); */
     /* background-color: 	rgba(245,245,245,.7); */
     /* background-color: rgb(255,255,240); */
-    background-color: 	rgb(240,248,255);
+    /* background-color: 	rgb(240,248,255); */
+    background: transparent;
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
-    position: fixed;
 
 
 }

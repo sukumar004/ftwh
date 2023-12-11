@@ -58,12 +58,14 @@ h3{
 .hotel-photos img{
     width: 19rem;
     height: 15rem;
+    margin-left: .5rem;
     border-radius: 10px;
+    transition-duration: .2s;
     
 }
 
 .hotel-photos img:hover{
-    transform: scale(1.2);
+    transform: scale(1.05);
 }
 
 #amenities{

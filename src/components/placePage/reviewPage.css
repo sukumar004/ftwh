@@ -1,45 +1,54 @@
 .review-parent{
     width: 100%;
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
-    padding: 1rem;
-    margin: 0 1rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0 .5rem;
+    margin: 0 0 1rem 0;
 }
 
 .review-list{
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
     margin: 1rem 0;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     padding: 1rem;
+    border: 1px solid black;
+    border-radius: 10px;
+
+
 }
 
-.review-user-photo{
+
+.review-list-column-img{
+    display: flex;
+    align-items: flex-start;
+}
+
+.review-list-column-img img{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100px;
+    object-fit: cover;
     margin: 0 1rem 0 0;
 }
 
-.review-user-photo img{
-    width: 4rem;
-    height: 4rem;
-    border-radius: 100px;
-    object-fit: cover;
-}
-
-.review-column-list{
+.new-div{
     display: flex;
     flex-direction: column;
-    justify-items: flex-start;
-    justify-content: center;
-    margin: 0 0 0 1rem;
 }
 
-.review-column-list h1{
-    font-size: 1.3rem;
+.new-div h1{
+    font-size: 1.4rem;
     text-transform: capitalize;
+    font-weight: 300;
 }
+
+.ratins-star-column{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 
 .review-ratings-date{
     display: inline-flex;
@@ -47,7 +56,7 @@
 }
 
 .rating-star,.rating-date{
-    margin: .5rem .5rem 1rem 0rem;
+    margin: .1rem .5rem .5rem 0rem;
 }
 
 .rating-date p{
@@ -57,4 +66,13 @@
 
 .review-comments{
 
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.review-comments h3{
+    font-size: .9rem;
+    font-weight: 800;
+    margin: 0 0 .5rem 0;
 }

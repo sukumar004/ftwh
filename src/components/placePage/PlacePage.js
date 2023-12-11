@@ -50,8 +50,10 @@ function PlacePage() {
             </div>
 
             <div className="comment-page">
-              <CommentPage />
-              <ReviewPage />
+
+            <CommentPage  />            
+            <ReviewPage />
+             
             </div>
 
         </div>

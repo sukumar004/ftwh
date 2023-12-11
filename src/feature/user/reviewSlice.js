@@ -25,10 +25,23 @@ const initialState = [
             },
         rating:4,
         topic:'Beautiful place for Family Trip',
-        comments:'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit tenetur nisi atque magni dolore debitis commodi quo suscipit magnam veniam! A sequi mollitia optio dolores qui quo vero, quasi similique.'       
+        comments:'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit tenetur nisi atque magni dolore debitis commodi quo suscipit magnam veniam! A sequi mollitia optio dolores qui quo vero, quasi similique.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit tenetur nisi atque magni dolore debitis commodi quo suscipit magnam veniam! A sequi mollitia optio dolores qui quo vero, quasi similique.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit tenetur nisi atque magni dolore debitis commodi quo suscipit magnam veniam! A sequi mollitia optio dolores qui quo vero, quasi similique.'       
     },
     {
         id:3,
+        name:'Sukumar',
+        date:'2 months ago',
+        img:'/images/ht-1.jpg',
+        ids:{
+            placeId:5,
+            userId:1
+            },
+        rating:1,
+        topic:'Worst Place',
+        comments:'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit tenetur nisi atque magni dolore debitis commodi quo suscipit magnam veniam! A sequi mollitia optio dolores qui quo vero, quasi similique.'       
+    },
+    {
+        id:4,
         name:'Sukumar',
         date:'2 months ago',
         img:'/images/ht-1.jpg',

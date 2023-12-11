@@ -1,127 +1,115 @@
-
-
-main{
+.home-page{
     width: 100vw;
-    height: calc(88vh - 3.5rem);
-    /* height: 100vh; */
-    background-image: url('bg-img.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    object-fit: cover;
+    height: max-content;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    filter: blur(.2px);
+    /* background-image: url('bg-1.png'); */
+    background-position:100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-origin: border-box;
+
+
 
 }
 
 .home-component{
-    width: 100%;
-    height: 55%;
-    height: 85%;
+    width: 100vw;
+    height: 80vh;
+    background-image: url('bg-2.png');
+    background-position:100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-origin: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     align-items: center;
+    justify-content: center;
 
 
+}
+
+.heading-text{
+    width: max-content;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.heading-text h1{
+    font-size: 3rem;
+    font-weight: 800;
+    padding: 1rem;
+    text-transform: capitalize;
+    color: rgba(255,255,255,0.9);
+
+}
+
+.heading-text p{
+    text-align: center;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.9);
+    margin: 1rem 0;
 }
 
 .select{
+    width: 75vw;
+    height: 10vh;
+    /* background-color: white; */
+    /* border: 1px solid white; */
+    border-radius: 20px;
     display: flex;
-    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 1rem 0;
 }
 
 .select select{
-    width: 15rem;
-    margin: 0 2rem;
-    background: none;
+    width: 30%;
+    height: max-content;
+    padding: .5rem .5rem;
+    margin: 0 1rem;
+    border-radius:10px;
     font-size: 1rem;
-    text-align: center;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255);
-    padding: 2px;
-    border: 2px solid  rgba(255, 255, 255, .5);
-    border-radius: 3px;
     cursor: pointer;
-}
-
-.select select:hover{
-    color:  rgba(255, 255, 255, .9);
-    border-color:  rgba(255, 255, 255, .9);
-}
-
-.select button{
-    width: 10rem;
-    margin: 0 2rem;
+    border: 3px solid white;
     background: none;
-    font-size: 1rem;
-    text-align: center;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255);
-    padding: 2px;
-    border: 2px solid  rgba(255, 255, 255, .5);
-    border-radius: 3px;
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, .2);
-}
-
-.select button:hover{
-    border: 2px solid  rgba(255, 255, 255, .9);
-}
-
-
-.heading-text h1{
-    color: rgba(255, 255, 255, 1);
-    font-weight: 900;
-    font-size: 4rem;
-    /* font-weight: 400; */
-    /* border: 2px solid rgba(255, 255, 255, .9); */
-    padding: 1.5rem 3rem;
+    color: rgba(255,255,255,0.9);
 
 }
 
+.select select:focus{
+    color: black;
+}
+
+
+.high-rated-places{
+
+    width: 10%;
+    height: max-content;
+    /* border: 1px solid white; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .high-rated-places button{
-    width: 18rem;
-    height: 2.5rem;
-    font-size: 1.3rem;
-    padding: 5px;
-    cursor: pointer;
-    border-radius: 100px;
-    background-color: transparent;
-    color: rgba(255, 255, 255, .9);
-    font-weight: 600;
-    border: 2px solid rgba(0, 0, 0, .7); 
-    border: 2px solid rgba(255, 255, 255, .9);
-
-    /* margin-bottom: .7rem; */
-    /* transition-duration: .2s; */
-}
-
-.high-rated-places button:hover{
-    /* transform: scale(1.05); */
-    border: 2px solid rgba(255, 255, 255, .9);
-    /* color: rgba(255, 255, 255, .9); */
-}
-
-.add-new-post{
-    display: flex;
-    width: 10rem;
-    justify-content: center;
-    border: 2px solid rgba(255, 255, 255, .7);
-    
-    padding: 5px;
-    border-radius: 100px;
-    cursor: pointer;
-}
-
-.add-new-post p, .add-new-post h3{
+    width: 8rem;
     font-size: 1rem;
-    color: rgba(255, 255, 255, .9);
-    align-self: center;
-    display: flex;
+    background: none;
+    border: 3px solid white;
+    padding: .5rem;
+    color: rgba(255,255,255,0.9);
+    border-radius: 10px;
+    cursor: pointer;
 
 }
+
+.card-component{
+    margin: -5rem 0 0 0;
+}
+
+
+
+

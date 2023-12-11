@@ -3,15 +3,25 @@ import Header from './components/header/Header'
 import Home from './components/home/Home'
 import Card from './components/card/Card'
 import PlacePage from './components/placePage/PlacePage'
+import Layout from './components/layout/Layout.js'
+import { Route,Routes } from 'react-router-dom'
 
 
 const App = () => {
   return (
     <>
-   <Header />
-    <Home />
-    <Card />
-    <PlacePage />
+    <Routes>
+
+      <Route path='/' element={<Layout />} > 
+      
+        <Route index element={<Home />} />
+      
+      
+      </Route>
+
+
+
+    </Routes>
     </>
   )
 }

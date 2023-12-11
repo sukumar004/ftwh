@@ -19,7 +19,6 @@ const Card = () => {
                     <div className="place-details">
                         <p><IoLocationOutline/>{`${post.place}, ${post.district}`}</p>
                         <h1>{post.title}</h1>
-                        <h4>{post.description.substring(0, 80)}...</h4>
                         
                         <div className="place-location">
                             <p>{`${post.state}, ${post.country}`}</p>

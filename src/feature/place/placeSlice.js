@@ -10,7 +10,7 @@ const initialState = [
         district:'namakkal',
         state:'Tamilnadu',
         country:'India',
-        img:'/images/img-1.jpg',
+        img:'/images/img-8.jpg',
         rating:'4.0'
 
     },
@@ -22,7 +22,7 @@ const initialState = [
         district:'namakkal',
         state:'Tamilnadu',
         country:'India',
-        img:'/images/img-2.jpg',
+        img:'/images/img-10.jpg',
         rating:'4.0'
     },
     {
@@ -33,7 +33,7 @@ const initialState = [
         district:'namakkal',
         state:'Tamilnadu',
         country:'India',
-        img:'/images/img-2.jpg',
+        img:'/images/img-3.jpg',
         rating:'4.0'
     },
     {
@@ -44,7 +44,7 @@ const initialState = [
         district:'namakkal',
         state:'Tamilnadu',
         country:'India',
-        img:'/images/img-2.jpg',
+        img:'/images/img-4.jpg',
         rating:'4.0'
     },
     {
@@ -58,6 +58,52 @@ const initialState = [
         img:'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Madupetty_Dam,_Munnar,_Kerala_(2).jpg/1280px-Madupetty_Dam,_Munnar,_Kerala_(2).jpg',
         rating:'4.0'
     },
+    {
+        id:nanoid(),
+        title:'This first place',
+        description:'We value your privacy. Our Sites use Cookies and Similar Technologies on this website to improve your online experience, to analyze site usage, and to show tailored advertising to you.',
+        place:'Kollimalai',
+        district:'namakkal',
+        state:'Tamilnadu',
+        country:'India',
+        img:'/images/img-5.jpg',
+        rating:'4.0'
+
+    },
+    {
+        id:nanoid(),
+        title:'This Second place',
+        description:'We value your privacy. Our Sites use Cookies and Similar Technologies on this website to improve your online experience, to analyze site usage, and to show tailored advertising to you.',
+        place:'Kollimalai',
+        district:'namakkal',
+        state:'Tamilnadu',
+        country:'India',
+        img:'/images/img-6.jpg',
+        rating:'4.0'
+    },
+    {
+        id:nanoid(),
+        title:'This Second place',
+        description:'We value your privacy. Our Sites use Cookies and Similar Technologies on this website to improve your online experience, to analyze site usage, and to show tailored advertising to you.',
+        place:'Kollimalai',
+        district:'namakkal',
+        state:'Tamilnadu',
+        country:'India',
+        img:'/images/img-7.jpg',
+        rating:'4.0'
+    },
+    {
+        id:nanoid(),
+        title:'This Second place',
+        description:'We value your privacy. Our Sites use Cookies and Similar Technologies on this website to improve your online experience, to analyze site usage, and to show tailored advertising to you.',
+        place:'Kollimalai',
+        district:'namakkal',
+        state:'Tamilnadu',
+        country:'India',
+        img:'/images/img-19.jpg',
+        rating:'4.0'
+    }
+
 
 ]
 
