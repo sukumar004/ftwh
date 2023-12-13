@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './home.css'
 import { FaGreaterThan } from "react-icons/fa6";
 import Card from '../card/Card';
 import Header from '../header/Header';
+import db from '../../firebaseConfig.js'
+import {storage} from '../../firebaseConfig.js'
+import { collection,doc,getDocs } from 'firebase/firestore';
+import {ref,listAll,getDownloadURL} from 'firebase/storage'
+
 
 
 const Home = () => {
@@ -13,13 +18,16 @@ const Home = () => {
 "Tripura","Uttarakhand","Uttar Pradesh","West Bengal","Andaman and Nicobar Islands","Chandigarh","Dadra and Nagar Haveli","Daman and Diu","Delhi",
 "Lakshadweep","Puducherry"]
 
-    const stateList = state.map((val)=>(<option value={`"${val}"`}>{val}</option>))
+
+
+
+
+    const stateList = state.map((val,index)=>(<option key={index} value={`"${val}"`}>{val}</option>))
   return (
 
 <div className="home-page">
 
    
-
     <div className='home-component'>
         
 

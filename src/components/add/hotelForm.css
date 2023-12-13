@@ -1,0 +1,18 @@
+.hotelForm{
+    width: 100vw;
+    height: max-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.hotelForm form{
+    display: flex;
+    flex-direction: column;
+}
+
+.hotelForm form input{
+    margin: 1rem 0;
+}
+

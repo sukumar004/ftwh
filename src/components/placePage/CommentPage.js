@@ -6,7 +6,7 @@ const CommentPage = () => {
 
   const start = Array(5).fill(0)
 
-  const [currentValue,setCurrentValue] = useState(0)
+  const [currentValue,setCurrentValue] = useState(5)
 
 
   const handleClick = value => {

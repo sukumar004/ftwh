@@ -1,0 +1,17 @@
+.addPlace{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.addPlace form{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.addPlace form input,form select,form textarea{
+    margin: 1rem 0;
+}
