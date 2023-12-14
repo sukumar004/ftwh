@@ -7,19 +7,35 @@ import { FaCarAlt } from "react-icons/fa";
 import { TbToolsKitchen } from "react-icons/tb";
 import { FaWater } from "react-icons/fa";  // for hot water
 import { FaHandHoldingWater } from "react-icons/fa";
+import { useSelector } from 'react-redux';
+import { selectHotelByIdSp } from '../../feature/hotel details/hotelDetailsSlice';
 
 
-function HotelFacilities({sortedHotel}) {
+function HotelFacilities({hotelIdSp}) {
 
-    const [hotel,setHotel] = useState(sortedHotel)
+    const selectedHotelInHotelFacilities = useSelector((state)=>selectHotelByIdSp(state,hotelIdSp))
 
-    const photos = Object.entries(hotel.photos)
+    // const [hotel,setHotel] = useState(sortedHotel)
 
-    console.log(hotel)
+    // const photos = Object.entries(hotel.photos)
+
+    // console.log('sorted hotel',selectedHotelInHotelFacilities)
+
+    const hotel = selectedHotelInHotelFacilities
+
+    console.log('hotel', hotel)
+
+    
 
 
   return (
     <div className="hotelDetails">
+
+        {selectedHotelInHotelFacilities ? 
+
+        <div className='hotel-details-check'>
+
+        
         
             <div className="hotelTitle">
                 <h3>{hotel.name}</h3>
@@ -33,13 +49,16 @@ function HotelFacilities({sortedHotel}) {
             <h3>Image Gallery</h3>
 
             <div className="hotel-photos">
-               {
+
+                <img src={hotel.imgURL} alt={hotel.name} />
+
+               {/* {
                 photos.map((photo)=>{
                     return(
                         <img src={photo[1]} alt={`'${photo[0]}'`} />
                     )         
                 })
-               }
+               } */}
             </div>
 
             <hr />
@@ -48,12 +67,12 @@ function HotelFacilities({sortedHotel}) {
 
             <div className="hotel-amenities">
 
-                <p><span><LiaUmbrellaBeachSolid /></span>Beach View</p>
-                <p><span><IoWifiOutline/></span>Free Wifi</p>
-                <p><span><FaCarAlt/></span>Free Car parking</p>
-                <p><span><TbToolsKitchen /></span>Modern Kitchen</p>
-                <p><span><FaWater/></span>Hot water benefit</p>
-                <p><span><FaHandHoldingWater /></span>Free Water</p>
+                <p style={{textDecoration: hotel.IsBeachView ? `none` : "line-through"}}><span><LiaUmbrellaBeachSolid /></span>Beach View</p>
+                <p style={{textDecoration: hotel.IsFreeWifi ? `none` : "line-through"}}><span><IoWifiOutline/></span>Free Wifi</p>
+                <p style={{textDecoration: hotel.IsFreeCarParking ? `none` : "line-through"}}><span><FaCarAlt/></span>Free Car parking</p>
+                <p style={{textDecoration: hotel.IsModernKitchen ? `none` : "line-through"}}><span><TbToolsKitchen /></span>Modern Kitchen</p>
+                <p style={{textDecoration: hotel.IsHotWaterBenefit ? `none` : "line-through"}}><span><FaWater/></span>Hot water benefit</p>
+                <p style={{textDecoration: hotel.IsFreeWater ? `none` : "line-through"}}><span><FaHandHoldingWater /></span>Free Water</p>
 
             </div>
 
@@ -62,6 +81,16 @@ function HotelFacilities({sortedHotel}) {
             <div className="show-hotel-button">
                 <button>Show other hotels</button>
             </div>
+
+        </div> : 
+
+        <div className="hotel-details-check">
+
+            <p>{`Sorry! Hotel aren't available there..`}</p>
+
+        </div>
+
+        }
         
     </div>
   )

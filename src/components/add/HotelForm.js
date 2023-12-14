@@ -1,15 +1,17 @@
-import { type } from '@testing-library/user-event/dist/type';
+
 import React, { useState } from 'react'
 import './hotelForm.css'
 import { nanoid } from '@reduxjs/toolkit';
 import {storage,db} from '../../firebaseConfig.js'
 import {uploadBytes,ref,getDownloadURL} from 'firebase/storage'
+import {collection,addDoc} from 'firebase/firestore'
+import { useNavigate } from 'react-router-dom';
 
 function HotelForm() {
 
   const [formData,setFormData] = useState({
     name:'',location:'',country:'',state:'',district:'',roomRate:'',tel:'',adultRate:'',childRate:'',IsBeachView:true,
-    IsFreeCarParking:true,IsFreeWater:true,IsHotWaterBenefit:true,IsFreeWifi:true,IsModernKitchen:true
+    IsFreeCarParking:true,IsFreeWater:true,IsHotWaterBenefit:true,IsFreeWifi:true,IsModernKitchen:true,idSp:'',imgId:'',imgURL:''
   })
 
   const [imgName,setImgName] = useState()
@@ -20,6 +22,13 @@ function HotelForm() {
   const [dataConfirm,setDataConfirm] = useState()
   const [imgLoading,setImgLoading] = useState(false)
   const [imgConfirm,setImgConfirm] = useState()
+  const navigate = useNavigate()
+
+  const dataVerify = Boolean(formData.name.length>0 && formData.location.length>0 && formData.state.length>0 && formData.district.length>0 && formData.roomRate.length>0
+    && formData.tel.length===10 && formData.adultRate.length>0 && formData.childRate.length>0 && formData.idSp.length>0 && formData.imgId.length>0
+    && formData.imgURL.length>0)
+
+  // Handle change function for input form 
 
   const handleChange = (e) => {
     const {name,checked,value,type} = e.target;
@@ -33,17 +42,20 @@ function HotelForm() {
   }
 
 
+
+
+  // Upload function for image upload
+
   const handleUploadImg = async(e) => {
     e.preventDefault()
 
-
       try{
       if(imgName==null) throw Error('Please choose file')
+      if(imgName.type !== 'image/jpeg') throw Error('Image file should be jpeg,jpg format only')
         setImgLoading(true)
         const id = nanoid();
         const imgRef = ref(storage,`hotelImages/${id}`)
         const uploadImg = await uploadBytes(imgRef,imgName)
-        console.log(uploadImg)
         getDownloadURL(uploadImg.ref).then(val=>{
           setFormData(pre=>{
             return{
@@ -58,11 +70,40 @@ function HotelForm() {
         setImgConfirm('Image Uploaded Successfull')
         setImgError(null)
 
+
       }catch(Error){
         setImgError(Error.message)
       } finally{
         setImgLoading(false)
       }
+  }
+
+  // Upload function for data upload
+
+  
+  const handleUploadData = async(e) => {
+    e.preventDefault()
+
+    try{
+      setDataLoading(true)
+      const collectionRef = collection(db,'hotelDetails')
+      const updateData = addDoc(collectionRef,formData)
+      setDataConfirm('Data Updated Successfully')
+      setDataError(null)
+    }catch(err){
+      setDataError(err.message)
+
+    }finally{
+      setDataLoading(false)
+      setImgName()
+      setFormData({
+        name:'',location:'',country:'',state:'',district:'',roomRate:'',tel:'',adultRate:'',childRate:'',IsBeachView:true,
+        IsFreeCarParking:true,IsFreeWater:true,IsHotWaterBenefit:true,IsFreeWifi:true,IsModernKitchen:true,idSp:'',imgId:'',imgURL:''
+      })
+      // navigate('/')
+
+    }
+
   }
 
 
@@ -95,7 +136,7 @@ function HotelForm() {
 
         <input type="text" placeholder='room rate' name='roomRate' value={formData.roomRate} onChange={handleChange} />
 
-        <input type="number" placeholder='tel number' maxLength={10} name='tel' value={formData.tel} onChange={handleChange} />
+        <input type="text" placeholder='tel number' maxLength={10} name='tel' value={formData.tel} onChange={handleChange} />
 
         <input type="text" placeholder='adult rate' name='adultRate' value={formData.adultRate} onChange={handleChange}/>
         
@@ -135,9 +176,12 @@ function HotelForm() {
 
         <button onClick={(e)=>handleUploadImg(e)}>Upload image</button>
 
-        <p>{imgLoading ? `Loading..` : imgError ? `${imgError}` : imgConfirm}</p>
+        <p>{imgLoading ? `Image uploading..` : imgError ? `${imgError}` : imgConfirm}</p>
 
-        <button>Upload Data</button>
+        <button disabled={!dataVerify} onClick={(e)=>handleUploadData(e)}>Upload Data</button>
+
+        {<p>{dataLoading ? `Data Updating..` : dataError ? dataError : dataConfirm}</p>}
+
 
       </form>
     </div>

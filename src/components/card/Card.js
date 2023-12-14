@@ -9,34 +9,33 @@ import { Link } from 'react-router-dom';
 
 const Card = () => {
     const post = useSelector(selectAllPost)
-
+    
     const[loadMore,setLoadMore] = useState(false)
 
     const topPost = post.slice(0,6)
 
     const changeLoadMore = () => setLoadMore(pre=>(pre = !pre))
 
-
-    const listAllPost = (loadMore?post:topPost).map((post)=>{
+ const listAllPost =(loadMore?post:topPost).map((post)=>{
         return(
             <section key={post.id}>
                     
-                <Link id='place-link' to='/place'>
+                <Link id='place-link' to={`place/${post.idSp}`}>
 
                 <div className="place-container">
                     <div className="place-img">
-                        <img src={post.img} alt="post.title"/>
+                        <img src={post.imgURL} alt={post.title}/>
                     </div>
                     <div className="place-details">
-                        <p><IoLocationOutline/>{`${post.place}, ${post.district}`}</p>
-                        <h1>{post.title}</h1>
+                        <p><IoLocationOutline/>{`${post.location}, ${post.district}`}</p>
+                        <h1>{post.title.length > 35 ? `${post.title.substring(0,35)}...`: post.title }</h1>
                         
                         <div className="place-location">
                             <p>{`${post.state}, ${post.country}`}</p>
                         </div>
 
                         <div className="place-rating">
-                            <p>{<MdOutlineStarPurple500/>}{post.rating ? `${post.rating}` : `New`}</p>
+                            <p>{<MdOutlineStarPurple500/>}{post.rating ? `${post.rating}` : `3.0`}</p>
                         </div>
 
                         
@@ -46,7 +45,7 @@ const Card = () => {
 
             </section>
         )
-    })
+    }) 
   return (
     <>
     <div className="place">

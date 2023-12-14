@@ -1,0 +1,118 @@
+.hotel-card-parent{
+    width: 100%;
+    height: 30vh;
+    border: 1px solid black;
+}
+
+.district-hotel-parent{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.hotel-cover-image{
+    width: 30vw;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 0;
+    overflow: hidden;
+}
+
+.hotel-cover-image img{
+    margin: 0;
+    width: 100%;
+    height:100%;
+
+}
+
+.hotel-details{
+    margin: 0;
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    margin: 0 1rem;
+}
+
+.hotel-title h1{
+    display: flex;
+    font-size: 2rem;
+    text-transform: capitalize;
+    font-weight: 700;
+ 
+}
+
+.hotel-ratings p{
+    font-size: 13px;
+    height: max-content;
+    margin: 0;
+    margin: .1rem 0 .2rem 0;
+    border: 1px solid violet;
+
+}
+
+.hotel-location p{
+    font-size: .8rem;
+    font-weight: 300;
+    text-transform: capitalize;
+    margin: 0 0 .2rem 0;
+    border: 1px solid violet;
+}
+
+.hotel-amenities-amount{
+    display: flex;
+    width: 100%;
+    height: max-content;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid red;
+    
+
+}
+
+.hotel-amenities-top{
+    display: inline-flex;
+    flex-direction: column; 
+    justify-content: space-between;   
+}
+
+
+.hotel-amenities-topics{
+    margin-top: 0;
+    width: 100%;
+   display: inline-flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   border: 1px solid gray;
+
+}
+
+.hotel-amenities-topics p{
+   margin: .5rem;
+}
+.hotel-amount-bottom{
+    width:20vw;
+    height: max-content;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+
+}
+
+.hotel-amount-bottom h3{
+    font-size: 1rem;
+    font-weight: 800; 
+}
+
+.hotel-amount-bottom button{
+    width: 7vw;
+    height: 2.5rem;
+    font-size: 1rem;
+}

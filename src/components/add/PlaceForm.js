@@ -10,11 +10,9 @@ function PlaceForm() {
 
 
     const [formData,setFormData] = useState({
-        title:'',description:'',location:'',country:'',state:'',district:''
+        title:'',description:'',location:'',country:'',state:'',district:'',idSp:'',imgId:'',imgURL:''
     })
     const [imgName,setImgName] = useState()
-    const [imgDbName,setImgDbName] = useState('')
-    const [imgDbUrl,setImgDbUrl] = useState('')
     const [imgError,setImgError] = useState()
     const [dataError,setDataError] = useState()
     const [dataLoading,setDataLoading] = useState(false)
@@ -23,6 +21,11 @@ function PlaceForm() {
     const [imgConfirm,setImgConfirm] = useState()
 
     const navigate = useNavigate()
+
+    const dataVerify = Boolean(formData.title.length>0 && formData.description.length>0 && formData.location.length>0 && formData.country.length>0
+    && formData.state.length>0 && formData.district.length>0 && formData.idSp.length>0 && formData.imgId.length>0 && formData.imgId.length>0)
+
+// onChange function for form input
 
 const handleChange = (e) =>{
 
@@ -37,12 +40,14 @@ const handleChange = (e) =>{
     })
 }
 
+// this upload function for image upload in database
 
 const handleUploadImg = async(e) =>{
 
     e.preventDefault();
     try{
         if(imgName==null) throw Error('Please select file')
+        if(imgName.type !== 'image/jpeg') throw Error('Image file should be jpeg,jpg format only')
         setImgLoading(true)
         const id = nanoid();
         const imageRef = ref(storage,`placeImages/${id}`)
@@ -57,8 +62,9 @@ const handleUploadImg = async(e) =>{
                 }
             })
         })
-        setImgDbName(uploadImage.ref.name)
+
         setImgConfirm('uploaded Successfully')
+        setImgError(null)
 
     }catch(err){
         setImgError(err.message)
@@ -67,33 +73,33 @@ const handleUploadImg = async(e) =>{
     }
 }
 
+// this onSubmit function for data upload to firebase
+
 const handleUploadData = async(e) =>{
+  
     e.preventDefault()
-    if(!formData) return console.log('Data must be filled')
-    
-    try{       
+
+
+    try{ 
         setDataLoading(true)
        const collectionRef = collection(db,'placeDetails');
        const uploadData = await addDoc(collectionRef,formData);
        setDataConfirm('Place Uploaded successfully')
+       setDataError(null)
        
     }catch(err){
         setDataError(err.message)
     }finally{
         setFormData({
-            title:'',description:'',location:'',country:'',state:'',district:''
+            title:'',description:'',location:'',country:'',state:'',district:'',idSp:'',imgId:'',imgURL:''
         })
-        setImgDbName('')
         setImgName(null)
-        setImgDbUrl('')
         setDataLoading(false)
-        navigate('/')
+        // navigate('/')
     }
 }
 
 
-
-// console.log(imgError)
 
   return (
     <div className="addPlace">
@@ -126,7 +132,7 @@ const handleUploadData = async(e) =>{
 
             {<p>{imgLoading ? `Image uploading..` : imgError ? imgError : imgConfirm}</p> }
 
-            <button role='submit' onClick={(e)=>handleUploadData(e)}>upload</button>
+            <button disabled={!dataVerify} onClick={(e)=>handleUploadData(e)}>upload</button>
 
             {<p>{dataLoading ? `Data Updating..` : dataError ? dataError : dataConfirm}</p>}
         </form>

@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
-import { selectPostById } from '../../feature/place/placeSlice';
+import { selectPostById,selectAllPost } from '../../feature/place/placeSlice';
 import { MdOutlineStarPurple500 } from "react-icons/md";
 import './placePage.css'
 import { FaLocationDot } from "react-icons/fa6";
 import HotelBook from './HotelBook';
 import CommentPage from './CommentPage';
 import ReviewPage from './ReviewPage';
+import HotelCard from '../hotelCard/HotelCard';
+
 
 
 
@@ -15,48 +17,64 @@ function PlacePage() {
 
     const {id} = useParams()
 
-    const selectedPost = useSelector((state)=>selectPostById(state,Number(5)))
 
-    const rating = selectedPost.rating >= 4 ? `Most vistied Place` : selectedPost.rating >=2 ? `Moderate Visited Place` : `Average Visited Place`
+    const post = useSelector(selectAllPost)
 
+    const invidualPost = useSelector((state)=>selectPostById(state,id))
+
+    // const selectedPost = post.find(post=>((post.idSp.toUpperCase()) === (id.toUpperCase())))
+
+
+
+    // const selectedPost = useSelector((state)=>selectPostById(state,id))
+
+    // const rating = selectedPost.rating >= 4 ? `Most vistied Place` : selectedPost.rating >=2 ? `Moderate Visited Place` : `Average Visited Place`
+
+    console.log('individual Post ',invidualPost)
 
   return (
     <section className='main-selected-post'>
-        <div className="selected-post">
+       { invidualPost ?
+       
+       <div className="selected-post">
           
             <div className="selected-post-title">
-              <h1>{selectedPost.title }</h1>
+              <h1>{invidualPost.title }</h1>
               <div className="selected-post-title-rating">
-              <p id='title-rating'>{<MdOutlineStarPurple500 />}{`${selectedPost.rating}`}</p> 
-              <p id='title-review'>{rating}</p>
+              <p id='title-rating'>{<MdOutlineStarPurple500 />}{`${invidualPost.rating ? invidualPost.rating : '3.0'}`}</p> 
+              {/* <p id='title-review'>{rating}</p> */}
               </div>
             </div>
 
-            <img src={selectedPost.img} alt={selectedPost.title} />
+            <img src={invidualPost.imgURL} alt={invidualPost.title} />
 
             <div className="selected-post-location">
               <p id='location-icon'><FaLocationDot /></p>
-              <p id='location-name'>{`${selectedPost.place}, ${selectedPost.state}, ${selectedPost.country}`}</p>
+              <p id='location-name'>{`${invidualPost.location}, ${invidualPost.state}, ${invidualPost.country}`}</p>
             </div>
 
-            <p className='selected-post-para' >{selectedPost.description}</p>
+            <p className='selected-post-para' >{invidualPost.description}</p>
 
-            <p className='selected-post-para' >{selectedPost.description}</p>
+            <p className='selected-post-para' >{invidualPost.description}</p>
 
             <hr className='line' />
 
             <div className="hotel-book">
-              <HotelBook post = {selectedPost} />
+              <HotelBook district = {invidualPost.district} />
             </div>
 
             <div className="comment-page">
 
             <CommentPage  />            
             <ReviewPage />
-             
             </div>
 
-        </div>
+            <HotelCard />
+            
+
+        </div> :
+        <p>{`Hey There is no post there`}</p>
+}
     </section>
   )
 }
