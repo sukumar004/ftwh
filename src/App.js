@@ -7,6 +7,7 @@ import Layout from './components/layout/Layout.js'
 import { Route,Routes } from 'react-router-dom'
 import PlaceForm from './components/add/PlaceForm.js'
 import HotelForm from './components/add/HotelForm.js'
+import BookNow from './components/book now/BookNow.js'
 
 
 
@@ -30,9 +31,11 @@ const App = () => {
 
         <Route path='/placeForm' element={<PlaceForm />} />
 
-        <Route path='/HotelForm' element={<HotelForm />} />
+        <Route path='/hotelForm' element={<HotelForm />} />
+
       
       </Route>
+      <Route path='/bookNow/:id' element={<BookNow />} />
 
       {/* <Route path='*' element = {<Missing />} /> */}
 

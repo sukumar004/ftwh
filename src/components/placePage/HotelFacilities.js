@@ -9,21 +9,17 @@ import { FaWater } from "react-icons/fa";  // for hot water
 import { FaHandHoldingWater } from "react-icons/fa";
 import { useSelector } from 'react-redux';
 import { selectHotelByIdSp } from '../../feature/hotel details/hotelDetailsSlice';
+import HotelCard from '../hotelCard/HotelCard';
 
 
 function HotelFacilities({hotelIdSp}) {
 
     const selectedHotelInHotelFacilities = useSelector((state)=>selectHotelByIdSp(state,hotelIdSp))
 
-    // const [hotel,setHotel] = useState(sortedHotel)
-
-    // const photos = Object.entries(hotel.photos)
-
-    // console.log('sorted hotel',selectedHotelInHotelFacilities)
 
     const hotel = selectedHotelInHotelFacilities
 
-    console.log('hotel', hotel)
+
 
     
 
@@ -78,9 +74,7 @@ function HotelFacilities({hotelIdSp}) {
 
             <hr />
 
-            <div className="show-hotel-button">
-                <button>Show other hotels</button>
-            </div>
+            
 
         </div> : 
 

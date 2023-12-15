@@ -19,8 +19,9 @@ const Card = () => {
  const listAllPost =(loadMore?post:topPost).map((post)=>{
         return(
             <section key={post.id}>
-                    
-                <Link id='place-link' to={`place/${post.idSp}`}>
+                
+          
+                <Link id='place-link' to={`/place/${post.idSp}`}>
 
                 <div className="place-container">
                     <div className="place-img">
@@ -48,14 +49,23 @@ const Card = () => {
     }) 
   return (
     <>
-    <div className="place">
-        {listAllPost}
-    </div>
-    {!loadMore && 
-        
-        <div className="load-more-button">
-            <button onClick={changeLoadMore}>Load More</button>
-    </div>}
+      {post ? 
+
+    <div className="top-post-parent">
+        <div className="place">
+            {listAllPost}
+        </div>
+        {!loadMore && 
+            
+            <div className="load-more-button">
+                <button onClick={changeLoadMore}>Load More</button>
+            </div>
+        }
+    </div> : 
+
+    <p>Data not loaded please reload the page</p>
+
+    }
     
     </>
   )

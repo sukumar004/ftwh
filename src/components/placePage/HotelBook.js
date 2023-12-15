@@ -9,6 +9,7 @@ import { useState } from 'react';
 import { selectHotelByDistrict } from '../../feature/hotel details/hotelDetailsSlice';
 import { FaIndianRupeeSign } from "react-icons/fa6";
 import HotelFacilities from './HotelFacilities';
+import HotelCard from '../hotelCard/HotelCard';
 
 
 
@@ -24,10 +25,13 @@ function HotelBook({district}) {
 
     const hotelsInDistrict = useSelector((state)=>selectHotelByDistrict(state,district))
     const cheapHotelSort =  hotelsInDistrict.sort((a,b)=>(Number(a.roomRate)-(b.roomRate)))
+    const copy = [...cheapHotelSort]
     const cheapHotel = cheapHotelSort.length ? cheapHotelSort[0] : []
+    const remainingHotel = copy.shift();
 
 
 
+    
 
 
     // console.log("cheapHotelSort",cheapHotel)
@@ -164,9 +168,14 @@ function HotelBook({district}) {
 
         <div className="child-1">
 
-            <HotelFacilities hotelIdSp = {cheapHotel.idSp} />
+            <HotelFacilities 
+            hotelIdSp = {cheapHotel.idSp}  
+            />
 
-            </div>
+        </div>
+
+       
+
 
     
 
@@ -177,7 +186,7 @@ function HotelBook({district}) {
 
             <div className="hotel">
 
-                <div className="hotel-title">
+                <div className="hotel-title-name">
                     <h1>Book Rooms with Cheapest %</h1>
                 </div>
                 
@@ -187,8 +196,8 @@ function HotelBook({district}) {
                         <h1><FaIndianRupeeSign />{cheapHotel && `${cheapHotel.roomRate}`} <span id='amount-day'>{`night`}</span></h1>
                     </div>
 
-                    <div className="hotel-review">
-                        <div className="hotel-details">
+                    <div className="hotel-review-columns">
+                        <div className="hotel-details-name">
                             <h3>{cheapHotel && `${cheapHotel.name.substring(0,20)}`}</h3>
                         </div>
                         <div className="hotel-review-rating">
@@ -343,8 +352,23 @@ function HotelBook({district}) {
             </div>
 
         </div>
+
+
+        
+            <div className="child-3">
+                <HotelCard 
+                districtArray = {copy}
+                districtName = {district}
+                />
+            </div> 
+         
     
-    </div> :
+    </div>
+    
+    
+     
+    
+    :
      
 
     <div className="hotel-not-found">
@@ -354,6 +378,8 @@ function HotelBook({district}) {
     }
 
 
+
+    
 </div>
 
   )

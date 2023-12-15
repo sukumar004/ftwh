@@ -20,6 +20,7 @@ const Home = () => {
   const [dataError,setDataError] = useState()
   const [loadingData,setLoadingData] = useState(false)
 
+
   const dispatch = useDispatch()
 
     useEffect(()=>{
@@ -39,6 +40,7 @@ const Home = () => {
 
             if(!places.length)  throw Error('Data not fetched please reload the page')
             if(places.length) return setDataError(null)
+ 
           }
 
 
@@ -138,11 +140,12 @@ const Home = () => {
 
     </div>
 
+ 
 
     <div className="card-component">
         <Card />
-    </div>
- 
+    </div> 
+  
       
       
 

@@ -18,6 +18,14 @@
     top: 0;
 }
 
+.child-3{
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    margin: 4rem 0;
+
+}
+
 
 
 .hotel{
@@ -40,7 +48,7 @@
 }
 
 
-.hotel-title h1{
+.hotel-title-name h1{
     text-align: center;
     margin: .4rem 0;
     font-size: 1.3rem;
@@ -76,12 +84,16 @@
 
 }
 
-.hotel-review{
+.hotel-review-columns{
     display: flex;
     flex-direction: column;
+    justify-items: flex-start;
+    align-items: flex-start;
+
 }
 
-.hotel-details h3{
+
+.hotel-details-name h3{
     font-size: 1rem;
     font-weight: 400;
     text-transform: uppercase;

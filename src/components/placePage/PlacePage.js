@@ -19,10 +19,20 @@ function PlacePage() {
 
 
     const post = useSelector(selectAllPost)
-
+    
+    
     const invidualPost = useSelector((state)=>selectPostById(state,id))
 
-    // const selectedPost = post.find(post=>((post.idSp.toUpperCase()) === (id.toUpperCase())))
+    console.log("post",post)
+    console.log("inividual",invidualPost)
+    console.log("id",id)
+
+    const invidualPostByFilter = post.filter(post=>((post.idSp.toUpperCase()) === (id.toUpperCase())))
+
+    console.log("invidualPostByFilter",invidualPostByFilter)
+
+  
+
 
 
 
@@ -30,8 +40,7 @@ function PlacePage() {
 
     // const rating = selectedPost.rating >= 4 ? `Most vistied Place` : selectedPost.rating >=2 ? `Moderate Visited Place` : `Average Visited Place`
 
-    console.log('individual Post ',invidualPost)
-
+ 
   return (
     <section className='main-selected-post'>
        { invidualPost ?
@@ -69,7 +78,7 @@ function PlacePage() {
             <ReviewPage />
             </div>
 
-            <HotelCard />
+            {/* <HotelCard /> */}
             
 
         </div> :

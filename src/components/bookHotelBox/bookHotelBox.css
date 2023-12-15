@@ -1,0 +1,236 @@
+.top-parent-book-hotel-box{
+    width: 70%;
+    height: max-content; 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* border: 1px solid black; */
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.book-hotel-outer-box{
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.top-column-parent{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid red; */
+}
+
+.top-parent-review-counts-rating{
+    margin: 1rem 0;
+}
+
+.top-parent-cost-hotel-name h1{
+    font-size: 2rem;
+    width: max-content;
+    display: flex;
+    align-items: center;
+}
+
+.hotel-details-name h3{
+    font-size: .9rem;
+}
+
+.hotel-review-rating span{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 3px 0 0;
+}
+
+.hotel-review-rating h4{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: .9rem;
+}
+
+
+.hotel-dates-guest-selecting{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 1rem 0;
+}
+
+
+.hotel-dates-selecting{
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    border-bottom: 1px solid black ;
+
+}
+
+.hotel-dates-check-in-selecting{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: .5rem 0 .5rem 1rem;
+    border-right: 1px solid black;
+
+
+}
+
+.hotel-dates-check-in-selecting label,.hotel-dates-check-out-selecting label{
+    font-size: .6rem;
+}
+
+.hotel-dates-check-out-selecting{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: .5rem 0 .5rem 1rem;
+    /* border: 1px solid black; */
+
+
+}
+
+.shown-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: .5rem 1rem;
+}
+
+.hotel-guests-listing h4{
+    font-size: .7rem;
+}
+
+.hotel-guests-listing p{
+    font-size: .7rem;
+}
+
+.hotel-booking-confirm{
+    margin:0 0 1rem 0;
+}
+
+.hotel-booking-confirm button{
+    width: 100%;
+    height: 3rem;
+    font-size: 1.3rem;
+    font-weight: 400;
+    padding: .3rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.hotel-booking-amonunt-calculation{
+    display: flex;
+    flex-direction: column;
+}
+
+.actual-amount-days{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 1rem 0;
+
+}
+
+.actual-amount-days h5{
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.actual-amount-days h5 span{
+    display: flex;
+    align-items: center;
+}
+
+
+#underline{
+    text-decoration: none;
+}
+
+
+#selected h5{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+#selected span{
+    font-weight: 300;
+    font-size: .9rem;
+    margin: 0 0 0 3px;
+}
+
+
+/* this is for fixed position div */
+
+.members-room-parent-selecting{
+    width: 65%;
+    height: max-content;
+    position: absolute;
+    z-index: 999;
+    background-color: white;
+    margin: 0rem 1rem 1rem 0rem;
+    padding: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+
+
+}
+
+.members-room-child-selecting{
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.members-room-common-selecting{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1rem 0;
+
+}
+
+.members-selecting h3{
+    font-size: 1rem;
+}
+
+.members-selecting p{
+    font-size: .7rem;
+}
+
+.members-count-selecting{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.members-selecting-close{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.members-selecting-close button{
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-bottom: 1px solid black;
+    margin: 1rem;
+}
+
