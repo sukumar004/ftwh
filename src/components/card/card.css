@@ -115,10 +115,17 @@ section .place-container{
     font-size: 1.2rem;
     border-radius: 5px;
 }
-@media only screen and (max-width: 1300px){
+@media only screen and (max-width: 1250px){
+    .top-post-parent{
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
     .place{
         display: grid;
-        grid-template-columns: repeat(3,minmax(0,1fr));
+        grid-template-columns: repeat(2,minmax(0,1fr));
         justify-items: center;
         gap: .3rem;
         padding: .8rem;
@@ -137,44 +144,36 @@ section .place-container{
 
 }
 
-@media screen and (max-width:1024px) {
-    .place{
-        display: grid;
-        grid-template-columns: repeat(2,minmax(0,1fr));
-        justify-items: center;
-        gap: .3rem;
-        padding: .8rem;
-        overflow: hidden;
-        row-gap: 1rem;
-        margin: 1rem;
-    }
-
-    section .place-container{
-        width: 40vw;
-        height: 27rem;
-        display: flex;
-        flex-direction: column;
-        cursor: pointer;
-    }
-}
 
 @media screen and (max-width:768px){
-    .place{
+    .top-post-parent{
+        width: 100vw;
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: .8rem;
-        overflow: hidden;
-        row-gap: 1rem;
-        margin: 1rem;
+        justify-content: center;
+        border: 1px solid black;
+
     }
 
-    section .place-container{
-        width: 80vw;
-        height: 26rem;
+    .place{
+        width: 100%;
+        height: 100%;
         display: flex;
-        flex-direction: column;
-        cursor: pointer;
-        margin: 0 0 1rem 0;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+
     }
+
+
+
+    section .place-container{
+
+        width: 70vw;
+        height: 100%;
+
+    }   
+    
 }

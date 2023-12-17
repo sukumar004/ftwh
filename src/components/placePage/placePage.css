@@ -78,11 +78,37 @@
     margin: 1rem 0;
 }
 
-.hotel-book{
-    position: sticky;
-    top: 0vh;
+.hotel-book-in-place-page{
     width: 100%;
+    height:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 3rem 0;
+    align-items: flex-start;
+}
 
+.hotel-facilities-in-place-page{
+    width: 100%;
+    height: max-content;
+    /* border: 1px solid black; */
+}
+
+.hotel-book-in-place-page{
+    width: 100%;
+    height:auto;
+    padding: 2rem 0;
+    position: sticky;
+    top: 0;
+    /* border: 1px solid black; */
+
+}
+
+#cheap-hotel-tag{
+    text-align: center;
+    margin: 2rem 0 0 0;
+    text-transform: capitalize;
+    letter-spacing: 2px;
 }
 
 .comment-page{

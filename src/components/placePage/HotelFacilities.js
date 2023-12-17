@@ -9,6 +9,7 @@ import { FaWater } from "react-icons/fa";  // for hot water
 import { FaHandHoldingWater } from "react-icons/fa";
 import { useSelector } from 'react-redux';
 import { selectHotelByIdSp } from '../../feature/hotel details/hotelDetailsSlice';
+import { MdKey } from "react-icons/md";
 import HotelCard from '../hotelCard/HotelCard';
 
 
@@ -18,11 +19,6 @@ function HotelFacilities({hotelIdSp}) {
 
 
     const hotel = selectedHotelInHotelFacilities
-
-
-
-    
-
 
   return (
     <div className="hotelDetails">
@@ -46,7 +42,11 @@ function HotelFacilities({hotelIdSp}) {
 
             <div className="hotel-photos">
 
-                <img src={hotel.imgURL} alt={hotel.name} />
+                <img src={hotel.imgURL} alt={hotel.name} id='sepicifc-image-id'/>
+                <img src='/images/ht-1.jpg' alt={hotel.name} id='sepicifc-image-id'/>
+                <img src='/images/ht-2.jpg' alt={hotel.name} id='sepicifc-image-id'/>
+                <img src={hotel.imgURL} alt={hotel.name} id='sepicifc-image-id'/>
+
 
                {/* {
                 photos.map((photo)=>{
@@ -74,7 +74,13 @@ function HotelFacilities({hotelIdSp}) {
 
             <hr />
 
-            
+            <div className="hotel-rules">
+                <h3>Hotel Rules</h3>
+
+                <div className="hotel-rules">
+                    <p><span><MdKey /></span>Check-in : Before 11AM</p>
+                </div>
+            </div>
 
         </div> : 
 

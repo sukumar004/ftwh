@@ -7,8 +7,7 @@ import { MdOutlineEventAvailable } from "react-icons/md";
 import { FaIndianRupeeSign } from "react-icons/fa6";
 import { FaLocationDot } from "react-icons/fa6";
 import { Link } from 'react-router-dom'
-// import { selectRemainingDistrictHotles } from '../../feature/hotel details/hotelDetailsSlice'
-// import { useSelector } from 'react-redux'
+
 
 function HotelCard({districtArray,districtName}) {
 
@@ -29,15 +28,7 @@ function HotelCard({districtArray,districtName}) {
 
 
 
-    console.log("districtArray",districtArray)
-    console.log("districtName",districtName)
-    console.log("remainingDistrictHotels",remainingDistrictHotels)
-    console.log("districtArrayLength",districtArrayLength)
-    console.log("allShowHotels",allShowHotels)
-    console.log("hotelsSort",hotelsSort)
-    console.log("hotelsLowToHigh",hotelsLowToHigh)
-    console.log("hotelsHighToLow",hotelsHighToLow)
-    console.log("costFilter",costFilter)
+
 
     const start = Array(5).fill(0)
 
@@ -53,7 +44,7 @@ function HotelCard({districtArray,districtName}) {
             <div className="district-hotel-parent">
 
             <div className="hotel-cover-images">
-                <img src={val.imgURL} alt={`${val.title}`} />
+                <img src={val.imgURL} alt={`${val.title}`} id='selected-img'/>
             </div>
 
             <div className="hotel-details-card">

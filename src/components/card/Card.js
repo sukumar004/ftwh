@@ -29,7 +29,7 @@ const Card = () => {
                     </div>
                     <div className="place-details">
                         <p><IoLocationOutline/>{`${post.location}, ${post.district}`}</p>
-                        <h1>{post.title.length > 35 ? `${post.title.substring(0,35)}...`: post.title }</h1>
+                        <h1>{post.title.length > 30 ? `${post.title.substring(0,35)}...`: post.title }</h1>
                         
                         <div className="place-location">
                             <p>{`${post.state}, ${post.country}`}</p>
@@ -52,13 +52,13 @@ const Card = () => {
       {post ? 
 
     <div className="top-post-parent">
-        <div className="place">
+        <div className="place">            
             {listAllPost}
         </div>
         {!loadMore && 
             
             <div className="load-more-button">
-                <button onClick={changeLoadMore}>Load More</button>
+               {listAllPost.length > 0 && <button onClick={changeLoadMore}>Load More</button>}
             </div>
         }
     </div> : 

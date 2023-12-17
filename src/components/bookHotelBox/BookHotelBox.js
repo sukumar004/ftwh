@@ -92,21 +92,24 @@ function BookHotelBox({hotelIdSp}) {
 
         const amountCalaculate = () => {
             
-    
-            // const actualAmount = ((Number(adultAmount)*Number(adult)) + (Number(childrenAmount)*Number(children))) - Number(adultAmount)
-            // const showAmount = (((Number(room))*initialAmount) + actualAmount)
-            // setAMount(pre=>(pre = showAmount < 1 ? 0 : showAmount))
-            // SetAmountWithDays(pre=>(pre =  ((Number(days)*Number(showAmount)).toFixed(2))))
-            // const serviceCharge = ((5/100)*amountWithDays).toFixed(2)
-            // setServiceAmount(pre=>(pre = serviceCharge < 1 ? 0 : serviceCharge))
-            // const finalAmount = (Number(amountWithDays) + Number(serviceAmount)).toFixed(2)
-            // setTotalAmount(pre => (pre =finalAmount))
+            const subAmount = adult >= 1 ? adultAmount : 0
+            const actualAmount = ((Number(adultAmount)*Number(adult)) + (Number(childrenAmount)*Number(children))) - Number(subAmount)
+            const showAmount = (((Number(room))*initialAmount) + actualAmount)
+            setAMount(pre=>(pre = showAmount < 1 ? 0 : showAmount))
+            SetAmountWithDays(pre=>(pre =  ((Number(days)*Number(showAmount)).toFixed(2))))
+            const serviceCharge = ((5/100)*amountWithDays).toFixed(2)
+            setServiceAmount(pre=>(pre = serviceCharge < 1 ? 0 : serviceCharge))
+            const finalAmount = (Number(amountWithDays) + Number(serviceAmount)).toFixed(2)
+            setTotalAmount(pre => (pre =finalAmount))
+
+            console.log("actualAmount",actualAmount)
+            console.log("showAmount ",showAmount)
 
         }
 
         amountCalaculate()
 
-    },[checkIn,checkOut,adult,room])
+    },[checkIn,checkOut,adult,room,children,amountWithDays,days,serviceAmount])
 
     
 
@@ -171,7 +174,7 @@ function BookHotelBox({hotelIdSp}) {
                         </div>
 
                         <div className="hotel-guests-arrow-listing">
-                            <p><span><IoIosArrowDown /></span></p>
+                            <p><span>{IsShown ? <IoIosArrowUp /> : <IoIosArrowDown />}</span></p>
                         </div>
 
                     </div>
@@ -254,19 +257,19 @@ function BookHotelBox({hotelIdSp}) {
             <div className="hotel-booking-amonunt-calculation">
 
                 <div className="actual-amount-days">
-                    <h5 id='underline'>{amount ? amount : 0}{<RxCross2 />}{days>1 ? `${days} nights` : `${days} night`}</h5>
+                    <h5 ><span id='rupees'><FaIndianRupeeSign /></span>{amount ? amount : 0}{<RxCross2 />}{days>1 ? `${days} nights` : `${days} night`}</h5>
                     <h5><span id='rupees'><FaIndianRupeeSign /></span>{amountWithDays ? amountWithDays : 0}</h5>
                 </div>
 
                 <div className="actual-amount-days">
-                    <h5 id='underline'>{`FTWH service fee 5%`}</h5>
+                    <h5 >{`FTWH service fee 5%`}</h5>
                     <h5><span id='rupees'><FaIndianRupeeSign /></span>{serviceAmount && Number(serviceAmount) ? serviceAmount : 0}</h5>
                 </div>
 
                 <hr />
 
                 <div className="actual-amount-days" id='selected'>
-                    <h5 id='underline-selected'>{`Total amount`}<span>{`(Include all tax)`}</span></h5>
+                    <h5 >{`Total amount`}<span>{`(Include all tax)`}</span></h5>
                     <h5><span id='rupees'><FaIndianRupeeSign /></span>{TotalAmount && Number(TotalAmount) ? TotalAmount : 0}</h5>
                 </div>
 

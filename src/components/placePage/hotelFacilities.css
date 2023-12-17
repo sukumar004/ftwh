@@ -17,6 +17,8 @@ h3{
     font-size: 2rem;
     text-transform: uppercase;
     overflow: hidden;
+    font-weight: 700;
+    letter-spacing: 2px;
 }
 
 .hotel-address{
@@ -46,26 +48,35 @@ h3{
 .hotel-photos{
     display: grid;
     grid-template-columns: repeat(2,minmax(0,1fr));
-    margin: 0rem 0 1rem 0;
+    margin: 1rem 0 1rem 0;
     gap: .5rem;
-    padding: .5rem;
     object-fit: cover;
     cursor: pointer;
-    padding-left: 0;
+    padding: .5rem;
+    height: max-content;
+    overflow: hidden;
 
 }
 
 .hotel-photos img{
-    width: 19rem;
-    height: 15rem;
+    width: 16rem;
+    height: 14rem;
     margin-left: .5rem;
     border-radius: 10px;
     transition-duration: .2s;
-    
+    padding-top: 0;   
+    overflow: hidden; 
+}
+
+#sepicifc-image-id{
+    margin: 0;
 }
 
 .hotel-photos img:hover{
+    transition: all;
+    transition-duration: 250ms;
     transform: scale(1.05);
+    overflow-y: hidden;
 }
 
 #amenities{

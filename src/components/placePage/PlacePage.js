@@ -9,6 +9,10 @@ import HotelBook from './HotelBook';
 import CommentPage from './CommentPage';
 import ReviewPage from './ReviewPage';
 import HotelCard from '../hotelCard/HotelCard';
+import { selectHotelByDistrict } from '../../feature/hotel details/hotelDetailsSlice';
+import HotelFacilities from './HotelFacilities';
+import BookHotelBox from '../bookHotelBox/BookHotelBox';
+
 
 
 
@@ -23,6 +27,18 @@ function PlacePage() {
     
     const invidualPost = useSelector((state)=>selectPostById(state,id))
 
+    const district = invidualPost.district
+
+    const districtHotel = useSelector((state)=>selectHotelByDistrict(state,district))
+    const cheapHotelSort =  districtHotel.sort((a,b)=>(Number(a.roomRate)-(b.roomRate)))
+    const copy = [...cheapHotelSort]
+    const cheapHotel = cheapHotelSort.length ? cheapHotelSort[0] : []
+    const remainingHotel = copy.shift();
+
+
+
+
+
     console.log("post",post)
     console.log("inividual",invidualPost)
     console.log("id",id)
@@ -30,6 +46,9 @@ function PlacePage() {
     const invidualPostByFilter = post.filter(post=>((post.idSp.toUpperCase()) === (id.toUpperCase())))
 
     console.log("invidualPostByFilter",invidualPostByFilter)
+    console.log("districtHotel",districtHotel)
+    console.log("cheapHotelSort",cheapHotelSort)
+    console.log("cheapHotel",cheapHotel)
 
   
 
@@ -64,13 +83,40 @@ function PlacePage() {
 
             <p className='selected-post-para' >{invidualPost.description}</p>
 
-            <p className='selected-post-para' >{invidualPost.description}</p>
+            {/* <p className='selected-post-para' >{invidualPost.description}</p> */}
 
             <hr className='line' />
 
-            <div className="hotel-book">
-              <HotelBook district = {invidualPost.district} />
-            </div>
+            <h3 id='cheap-hotel-tag'>Here You Can Book a Cheapest Hotel</h3>
+
+          {cheapHotel ?
+            <div className="hotel-book-in-place-page">
+              {/* <HotelBook district = {invidualPost.district} /> */}
+
+              <div className="hotel-facilities-in-place-page">
+              <HotelFacilities 
+              hotelIdSp = {cheapHotel.idSp}
+              />
+
+              </div>
+
+              <div className="hotel-book-in-place-page">
+                <BookHotelBox
+                hotelIdSp = {cheapHotel.idSp}
+                />
+              </div>
+
+            </div>  : 
+            
+            <p>There is no cheap hotel here..</p>
+          }
+
+              <div className="hotel-card-in-place-page">
+              <HotelCard 
+              districtArray = {copy}
+              districtName = {district}
+              />
+              </div>
 
             <div className="comment-page">
 
