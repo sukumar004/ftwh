@@ -14,7 +14,7 @@ h3{
 .hotelTitle h3{
     width: 100%;
     margin: .5rem 0;
-    font-size: 2rem;
+    font-size: 2.3rem;
     text-transform: uppercase;
     overflow: hidden;
     font-weight: 700;
@@ -55,12 +55,14 @@ h3{
     padding: .5rem;
     height: max-content;
     overflow: hidden;
+    /* border: 1px solid black; */
 
 }
 
+
 .hotel-photos img{
-    width: 16rem;
-    height: 14rem;
+    width: 18rem;
+    height: 15rem;
     margin-left: .5rem;
     border-radius: 10px;
     transition-duration: .2s;
@@ -94,10 +96,12 @@ h3{
 
 .hotel-amenities p{
 
-    font-size: 1.4rem;
+    font-size: 1rem;
     font-weight: 300;
     display: flex;
     align-items:center;
+    text-transform: capitalize;
+
 
 }
 
@@ -106,21 +110,7 @@ h3{
     margin: 0 .4rem 0 0;
 }
 
-.show-hotel-button{
-    width: 100%;
-    margin: 2rem 0;
-    display: flex;
-    align-items: center;
-}
 
-.show-hotel-button button{
-    width: 10rem;
-    height: 2.3rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-}
 
 hr{
     margin: 1.5rem 0;
@@ -130,3 +120,232 @@ hr{
 #line-through{
     text-decoration: line-through;
 }
+
+.hotel-rules-top-parent{
+    margin: 3rem 0 2rem 0;
+
+}
+
+
+.hotel-rules{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0 0 0;
+}
+
+.hotel-rules-list{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 1rem 0;
+
+}
+
+.hotel-rules-list img{
+    width: 2rem;
+    height: 2rem;
+    margin:  0 .7rem 0 0;
+}
+
+.hotel-rules-list p{
+    font-size: 1rem;
+    text-transform: capitalize;
+}
+
+@media screen and (max-width:1024px) {
+    
+
+    .hotel-address p{
+        font-size: 1rem;
+        display: flex;
+        text-transform: capitalize;
+        margin: 0 .2rem 0 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .hotel-address span{
+        display: flex;
+        align-items: center;
+        font-size: .8rem;
+        margin: 0 .1rem 0 0;
+    }
+
+    h3{
+        font-size: 1.6rem;
+        text-transform: uppercase;
+        font-weight: 300;
+        letter-spacing: 1.5px;
+    }
+
+    .hotel-photos{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 2rem 0 3rem 0;
+    
+    }
+    .hotel-photos img{
+        width: 11rem;
+        height: 12rem;
+        border-radius: 10px;
+        transition-duration: .2s;
+        padding-top: 0;   
+        overflow: hidden; 
+    }
+
+    #amenities{
+        margin: 3rem 0 0 0;
+    }
+
+    .hotel-rules-top-parent{
+        margin: 3rem 0 2rem 0;
+
+    }
+
+    
+    .hotel-rules{
+        display: flex;
+        flex-direction: column;
+        margin: 1rem 0 0 0;
+    }
+
+    .hotel-rules-list{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 1rem 0;
+
+    }
+
+    .hotel-rules-list img{
+        width: 2rem;
+        height: 2rem;
+        margin:  0 .7rem 0 0;
+    }
+
+    .hotel-rules-list p{
+        font-size: 1rem;
+        text-transform: capitalize;
+    }
+
+      
+}
+
+@media screen and (max-width:768px) {
+
+    .hotelTitle h3{
+        width: 100%;
+        margin: .5rem 0;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        overflow: hidden;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+
+
+    .hotel-address p{
+        font-size: .7rem;
+        display: flex;
+        text-transform: capitalize;
+        margin: 0 .2rem 0 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .hotel-address span{
+        display: flex;
+        align-items: center;
+        font-size: .6rem;
+        margin: 0 .1rem 0 0;
+    }
+
+    h3{
+        font-size: .9rem;
+        text-transform: uppercase;
+        font-weight: 300;
+        letter-spacing: 1.5px;
+    }
+
+    .hotel-photos{
+        display: grid;
+        grid-template-columns: repeat(2,minmax(0,1fr));
+        margin: 1rem 0 1rem 0;
+        gap: .5rem;
+        object-fit: cover;
+        cursor: pointer;
+        padding: .5rem;
+        height: max-content;
+        overflow: hidden;
+    
+    }
+
+
+    .hotel-photos img{
+        width: 7.5rem;
+        height: 6rem;
+        border-radius: 10px;
+        transition-duration: .2s;
+        padding-top: 0;   
+        overflow: hidden; 
+    }
+
+    #amenities{
+        margin: 3rem 0 0 0;
+    }
+
+    .hotel-amenities{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(1,minmax(0,1fr));
+        grid-template-rows: repeat(3,minmax(0,1fr));
+        gap: 2rem;
+        margin: 2rem 0 2rem 0;
+        width: 100%;
+    }
+
+    .hotel-amenities p{
+
+        font-size: .9rem;
+        font-weight: 300;
+        display: flex;
+        align-items:center;
+
+    }
+
+    .hotel-amenities span{
+        font-size: 1rem;
+        margin: 0 .4rem 0 0;
+        display: flex;
+    }
+
+    .hotel-rules-top-parent{
+        margin: 3rem 0 1rem 0;
+    }
+
+    .hotel-rules{
+        display: flex;
+        flex-direction: column;
+        margin: 1rem 0 0 0;
+    }
+
+    .hotel-rules-list{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 1rem 0;
+    }
+
+    .hotel-rules-list img{
+        width: 1.3rem;
+        height: 1.3rem;
+        margin:  0 .4rem 0 0;
+    }
+
+    .hotel-rules-list p{
+        font-size: .9rem;
+        text-transform: capitalize;
+    }
+}
+

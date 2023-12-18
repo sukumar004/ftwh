@@ -74,13 +74,32 @@ function HotelFacilities({hotelIdSp}) {
 
             <hr />
 
-            <div className="hotel-rules">
+            <div className="hotel-rules-top-parent">
                 <h3>Hotel Rules</h3>
 
                 <div className="hotel-rules">
-                    <p><span><MdKey /></span>Check-in : Before 11AM</p>
+                
+                    <div className="hotel-rules-list">
+                        <img src="/images/ckin.png" />
+                        <p>Before 11AM</p>
+                    </div>
+                    <div className="hotel-rules-list">
+                        <img src="/images/ckout.png" />
+                        <p>After 1PM</p>
+                    </div>
+                    <div className="hotel-rules-list">
+                        <img src="/images/smoke.png" />
+                        <p>Smoke allowed</p>
+                    </div>
+                    <div className="hotel-rules-list">
+                        <img src="/images/pets.png" />
+                        <p>Pets not allowed</p>
+                    </div>
+              
                 </div>
             </div>
+
+            <hr />
 
         </div> : 
 

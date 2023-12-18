@@ -124,6 +124,8 @@ const handleUploadData = async(e) =>{
             <select name="district" id="district" onChange={(e)=>handleChange(e)} value={formData.district}>
                 <option value="namakkal">namakkal</option>
                 <option value="trichy">trichy</option>
+                <option value="cuddalore">cuddalore</option>
+                <option value="chennai">chennai</option>
             </select>
 
             <input type="file" placeholder='upload img' onChange={(e)=>setImgName(e.target.files[0])} />

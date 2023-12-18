@@ -1,13 +1,13 @@
 .top-parent-book-hotel-box{
-    width: 70%;
+    width: 80%;
     height: max-content; 
     display: flex;
     flex-direction: row;
     justify-content: center;
-    /* border: 1px solid black; */
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 10px;
     padding: 1rem;
+    overflow: hidden;
 }
 
 .book-hotel-outer-box{
@@ -97,12 +97,14 @@
 }
 
 .shown-div{
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
     padding: .5rem 1rem;
+
 }
 
 .hotel-guests-listing h4{
@@ -173,7 +175,7 @@
 /* this is for fixed position div */
 
 .members-room-parent-selecting{
-    width: 65%;
+    width: 73%;
     height: max-content;
     position: absolute;
     z-index: 999;
@@ -182,8 +184,6 @@
     padding: 1rem;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 10px;
-
-
 }
 
 .members-room-child-selecting{
@@ -229,3 +229,89 @@
     margin: 1rem;
 }
 
+@media screen and (max-width:1024px) {
+
+
+    .top-parent-book-hotel-box{
+        width: 60%;
+    }
+
+    .members-room-parent-selecting{
+        width: 56%;
+
+    }
+
+
+    
+    
+}
+
+@media screen and (max-width:768px) {
+   
+    .top-parent-book-hotel-box{
+        width: 100%;
+    }
+
+    .members-room-parent-selecting{
+        width: 90%;
+        height: 45%;
+    }
+
+    .members-room-common-selecting{
+        margin: .6rem 0;
+    }
+
+   .top-parent-cost-hotel-name h1{
+    font-size: 1.3rem;
+   }
+
+   .hotel-details-name h3{
+    font-size: .7rem;
+   }
+
+   .hotel-review-rating h4{
+    font-size: .6rem;
+   }
+
+   .hotel-dates-check-in-selecting input,.hotel-dates-check-out-selecting input{
+    font-size: .6rem;
+    margin: .3rem 0;
+   }
+
+   .hotel-dates-check-in-selecting label,.hotel-dates-check-out-selecting label{
+    font-size: .5rem;
+   }
+
+   .hotel-guests-listing h4{
+    font-size: .6rem;
+   }
+
+   .hotel-guests-listing p{
+    font-size: .55rem;
+   }
+
+   .members-selecting h3{
+    font-size: .7rem;
+   }
+
+    .members-selecting p{
+        font-size: .55rem;
+    }
+
+    .members-count-selecting p{
+        font-size: .8rem;   
+    }
+
+    .hotel-booking-confirm{
+        height: 2rem;
+        border-radius: 5px;
+    }
+
+    .hotel-booking-confirm button{
+        width: 100%;
+        height: max-content;
+        font-size: 1rem;
+    }
+
+    
+}

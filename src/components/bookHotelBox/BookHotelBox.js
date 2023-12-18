@@ -115,8 +115,11 @@ function BookHotelBox({hotelIdSp}) {
 
 
   return (
+    <>
+  
     <div className="top-parent-book-hotel-box">
 
+        
         <div className="book-hotel-outer-box">
 
              {/* Amount and day-night div */}
@@ -285,6 +288,7 @@ function BookHotelBox({hotelIdSp}) {
 
 
     </div>
+    </>
   )
 }
 

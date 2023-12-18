@@ -12,7 +12,7 @@ import HotelCard from '../hotelCard/HotelCard';
 import { selectHotelByDistrict } from '../../feature/hotel details/hotelDetailsSlice';
 import HotelFacilities from './HotelFacilities';
 import BookHotelBox from '../bookHotelBox/BookHotelBox';
-
+import { BsExclamationTriangle } from "react-icons/bs";
 
 
 
@@ -32,9 +32,12 @@ function PlacePage() {
     const districtHotel = useSelector((state)=>selectHotelByDistrict(state,district))
     const cheapHotelSort =  districtHotel.sort((a,b)=>(Number(a.roomRate)-(b.roomRate)))
     const copy = [...cheapHotelSort]
-    const cheapHotel = cheapHotelSort.length ? cheapHotelSort[0] : []
+    const cheapHotel = cheapHotelSort.length ? cheapHotelSort[0] : null
     const remainingHotel = copy.shift();
 
+    useEffect(()=>{
+
+    },[])
 
 
 
@@ -69,7 +72,7 @@ function PlacePage() {
             <div className="selected-post-title">
               <h1>{invidualPost.title }</h1>
               <div className="selected-post-title-rating">
-              <p id='title-rating'>{<MdOutlineStarPurple500 />}{`${invidualPost.rating ? invidualPost.rating : '3.0'}`}</p> 
+              <p id='title-rating'><span><MdOutlineStarPurple500 /></span>{`${invidualPost.rating ? invidualPost.rating : '3.0'}`}</p> 
               {/* <p id='title-review'>{rating}</p> */}
               </div>
             </div>
@@ -77,8 +80,8 @@ function PlacePage() {
             <img src={invidualPost.imgURL} alt={invidualPost.title} />
 
             <div className="selected-post-location">
-              <p id='location-icon'><FaLocationDot /></p>
-              <p id='location-name'>{`${invidualPost.location}, ${invidualPost.state}, ${invidualPost.country}`}</p>
+              {/* <p id='location-icon'><FaLocationDot /></p> */}
+              <p id='location-name'><span><FaLocationDot /></span>{`${invidualPost.location}, ${invidualPost.state}, ${invidualPost.country}`}</p>
             </div>
 
             <p className='selected-post-para' >{invidualPost.description}</p>
@@ -100,7 +103,7 @@ function PlacePage() {
 
               </div>
 
-              <div className="hotel-book-in-place-page">
+              <div className="hotel-book-in-box-place-page">
                 <BookHotelBox
                 hotelIdSp = {cheapHotel.idSp}
                 />
@@ -108,8 +111,10 @@ function PlacePage() {
 
             </div>  : 
             
-            <p>There is no cheap hotel here..</p>
+            <p id='no-hotel-tag'><span><BsExclamationTriangle /></span>Oops! there is no hotel available here..</p>
           }
+
+          
 
               <div className="hotel-card-in-place-page">
               <HotelCard 
