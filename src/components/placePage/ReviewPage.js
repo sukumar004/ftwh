@@ -46,7 +46,7 @@ function ReviewPage() {
                                 {arr.map((val,index)=>(
                                 <FaStar
                                 key={index}
-                                size={20}
+                                // size={20}
                                 style={{margin:'0 5px 0 0'}}
                                 color={review.rating > index ? starColor.active : starColor.inActive }
 

@@ -1,17 +1,24 @@
+.comment-parent-top{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+}
+
 .comment-parent{
-    width:80%;
+    width:65%;
    display: flex;
    flex-direction: column;
    height: max-content;
    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
    margin: 0 1rem;
-   padding: 0 1rem;
+   padding: 0 1.5rem;
 
 }
 
 .comment-parent h1{
-    margin: .5rem 0;
-    font-size: 1.5rem;
+    margin: 1rem 0 0rem 0;
+    font-size: 1.3rem;
     text-transform: uppercase;
     font-weight: 300;
 }
@@ -19,19 +26,19 @@
     display: flex;
     flex-direction:row;
     margin: 1rem 0 .4rem 0;
+    font-size: 1.2rem;
 }
 
 .review-form{
     display: flex;
     flex-direction: column;
-
 }
 
 .review-form label{
-    font-size: 1rem;
+    font-size: .8rem;
     font-weight: 300;
     margin: 1rem 0 .4rem 0;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 
 .review-form select{
@@ -64,6 +71,79 @@
     border-radius: 5px;
     cursor: pointer;
     border: 1px solid black;
+}
+
+@media screen and (max-width:1024px) {
+
+    .comment-parent-top{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .comment-parent{
+        width: 70%; 
+    }
+
+    .comment-parent h1{
+        margin: 1.5rem 0 0 0;
+        font-size: .8rem;
+    }
+
+    .star-rating{
+       font-size: 1rem;
+       margin: .4rem 0 0 0;
+       /* border: 1px solid black; */
+    }
+
+    .review-form label{
+        font-size: .7rem;
+        font-weight: 300;
+        text-transform: capitalize;
+
+    }
+    .review-form select{
+        width: 100%;
+        height: max-content;
+        font-size: .7rem;
+    }
+
+    .review-form textarea{
+        width: 100%;
+        height: 5rem;
+        font-size: .6rem;
+    }
+
+    .review-form button{
+        font-size: .8rem;
+        height: max-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+}
+
+@media screen and (max-width:768px) {
+    
+    .comment-parent-top{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 0 0 1rem 0;
+    }
+    
+    .comment-parent{
+        width:100%;
+       display: flex;
+       flex-direction: column;
+       height: max-content;
+       box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+       margin: 0 1rem;
+       padding: 0 1.5rem;
+    
+    }
+    
 }
 
 

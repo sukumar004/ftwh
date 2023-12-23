@@ -1,12 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState,useContext } from 'react'
 import './placeForm.css'
 import { nanoid } from '@reduxjs/toolkit'
 import {storage,db} from '../../firebaseConfig.js'
 import { ref,uploadBytes,getDownloadURL } from 'firebase/storage'
 import { collection,addDoc } from 'firebase/firestore'
 import {  useNavigate } from 'react-router-dom'
+import { IoMdClose } from "react-icons/io"; 
+import DataContext from '../context/DataContext.js'
 
 function PlaceForm() {
+
+const {handlePlaceToggle,districtList} = useContext(DataContext)
 
 
     const [formData,setFormData] = useState({
@@ -86,6 +90,9 @@ const handleUploadData = async(e) =>{
        const uploadData = await addDoc(collectionRef,formData);
        setDataConfirm('Place Uploaded successfully')
        setDataError(null)
+       handlePlaceToggle()
+       navigate('/')
+       window.location.reload()
        
     }catch(err){
         setDataError(err.message)
@@ -102,11 +109,15 @@ const handleUploadData = async(e) =>{
 
 
   return (
+    <div className="addPlace-top-parent">
+    <p id='close-icon' onClick={()=>handlePlaceToggle()}><IoMdClose /></p>
     <div className="addPlace">
+        <h1>Post Your favourite place here</h1>
+        <p id='note-tag'>Note : Entered Details must be correct</p>
         <form >
             <input type="text" name='title' placeholder='place title' onChange={(e)=>handleChange(e)} value={formData.title} />
 
-            <textarea name="description" id="" cols="30" rows="10" placeholder='place description' onChange={(e)=>handleChange(e)} value={formData.description}></textarea>
+            <textarea name="description"  cols="30" rows="10" placeholder='place description' onChange={(e)=>handleChange(e)} value={formData.description}></textarea>
             
             <input type="text" name='location' placeholder='location' onChange={(e)=>handleChange(e)} value={formData.location} />
           
@@ -122,24 +133,26 @@ const handleUploadData = async(e) =>{
             </select>
 
             <select name="district" id="district" onChange={(e)=>handleChange(e)} value={formData.district}>
-                <option value="namakkal">namakkal</option>
-                <option value="trichy">trichy</option>
-                <option value="cuddalore">cuddalore</option>
-                <option value="chennai">chennai</option>
+                <option value="">select district</option>
+                {districtList}
             </select>
 
-            <input type="file" placeholder='upload img' onChange={(e)=>setImgName(e.target.files[0])} />
+            <input type="file" id='file-input' placeholder='upload img' onChange={(e)=>setImgName(e.target.files[0])} />
+
+            {<p>{imgLoading ? `Image uploading..` : imgError ? imgError : imgConfirm}</p> }
+
 
             <button onClick={(e)=>handleUploadImg(e)}>upload image</button>
 
-            {<p>{imgLoading ? `Image uploading..` : imgError ? imgError : imgConfirm}</p> }
 
             <button disabled={!dataVerify} onClick={(e)=>handleUploadData(e)}>upload</button>
 
             {<p>{dataLoading ? `Data Updating..` : dataError ? dataError : dataConfirm}</p>}
         </form>
     </div>
+    </div>
   )
 }
+
 
 export default PlaceForm

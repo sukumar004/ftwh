@@ -35,6 +35,7 @@
 .new-div{
     display: flex;
     flex-direction: column;
+    
 }
 
 .new-div h1{
@@ -47,12 +48,17 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+
 }
 
 
 .review-ratings-date{
     display: inline-flex;
     align-items:center;
+}
+
+.rating-star{
+    font-size: 1.3rem;
 }
 
 .rating-star,.rating-date{
@@ -72,7 +78,44 @@
 }
 
 .review-comments h3{
-    font-size: .9rem;
+    font-size: .7rem;
     font-weight: 800;
     margin: 0 0 .5rem 0;
+}
+
+.review-comments p{
+    font-size: .7rem;
+}
+
+@media screen and (max-width:1024px) {
+
+    .review-list-column-img img{
+        width: 2rem;
+        height: 2rem;
+    }
+    .review-parent{
+        width: 100%;
+    }
+
+    .new-div h1{
+        font-size: 1.1rem;
+    }
+
+    .rating-star{
+        font-size: .5rem;
+    }
+
+    .rating-date p{
+        font-size: .5rem;
+    }
+
+    .review-comments h3{
+        font-size: .7rem;
+    }
+
+    .review-comments p{
+        font-size: .6rem;
+        
+    }
+    
 }

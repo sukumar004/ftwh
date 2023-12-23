@@ -12,21 +12,15 @@ import { Link } from 'react-router-dom'
 function HotelCard({districtArray,districtName}) {
 
     const [showResult,setShowResult] = useState(false)
-    const [costFilter,setCostFilter] = useState('')
+
 
     // const remain = useSelector((state)=>selectRemainingDistrictHotles(state,districtName))
-    const districtHotels = useSelector((state)=>selectHotelByDistrict(state,'trichy'))
+    // const districtHotels = useSelector((state)=>selectHotelByDistrict(state,'trichy'))
     const allHotels = useSelector(selectAllHotels)
     const remainingDistrictHotels = allHotels.filter(val=>(val.district !== districtName))
     const districtArrayLength = districtArray.length
     const allShowHotels = [...districtArray,remainingDistrictHotels].flat()
-    
-    const hotelsSort =  allShowHotels.sort((a,b)=>(Number(a.roomRate)-(b.roomRate)))
-
-    const hotelsLowToHigh = [...hotelsSort]
-    const hotelsHighToLow = hotelsSort.reverse()
-
-
+    const smallHotels = allShowHotels.slice(0,3)
 
 
 
@@ -38,12 +32,16 @@ function HotelCard({districtArray,districtName}) {
       }
 
     
-      const districtHotelList = ((districtArrayLength > 0 && !showResult) ? districtArray : allShowHotels ).map(val=>{
+      const districtHotelList = ((districtArrayLength >= 0 && !showResult) ? smallHotels : allShowHotels ).map(val=>{
 
         return(
+        
+        
+     
             <div className="district-hotel-parent">
+                <Link id='hotel-link' to={`/bookNow/${val.idSp}`}>
 
-            <div className="hotel-cover-images">
+            <div className="hotel-cover-images" id='selected-img-div'>
                 <img src={val.imgURL} alt={`${val.title}`} id='selected-img'/>
             </div>
 
@@ -58,7 +56,7 @@ function HotelCard({districtArray,districtName}) {
                     {start.map((val,index)=>(
                                 <FaStar
                                 key={index}
-                                size={16}
+                                size={8}
                                 style={{margin:'0 5px 0 0'}}
                                 color={3 > index ? starColor.active : starColor.inActive }
 
@@ -100,7 +98,7 @@ function HotelCard({districtArray,districtName}) {
             </div>
 
 
-
+            </Link>
         </div>
 
         )
@@ -121,27 +119,27 @@ function HotelCard({districtArray,districtName}) {
 
         </div>
         } */}
-        {showResult &&
+
+
         <div className="other-district-hotels-heading">
             <h3>Other hotels</h3>
         </div>
-        }
         
-
+        
+        <div className="hotel-card-grid-parent">
         {districtHotelList}
+        </div>
 
-        {(districtArray && !showResult && districtArrayLength>0) &&
+
+        {(districtArray && !showResult) &&
             <div className="show-other-hotels-button">
-                <button onClick={()=>setShowResult(pre=>(pre=!pre))}>Show other hotels</button>
+                <button onClick={()=>setShowResult(pre=>(pre=!pre))}>Load More hotels</button>
             </div>
 
             
         }
 
-
-        <div className="new-div">
-   
-        </div>
+        <hr id='load-more-hotels-button-space'/>
     </div>
   )
 }

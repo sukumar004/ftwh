@@ -1,13 +1,18 @@
 
-import React, { useState } from 'react'
+import React, { useState,useContext } from 'react'
 import './hotelForm.css'
 import { nanoid } from '@reduxjs/toolkit';
 import {storage,db} from '../../firebaseConfig.js'
 import {uploadBytes,ref,getDownloadURL} from 'firebase/storage'
 import {collection,addDoc} from 'firebase/firestore'
 import { useNavigate } from 'react-router-dom';
+import DataContext from '../context/DataContext.js';
+import { IoMdClose } from "react-icons/io";
+
 
 function HotelForm() {
+
+  const {handleHotelToggle,districtList} = useContext(DataContext)
 
   const [formData,setFormData] = useState({
     name:'',location:'',country:'',state:'',district:'',roomRate:'',tel:'',adultRate:'',childRate:'',IsBeachView:true,
@@ -90,6 +95,9 @@ function HotelForm() {
       const updateData = addDoc(collectionRef,formData)
       setDataConfirm('Data Updated Successfully')
       setDataError(null)
+      // handleHotelToggle()
+      // navigate('/')
+      window.location.reload()
     }catch(err){
       setDataError(err.message)
 
@@ -112,12 +120,18 @@ function HotelForm() {
 
 
   return (
-    <div className="hotelForm">
+    <div className="add-hotel-top-parent">
+    <p id='close-icon' onClick={()=>handleHotelToggle()}><IoMdClose /></p>
+    <div className="addHotel">
+      <h1>Post Your hotel here</h1>
+      <p id='note-tag'>Note : Entered Details must be correct</p>
+
+
       <form action="">
 
-        <input type="text" placeholder='hotel name' name='name' value={formData.name} onChange={handleChange} />
+        <input type="text" id='text-input' placeholder='hotel name' name='name' value={formData.name} onChange={handleChange} />
 
-        <input type="text" placeholder='hotel location' name='location' value={formData.location} onChange={handleChange}/>
+        <input type="text" id='text-input'  placeholder='hotel location' name='location' value={formData.location} onChange={handleChange}/>
 
         <select name="country" id="country" value={formData.country} onChange={handleChange} >
           <option value="">select country</option>
@@ -131,52 +145,56 @@ function HotelForm() {
 
         <select name="district" id="district" value={formData.district} onChange={handleChange}>
           <option value="">select district</option>
-          <option value="trichy">trichy</option>
+          {districtList}
         </select>
 
-        <input type="text" placeholder='room rate' name='roomRate' value={formData.roomRate} onChange={handleChange} />
+        <input type="text" id='text-input'  placeholder='room rate' name='roomRate' value={formData.roomRate} onChange={handleChange} />
 
-        <input type="text" placeholder='tel number' maxLength={10} name='tel' value={formData.tel} onChange={handleChange} />
+        <input type="text" id='text-input'  placeholder='tel number' maxLength={10} name='tel' value={formData.tel} onChange={handleChange} />
 
-        <input type="text" placeholder='adult rate' name='adultRate' value={formData.adultRate} onChange={handleChange}/>
+        <input type="text" id='text-input'  placeholder='adult rate' name='adultRate' value={formData.adultRate} onChange={handleChange}/>
         
-        <input type="text" placeholder='children rate' name='childRate' value={formData.childRate}onChange={handleChange} />
-
-        <div className="input-checkbox">
-        <input type='checkbox' name='IsBeachView' id='beach view' checked={formData.IsBeachView} onChange={handleChange}/>
-        <label htmlFor="beach view">Beach View</label>
-        </div>
-
-        <div className="input-checkbox">
-        <input type='checkbox' name='IsFreeCarParking' id='free car parking' checked={formData.IsFreeCarParking} onChange={handleChange} />
-        <label htmlFor="free car parking">Free Car Parking</label>
-        </div>
+        <input type="text" id='text-input'  placeholder='children rate' name='childRate' value={formData.childRate}onChange={handleChange} />
         
-        <div className="input-checkbox">
-        <input type='checkbox' name='IsFreeWater' id='free water'  checked={formData.IsFreeWater} onChange={handleChange}/>
-        <label htmlFor="free water">Free Water</label>
+        <div className="input-checkbox-parent">
+
+          <div className="input-checkbox" >
+          <input type='checkbox' name='IsBeachView' id='beach view' checked={formData.IsBeachView} onChange={handleChange}/>
+          <label htmlFor="beach view">Beach View</label>
+          </div>
+
+          <div className="input-checkbox" >
+          <input type='checkbox' name='IsFreeCarParking' id='free car parking' checked={formData.IsFreeCarParking} onChange={handleChange} />
+          <label htmlFor="free car parking">Free Car Parking</label>
+          </div>
+          
+          <div className="input-checkbox" >
+          <input type='checkbox' name='IsFreeWater' id='free water'  checked={formData.IsFreeWater} onChange={handleChange}/>
+          <label htmlFor="free water">Free Water</label>
+          </div>
+
+          <div className="input-checkbox" >
+          <input type='checkbox' name='IsHotWaterBenefit' id='hot water benefit' checked={formData.IsHotWaterBenefit} onChange={handleChange} />
+          <label htmlFor="hot water benefit">Hot Water Benifit</label>
+          </div>
+
+          <div className="input-checkbox" >
+          <input type='checkbox' name='IsFreeWifi' id='free wifi' checked={formData.IsFreeWifi} onChange={handleChange} />
+          <label htmlFor="free wifi">Free Wifi</label>
+          </div>
+
+          <div className="input-checkbox" >
+          <input type='checkbox' name='IsModernKitchen' id='modern kitchen' checked={formData.IsModernKitchen} onChange={handleChange} />
+          <label htmlFor="modern kitchen">Modern Kitchen</label>
+
+          </div>
         </div>
 
-        <div className="input-checkbox">
-        <input type='checkbox' name='IsHotWaterBenefit' id='hot water benefit' checked={formData.IsHotWaterBenefit} onChange={handleChange} />
-        <label htmlFor="hot water benefit">Hot Water Benifit</label>
-        </div>
-
-        <div className="input-checkbox">
-        <input type='checkbox' name='IsFreeWifi' id='free wifi' checked={formData.IsFreeWifi} onChange={handleChange} />
-        <label htmlFor="free wifi">Free Wifi</label>
-        </div>
-
-        <div className="input-checkbox">
-        <input type='checkbox' name='IsModernKitchen' id='modern kitchen' checked={formData.IsModernKitchen} onChange={handleChange} />
-        <label htmlFor="modern kitchen">Modern Kitchen</label>
-        </div>
-
-        <input type="file" onChange={(e)=>setImgName(e.target.files[0])} />
-
-        <button onClick={(e)=>handleUploadImg(e)}>Upload image</button>
+        <input type="file" id='file-input' onChange={(e)=>setImgName(e.target.files[0])} />
 
         <p>{imgLoading ? `Image uploading..` : imgError ? `${imgError}` : imgConfirm}</p>
+
+        <button onClick={(e)=>handleUploadImg(e)}>Upload image</button>
 
         <button disabled={!dataVerify} onClick={(e)=>handleUploadData(e)}>Upload Data</button>
 
@@ -185,6 +203,7 @@ function HotelForm() {
 
       </form>
     </div>
+  </div>
   )
 }
 

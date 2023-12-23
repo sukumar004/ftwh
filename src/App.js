@@ -14,6 +14,7 @@ import { useDispatch } from 'react-redux';
 import { addData } from './feature/place/placeSlice.js'
 import { addHotel } from './feature/hotel details/hotelDetailsSlice.js'
 import { BiSolidError } from "react-icons/bi";
+import { DataProvider } from './components/context/DataContext.js'
 
 
 
@@ -69,24 +70,25 @@ const App = () => {
 
 
   return (
-
     <>
+    <DataProvider>
+
     {!loadingData && !dataError ? 
     <Routes>
-
+      
       <Route path='/' element={<Layout />} > 
       
         <Route index element={<Home />} />
 
         <Route path='/place/:id' element = {<PlacePage />} />
 
-        <Route path='/placeForm' element={<PlaceForm />} />
 
         <Route path='/hotelForm' element={<HotelForm />} />
 
       
       </Route>
       <Route path='/bookNow/:id' element={<BookNow />} />
+
 
       {/* <Route path='*' element = {<Missing />} /> */}
 
@@ -102,6 +104,8 @@ const App = () => {
     </div>
 
     }
+
+    </DataProvider>
     </>
   )
 }

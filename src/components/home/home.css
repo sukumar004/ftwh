@@ -16,7 +16,10 @@
 .home-component{
     width: 100vw;
     height: 70vh;
-    background-image: url('bg-2.png');
+    background-image: url('bg-4.jpg');
+    background-color: #ffffff;
+/* background-image: linear-gradient(43deg, #ffffff 0%, #6dd5fa 46%, #2980b9 100%); */
+    
     background-position:100%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -175,7 +178,7 @@
 .home-component{
     width: 100vw;
     height: 60vh;
-    background-image: url('bg-2.png');
+    background-image: url('bg-4.jpg');
     background-position:100%;
     background-repeat: no-repeat;
     background-size:cover;

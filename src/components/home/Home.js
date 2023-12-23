@@ -13,6 +13,8 @@ import { BiSolidError } from "react-icons/bi";
 
 
 
+
+
 const Home = () => {
 
   const [dataError,setDataError] = useState()
@@ -41,6 +43,8 @@ const Home = () => {
 
 
     <div className="loading-error-div">
+
+     
 
     
 
