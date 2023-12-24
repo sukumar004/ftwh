@@ -125,8 +125,8 @@ function PlacePage() {
 
             <div className="comment-page">
 
-            <CommentPage  />            
-            <ReviewPage />
+            <CommentPage postIdSp = {id}  />            
+            <ReviewPage postIdSp = {id} />
             </div>
 
             {/* <HotelCard /> */}

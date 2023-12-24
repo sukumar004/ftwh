@@ -48,11 +48,11 @@
 
     .profile{
     width: 60vw;
-    height: 40vh;
+    height: 70vh;
     position: fixed;
     background-color: rgb(255, 255, 255);
-    top: 30%;
-    bottom: 30%;
+    top: 15%;
+    bottom: 15%;
     right: 20%;
     left: 20%;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -70,6 +70,12 @@
 
     .details{
         margin: 1rem 0;
+        
+    }
+
+    .details p{
+        font-size: .8rem;
+
     }
 
     
@@ -96,6 +102,11 @@
     .details{
         width: 100%;
         overflow: hidden;
+        height: max-content;
+    }
+
+    .details p{
+        font-size: .65rem;
     }
     
     .details p:nth-of-type(even){

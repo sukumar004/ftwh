@@ -20,7 +20,7 @@ import { useNavigate } from 'react-router-dom';
 const Header = () => {
 
 const {placeState,handlePlaceToggle,hotelState,handleHotelToggle,navState,handleNavToggle,presentUser,setPresentUser,accountShow,handleAccountToggle,
-  profileState,handleProfileToggle,setAccountShow} = useContext(DataContext)
+  profileState,handleProfileToggle} = useContext(DataContext)
 
 const navigate = useNavigate()
   

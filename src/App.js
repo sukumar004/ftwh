@@ -15,6 +15,8 @@ import { addData } from './feature/place/placeSlice.js'
 import { addHotel } from './feature/hotel details/hotelDetailsSlice.js'
 import { BiSolidError } from "react-icons/bi";
 import { DataProvider } from './components/context/DataContext.js'
+import { addPlaceReviewData } from './feature/user/reviewSlice.js'
+
 
 
 
@@ -54,7 +56,17 @@ const App = () => {
           // setDataError('Data not fetched please reload the page')
           throw Error('Data not fetched please reload the page')
 
-      }       
+      } 
+      
+      const collectionRef3 = collection(db,'commentDetails')
+      const requestData3 = await getDocs(collectionRef3)
+      const placeReviews = requestData3.docs.map((doc)=>{
+        return{id:doc.id,...doc.data()}
+      })
+      dispatch(addPlaceReviewData(placeReviews))
+      if(!placeReviews.length){
+        throw Error("Data not fetched please reload the page")
+      }
 
       }catch(err){
         setDataError(err.message)

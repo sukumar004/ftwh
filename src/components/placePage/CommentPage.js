@@ -1,12 +1,22 @@
 import React, { useState } from 'react';
 import { FaStar } from "react-icons/fa";
 import './commentPage.css'
+import { useContext } from 'react';
+import DataContext from '../context/DataContext';
+import { db } from '../../firebaseConfig';
+import {collection,addDoc} from 'firebase/firestore'
 
-const CommentPage = () => {
+const CommentPage = ({postIdSp}) => {
+
+  const {presentUser} = useContext(DataContext)
+
+  const [commentDataError,setCommentDataError] = useState(null)
 
   const start = Array(5).fill(0)
 
   const [currentValue,setCurrentValue] = useState(5)
+
+  console.log("postIdSp--------------",postIdSp)
 
 
   const handleClick = value => {
@@ -24,6 +34,36 @@ const CommentPage = () => {
     inActive:'#a9a9a9'
   }
 
+  console.log("presentUser for comment page",presentUser)
+  console.log('post idsp',postIdSp)
+
+  const [formData,setFormData] = useState({
+    topic:'',rating:5,comments:'',postIdSp:postIdSp,date:new Date().toISOString(),name:presentUser?presentUser.displayName:'',
+    email:presentUser?presentUser.email:'',photoURL:presentUser?presentUser.photoURL:''
+  })
+
+  const dataVerify = Boolean(formData.topic.length > 0 && formData.comments.length > 0)
+
+
+
+  const handleSubmit = async(e) => {
+    e.preventDefault()
+    try{
+      if(!presentUser) throw Error ('Please Login in')
+      if(!dataVerify) throw Error('Please fill the fields')
+      const collectionRef = collection(db,'commentDetails')
+      const request = await addDoc(collectionRef,formData)
+      setCommentDataError(null)
+
+    }catch(err){
+      setCommentDataError(err.message)
+    }finally{
+      setFormData({
+        email:'',topic:'',rating:'',comments:'',postIdSp:'',date:'',photoURL:'',name:''
+      })
+    }
+  }
+  console.log(formData)
   
   return (
     <div className="comment-parent-top">
@@ -34,11 +74,10 @@ const CommentPage = () => {
                   {start.map((start,index)=>{
                     return(
                     <FaStar key={index} 
-                    // size={24}
                     color={(currentValue > index ? starColor.active : starColor.inActive)}
                     style={{cursor:'pointer',margin:'0 .2rem'}}
-                    onClick={()=>handleClick(index+1)}   
-              
+                    onClick={()=>{handleClick(index+1);setFormData(pre=>{return{...pre,rating:index+1}})}}   
+                    
                     />
                     ) 
                   })}
@@ -47,7 +86,7 @@ const CommentPage = () => {
               <div className="review-form">
 
                 <label htmlFor="review-topic">select category</label>
-                <select name="review-topic" id="review-topic">
+                <select name="review-topic" id="review-topic" value={formData.topic} onChange={(e)=>setFormData(pre=>{return{...pre,topic:e.target.value}})}>
                     <option value="">select related topics</option>
                     <option value="Nice Place">Nice Place</option>
                     <option value="Beautiful place for Family Trip">Beautiful place for Family Trip</option>
@@ -56,8 +95,10 @@ const CommentPage = () => {
                     <option value="Worst Place">Worst Place</option>
                 </select>
                 <label htmlFor="review">write review</label>
-                <textarea  name="review" id="review" cols="30" rows="10" placeholder='comment your experience..'></textarea>
-                <button>Submit</button>
+                <textarea  name="review" id="review" cols="30" rows="10" value={formData.comments} onChange={(e)=>setFormData(pre=>{return{...pre,comments:e.target.value}})} placeholder='comment your experience..'></textarea>
+                {commentDataError && <p>{commentDataError}</p>}
+
+                <button onClick={(e)=>handleSubmit(e)}>Submit</button>
 
               </div>      
 
