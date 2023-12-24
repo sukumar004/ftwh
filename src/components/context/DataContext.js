@@ -5,6 +5,10 @@ const DataContext = createContext({})
 export const DataProvider = ({children}) => {
     const [placeState,setPlaceState] = useState(false);
     const [hotelState,setHotelState] = useState(false);
+    const [navState,setNavState] = useState(false);
+    const [accountShow,setAccountShow] = useState(false)
+    const [profileState,setProfileState] = useState(false);
+    const [presentUser,setPresentUser] = useState(null);
 
     const handlePlaceToggle = () => {
         setPlaceState(pre=>(pre = !pre))
@@ -14,6 +18,17 @@ export const DataProvider = ({children}) => {
         setHotelState(pre=>(pre = !pre))
     }
 
+    const handleNavToggle = () => {
+        setNavState(pre => (pre = !pre))
+    }
+
+    const handleAccountToggle = () => {
+        setAccountShow(pre => (pre = !pre))
+    }
+
+    const handleProfileToggle = () => {
+        setProfileState(pre => (pre = !pre))
+    }
 
 
     
@@ -26,7 +41,8 @@ export const DataProvider = ({children}) => {
 
     return(
         <DataContext.Provider value={{
-            placeState,handlePlaceToggle,districtList,hotelState,handleHotelToggle
+            placeState,handlePlaceToggle,districtList,hotelState,handleHotelToggle,navState,handleNavToggle,presentUser,setPresentUser,accountShow,handleAccountToggle,
+            profileState,handleProfileToggle
         }}>
             {children}
         </DataContext.Provider>

@@ -1,0 +1,107 @@
+.profile-top-parent{
+    width: 100vw;
+    height: 100vh;
+    margin-top: -4rem;
+    z-index: 999;
+    position: fixed;
+    background: rgba(255, 255, 255, .7);
+}
+
+.profile{
+    width: 40vw;
+    height: 60vh;
+    position: fixed;
+    background-color: rgb(255, 255, 255);
+    top: 10%;
+    bottom: 10%;
+    right: 30%;
+    left: 30%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 3rem;
+    z-index: 9999999999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.profile img{
+    width: 5rem;
+    height: 5rem;
+    border-radius: 100%;
+    margin: 0 0 1rem 0
+}
+
+.details{
+    width:100%;
+    display: grid;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    margin: .5rem 0rem;
+}
+
+.details p:nth-of-type(even){
+    font-weight: 600;
+}
+
+@media screen and (max-width:1024px) {
+
+    .profile{
+    width: 60vw;
+    height: 40vh;
+    position: fixed;
+    background-color: rgb(255, 255, 255);
+    top: 30%;
+    bottom: 30%;
+    right: 20%;
+    left: 20%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 3rem;
+    z-index: 9999999999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    }
+
+    .details img{
+        margin: 1rem 0;
+    }
+
+    .details{
+        margin: 1rem 0;
+    }
+
+    
+}
+
+@media screen and (max-width:768px) {
+    .profile{
+        width: 90vw;
+        height: 50vh;
+        position: fixed;
+        background-color: rgb(255, 255, 255);
+        top: 25%;
+        bottom: 25%;
+        right: 5%;
+        left: 5%;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        padding: 3rem;
+        z-index: 9999999999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .details{
+        width: 100%;
+        overflow: hidden;
+    }
+    
+    .details p:nth-of-type(even){
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+

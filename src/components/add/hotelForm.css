@@ -1,7 +1,7 @@
 .add-hotel-top-parent{
     width: 100vw;
     height: 100vh;
-    margin-top: -3.5rem;
+    margin-top: -4rem;
     z-index: 999;
     position: fixed;
     background: rgba(255, 255, 255, .7);

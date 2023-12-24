@@ -3,28 +3,18 @@
 
     width: 100%;
     height: 3.5rem;
+    overflow: hidden;
     display: flex;  
-    /* background-color:rgba(4, 11, 17,.7) ; */
-    /* background-image: radial-gradient( circle 975px at 2.6% 48.3%,  rgba(0,8,120,1) 0%, rgba(95,184,224,1) 99.7% ); */
-    /* background-image: radial-gradient( circle 1278px at 49.9% 50%,  rgba(31,43,86,1) 8.3%, rgba(0,117,201,1) 96.6% ); */
-    /* background-image: linear-gradient( 111.4deg,  rgba(7,7,9,1) 6.5%, rgba(27,24,113,1) 93.2% ); */
-    /* background-image: linear-gradient( 111.4deg,  rgba(7,7,9,1) 6.5%, rgba(27,24,113,1) 93.2% ); */
-    /* background-image: linear-gradient( 86.3deg,  rgba(0,119,182,1) 3.6%, rgba(8,24,68,1) 87.6% ); */
-    /* background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%); */
-    /* background-image: linear-gradient( 135deg, #130CB7 10%, #130CB7 100%); */
-    /* background-image: linear-gradient( 135deg, #6B73FF 10%, #000DFF 100%); */
-    /* background-color: rgba(255, 255, 255, .9); */
-    /* background-color: 	rgba(245,245,245,.7); */
-    /* background-color: rgb(255,255,240); */
-    /* background-color: 	rgb(240,248,255); */
-    /* background: transparent;
-    background-image: url('bg-3.png'); */
     background-color:rgb(2,13,33);
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
     color: white;
-    padding: 0 3rem;
+    padding: 2rem 3rem;
+    /* border-bottom: 1px solid white; */
+    -webkit-box-shadow: 0px 28px 25px 0px rgba(2, 13, 33, 1);
+    -moz-box-shadow: 0px 28px 25px 0px rgba(2, 13, 33, 1);
+    box-shadow: 0px 28px 25px 0px rgba(2, 13, 33, 1);
 }
 
 
@@ -41,6 +31,7 @@
 .logo img{
     width: 4rem;
     height: 3.5rem;
+    cursor: pointer;
 }
 
 
@@ -59,14 +50,173 @@
     margin: 0 1rem;
     list-style: none;
     cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
 
 }
 
-/* .nav ul li:hover{
+.nav ul li:hover{
+    border-bottom: 1.5px solid white;
+}
 
-} */
+.nav ul li:visited{
+    border-bottom: 1.5px solid white;
 
-.nav ul li button{
-    background:none;
+}
 
+
+#nav-id a{
+    text-decoration: none;
+    color: rgba(255, 255, 255, .9);
+    /* color:red; */
+}
+
+#menu-id{
+    display: none;
+}
+
+#login-icon-id{
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.menu-nav{
+    display: none;
+}
+
+#account-show-laptop{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 3.5rem;
+    right: 1rem;
+    background-color:white;
+    color: rgb(2,13,33);
+    padding: .2rem;
+    align-items: flex-start;
+
+}
+
+#account-show-laptop li{
+    margin-left: 0;
+    padding: .5rem;
+    width: 100%;
+    border-bottom: 1px solid rgb(2,13,33);
+    cursor: pointer;
+}
+
+#account-show-mobile{
+    display: none;
+}
+
+
+@media screen and (max-width:1024px) {
+
+    .header{
+        border: none;
+    }
+
+    #menu-id{
+        display: none;
+    }
+
+    .menu-nav{
+        display: none;
+    }
+
+    #account-show-mobile{
+        display: none;
+    }
+    
+}
+
+@media screen and (max-width:768px) {
+
+
+
+    #header-id{
+        border: none;
+        align-items: center;
+        padding: 0 1rem;
+    }
+
+    .header{
+        border: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: none ;
+    }
+    .nav{
+        display: none;
+    }
+
+    #menu-id{
+        font-size: 1.8rem;
+        display: flex;
+        width: fit-content;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .menu-nav{
+        display:flex;
+        width: 45%;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;    
+        background: rgba(255, 255, 255, 1);
+        color: black;
+        z-index: 99999;
+        transition: transform 0.2s ease-in;
+    
+    }
+
+    .menu-nav ul {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        margin: 1rem 0 0 .7rem;
+    }
+
+    .menu-nav ul li{
+        padding: 0 0 .5rem 0;
+        width: 100%;
+        margin: .5rem 0;
+        border-bottom: 1px solid black;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 600;
+        text-transform: capitalize;
+    }
+
+    #nav-id a{
+        width: 100%;
+        color: black;
+    }
+
+    #nav-close-button-id{
+        align-self: flex-end;
+        margin: 0 1rem 0 0;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    #account-show-laptop{
+        display: none;
+    }
+
+    #account-show-mobile{
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        color: rgb(2,13,33);
+        position: absolute;
+        top: 16rem;
+    }
+    
 }

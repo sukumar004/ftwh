@@ -20,7 +20,7 @@ function HotelCard({districtArray,districtName}) {
     const remainingDistrictHotels = allHotels.filter(val=>(val.district !== districtName))
     const districtArrayLength = districtArray.length
     const allShowHotels = [...districtArray,remainingDistrictHotels].flat()
-    const smallHotels = allShowHotels.slice(0,3)
+    const smallHotels = allShowHotels.slice(0,6)
 
 
 
@@ -32,7 +32,7 @@ function HotelCard({districtArray,districtName}) {
       }
 
     
-      const districtHotelList = ((districtArrayLength >= 0 && !showResult) ? smallHotels : allShowHotels ).map(val=>{
+      const districtHotelList = (!showResult ? smallHotels : allShowHotels ).map(val=>{
 
         return(
         
@@ -131,7 +131,7 @@ function HotelCard({districtArray,districtName}) {
         </div>
 
 
-        {(districtArray && !showResult) &&
+        {(districtArray && !showResult && allShowHotels.length>6) &&
             <div className="show-other-hotels-button">
                 <button onClick={()=>setShowResult(pre=>(pre=!pre))}>Load More hotels</button>
             </div>
