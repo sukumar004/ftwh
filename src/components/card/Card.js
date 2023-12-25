@@ -51,7 +51,7 @@ const Card = () => {
                         </div>
 
                         <div className="place-rating">
-                            <p>{<MdOutlineStarPurple500/>}{post.rating ? `${post.rating}` : `3.0`}</p>
+                            <p><span><MdOutlineStarPurple500/></span>{post.rating ? `${post.rating}` : `3.0`}</p>
                         </div>
 
                         

@@ -1,6 +1,7 @@
 .hotel-card-parent{
     width: 100%;
     margin: 0rem 0;
+
  }
 
  .hotel-card-grid-parent{
@@ -11,7 +12,7 @@
  }
 
  .district-hotel-parent{
-     width: 18rem;
+     width: 20rem;
      height: 22rem;
      display: flex;
      flex-direction: column;
@@ -20,6 +21,7 @@
      margin: 2rem 0 2rem 0;
      cursor: pointer;
      border-radius: 10px;
+     background-color: white;
      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
      /* border: 1px solid black; */
@@ -73,11 +75,13 @@
  }
 
  .hotel-title h1{
-     font-size: 1.5rem;
+     font-size: 1.2rem;
      letter-spacing: 1px;
      height: max-content;
      text-transform: capitalize;
      font-weight:normal;
+     font-weight: 600;
+     color: black;
  }
 
  .hotel-ratings{
@@ -100,15 +104,17 @@
  .hotel-location p{
      font-size: .6rem;
      margin: .3rem 0 0 0;
+     font-weight: 600;
      display: flex;
      flex-direction: row;
      overflow: hidden;
      text-transform: capitalize;
+     color: #414756;
 
  }
 
  .hotel-location p span{
-     font-size: .6rem;
+     font-size: .5rem;
      display: flex;
      flex-direction: row;
      align-items:center;
@@ -132,9 +138,10 @@
  .hotel-amount-bottom h3{
     width: 100%;
     height: max-content;
-     font-size: 1.3rem;
-     margin: .3rem 0 0 0;
-     overflow: hidden;
+    font-size: 1.3rem;
+    margin: .3rem 0 0 0;
+    overflow: hidden;
+    color:  black;
 
  }
 
@@ -155,17 +162,26 @@
  }
 
  .show-other-hotels-button button{
-    width: 10rem;
+    width: max-content;
     height: max-content;
     font-size: .9rem;
     border-radius: 5px;
-    padding: .2rem;
     justify-content: center;
     align-items: center;
     text-align: center;
     cursor: pointer;
     background: none;
-    border: 1px solid black;
+    padding: .5rem;
+    font-weight: 600;
+    border: 3px solid #020D21;
+    color: #020D21;
+    transition: all;
+    transition-duration: 250ms;
+ }
+
+ .show-other-hotels-button button:hover{
+    background-color: #020D21;
+    color: rgba(255, 255, 255, 1);
  }
 
  #load-more-hotels-button-space{

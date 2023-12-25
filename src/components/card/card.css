@@ -81,7 +81,7 @@ section .place-container{
     align-items: center;
     margin: 0 0 .2rem 0;
     text-transform:capitalize;
-    color: #717788;
+    color: #414756;
     font-weight: 800;
 
 }
@@ -97,9 +97,15 @@ section .place-container{
     color: #2E2755;
 
 }
-
-
-
+.place-rating p{
+    color: #2E2755;
+}
+.place-rating span{
+    color: #FFBA5A;
+    display: flex;
+    align-self: center;
+    margin: 0 .2rem 0 0;
+}
 .place-location{
     display: flex;
     flex-direction: row;

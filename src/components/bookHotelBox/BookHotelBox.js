@@ -272,7 +272,7 @@ function BookHotelBox({hotelIdSp}) {
                 <hr />
 
                 <div className="actual-amount-days" id='selected'>
-                    <h5 >{`Total amount`}<span>{`(Include all tax)`}</span></h5>
+                    <h5>{`Total amount`}<span style={{fontSize:'.5rem',margin:'.2rem 0 0 .2rem'}}>{`(Include all tax)`}</span></h5>
                     <h5><span id='rupees'><FaIndianRupeeSign /></span>{TotalAmount && Number(TotalAmount) ? TotalAmount : 0}</h5>
                 </div>
 

@@ -12,7 +12,6 @@ import { selectHotelByDistrict,addHotel } from '../../feature/hotel details/hote
 import HotelFacilities from './HotelFacilities';
 import BookHotelBox from '../bookHotelBox/BookHotelBox';
 import { BsExclamationTriangle } from "react-icons/bs";
-import { useDispatch } from 'react-redux';
 import DataContext from '../context/DataContext';
 
 
@@ -21,8 +20,6 @@ import DataContext from '../context/DataContext';
 function PlacePage() {
 
     const {id} = useParams()
-
-    const dispatch = useDispatch()
 
     const {timeChange} = useContext(DataContext)
 
@@ -59,19 +56,19 @@ function PlacePage() {
 
             <div className="selected-post-location">
               {/* <p id='location-icon'><FaLocationDot /></p> */}
-              <p id='location-name'><span><FaLocationDot /></span>{`${invidualPost.location}, ${invidualPost.state}, ${invidualPost.country}`}</p>
+              <p id='location-name'><span><FaLocationDot /></span>{`${invidualPost.location} (${invidualPost.district}), ${invidualPost.state}, ${invidualPost.country}`}</p>
             </div>
 
-            <p className='selected-post-para' >{invidualPost.description}</p>
+            <p id='selected-post-para' >{invidualPost.description}</p>
 
-            <div className="post-autor-details">
+            <div className="post-author-top-parent">
 
-            <p>posted by</p>
-            <p>{invidualPost.name? invidualPost.name : 'sugu'} <span>{invidualPost.date ? timeChange(invidualPost.date) : '1 month'} ago</span></p>
+              <div className="post-autor-details">
+              <p>posted by</p>
+              <p>{invidualPost.name? invidualPost.name : 'sugu'} <span>{invidualPost.date ? timeChange(invidualPost.date) : '1 month'} ago</span></p>
+              </div>
 
             </div>
-
-            
 
             {/* <p className='selected-post-para' >{invidualPost.description}</p> */}
 
@@ -110,13 +107,16 @@ function PlacePage() {
               />
               </div>
 
+              <h1 id='comment-section-id'>Comment section</h1>
+
+
             <div className="comment-page">
-            <div className="comment-page-form">
-            <CommentPage  postIdSp = {id}  />            
-            </div>
-            <div className="comment-page-reviews">
-            <ReviewPage postIdSp = {id} />
-            </div>
+              <div className="comment-page-form">
+              <CommentPage  postIdSp = {id}  />            
+              </div>
+              <div className="comment-page-reviews">
+              <ReviewPage postIdSp = {id} />
+              </div>
             </div>
             
 

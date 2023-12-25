@@ -46,6 +46,7 @@
 .hotel-details-name h3{
     font-size: .7rem;
     font-weight: 600;
+    color: rgba(0, 0, 0, 1);
 }
 
 .hotel-review-rating span{
@@ -133,12 +134,15 @@
 .hotel-booking-confirm button{
     width: 100%;
     height: 3rem;
-    font-size: 1.3rem;
-    font-weight: 400;
+    font-size: 1rem;
+    font-weight: 600;
     padding: .3rem;
     border-radius: 5px;
     border: none;
     cursor: pointer;
+    background: #2E2752;
+    color: rgba(255, 255, 255, 1);
+
 }
 
 .hotel-booking-amonunt-calculation{
@@ -277,6 +281,7 @@
    
     .top-parent-book-hotel-box{
         width: 100%;
+        margin: 0 .1rem;
     }
 
     .members-room-parent-selecting{
@@ -289,11 +294,11 @@
     }
 
    .top-parent-cost-hotel-name h1{
-    font-size: 1.3rem;
+    font-size: 1.1rem;
    }
 
    .hotel-details-name h3{
-    font-size: .7rem;
+    font-size: .5rem;
    }
 
    .hotel-review-rating h4{
@@ -332,6 +337,7 @@
     .hotel-booking-confirm{
         height: 2rem;
         border-radius: 5px;
+        
     }
 
     .hotel-booking-confirm button{

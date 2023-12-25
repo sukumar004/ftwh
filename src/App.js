@@ -90,8 +90,10 @@ const App = () => {
 
         <Route path='/place/:id' element = {<PlacePage />} />
 
+        <Route path='/bookNow/:id' element={<BookNow />} />
+
+
       </Route>
-      <Route path='/bookNow/:id' element={<BookNow />} />
 
 
       {/* <Route path='*' element = {<Missing />} /> */}

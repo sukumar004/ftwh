@@ -51,7 +51,7 @@ function HotelCard({districtArray,districtName}) {
             <div className="hotel-details-card">
 
                 <div className="hotel-title">
-                    <h1>{val.name}</h1>
+                    <h1>{val.name ? val.name.length < 20 ? val.name : `${val.name.slice(0,20)}..` : `Hotel Name`}</h1>
                 </div>
 
                 <div className="hotel-ratings">
@@ -136,7 +136,7 @@ function HotelCard({districtArray,districtName}) {
 
         {(districtArray && !showResult && allShowHotels.length>6) &&
             <div className="show-other-hotels-button">
-                <button onClick={()=>setShowResult(pre=>(pre=!pre))}>Load More hotels</button>
+                <button onClick={()=>setShowResult(pre=>(pre=!pre))}>Show More hotels</button>
             </div>
 
             

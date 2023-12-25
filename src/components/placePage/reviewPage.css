@@ -4,8 +4,9 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 0 .5rem;
+    padding: 2rem .5rem;
     margin: 0 0 1rem 0;
+    text-align: justify;
 }
 
 .review-list{
@@ -14,7 +15,6 @@
     padding: 1rem;
     border: 1px solid black;
     border-radius: 10px;
-
 
 }
 
@@ -39,9 +39,9 @@
 }
 
 .new-div h1{
-    font-size: 1.4rem;
+    font-size: 1rem;
     text-transform: capitalize;
-    font-weight: 300;
+    font-weight: 600;
 }
 
 .ratins-star-column{
@@ -86,11 +86,18 @@
     font-size: .7rem;
     font-weight: 800;
     margin: 0 0 .5rem 0;
+    color: #414756;
 }
 
 .review-comments p{
     width: 100%;
-    font-size: 1rem;
+    font-size: .8rem;
+    font-weight: 600;
+}
+
+#review-comments-id{
+    font-size: .7rem;
+    letter-spacing: 1px;
 }
 
 .review-parent p{
@@ -108,14 +115,30 @@
     margin: 0 .5rem;
 }
 
-#review-parent{
+.review-comment-error{
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: left;
+    margin: 30% 0 0 0;
+}
+
+.more-comments-button{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.more-comments-button button{
     font-size: 1rem;
-    overflow: hidden;
+    font-weight: 600;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #2E2752;
+    text-decoration: underline;
 }
 
 @media screen and (max-width:1024px) {
@@ -126,6 +149,7 @@
     }
     .review-parent{
         width: 100%;
+        text-align: justify;
     }
 
     .new-div h1{
@@ -148,5 +172,39 @@
         font-size: .6rem;
         
     }
+    
+}
+
+@media screen and (max-width:756px) {
+    .review-list-column-img img{
+        width: 2rem;
+        height: 2rem;
+    }
+    .review-parent{
+        width: 100%;
+        text-align: justify;
+    }
+
+    .new-div h1{
+        font-size: .9rem;
+    }
+
+    .rating-star{
+        font-size: .5rem;
+    }
+
+    .rating-date p{
+        font-size: .5rem;
+    }
+
+    .review-comments h3{
+        font-size: .6rem;
+    }
+
+    .review-comments p{
+        font-size: .6rem;
+        
+    }
+
     
 }

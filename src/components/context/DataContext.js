@@ -10,6 +10,7 @@ export const DataProvider = ({children}) => {
     const [accountShow,setAccountShow] = useState(false)
     const [profileState,setProfileState] = useState(false);
     const [presentUser,setPresentUser] = useState(null);
+    const [commentsMore,setCommentsMore] = useState(false)
     const[loadMore,setLoadMore] = useState(false)
 
 
@@ -31,6 +32,10 @@ export const DataProvider = ({children}) => {
 
     const handleProfileToggle = () => {
         setProfileState(pre => (pre = !pre))
+    }
+
+    const handleCommentsToggle = () => {
+        setCommentsMore(pre => (pre = !pre))
     }
 
     const timeChange = (date) => {
@@ -63,7 +68,7 @@ export const DataProvider = ({children}) => {
     return(
         <DataContext.Provider value={{
             placeState,handlePlaceToggle,districtList,hotelState,handleHotelToggle,navState,handleNavToggle,presentUser,setPresentUser,accountShow,handleAccountToggle,
-            profileState,handleProfileToggle,loadMore,changeLoadMore,timeChange,scrollToTop
+            profileState,handleProfileToggle,loadMore,changeLoadMore,timeChange,scrollToTop,commentsMore,handleCommentsToggle
         }}>
             {children}
         </DataContext.Provider>
