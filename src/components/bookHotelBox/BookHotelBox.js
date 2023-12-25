@@ -34,9 +34,9 @@ function BookHotelBox({hotelIdSp}) {
    const [serviceAmount,setServiceAmount] = useState()
    const [TotalAmount,setTotalAmount] = useState()
 
-   const adultAmount = selectedPost.adultRate
-   const childrenAmount = selectedPost.childRate
-   const initialAmount = selectedPost.roomRate
+   const adultAmount = selectedPost ? selectedPost.adultRate : null
+   const childrenAmount = selectedPost ? selectedPost.childRate : null
+   const initialAmount =selectedPost ? selectedPost.roomRate : null
 
    const addCount = (method) => {
     method(pre=>{
@@ -69,7 +69,7 @@ function BookHotelBox({hotelIdSp}) {
         const milliSecondsPerDay  = 1000 * 60 * 60 * 24;
         const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
         const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
-        console.log(utc1,utc2)
+
 
         return Math.floor((utc2 - utc1) / milliSecondsPerDay);
     }

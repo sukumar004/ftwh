@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import './home.css'
 import Card from '../card/Card';
-import Header from '../header/Header';
-import {db} from '../../firebaseConfig.js'
-import { collection,doc,getDocs } from 'firebase/firestore';
 import { useDispatch } from 'react-redux';
-import { addData } from '../../feature/place/placeSlice.js';
-import { addHotel } from '../../feature/hotel details/hotelDetailsSlice.js';
-import { BiSolidError } from "react-icons/bi";
+import AboutUs from '../about us/AboutUs';
 
 
 
@@ -103,7 +98,9 @@ const Home = () => {
       <div className="card-component">
           <Card />
       </div> 
-
+      <div className="about-us-component">
+        <AboutUs />
+      </div>
     </div> 
     {/* : 
 

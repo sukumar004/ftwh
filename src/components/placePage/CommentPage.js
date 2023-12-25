@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaStar } from "react-icons/fa";
 import './commentPage.css'
 import { useContext } from 'react';
@@ -14,10 +14,7 @@ const CommentPage = ({postIdSp}) => {
 
   const start = Array(5).fill(0)
 
-  const [currentValue,setCurrentValue] = useState(5)
-
-  console.log("postIdSp--------------",postIdSp)
-
+  const [currentValue,setCurrentValue] = useState(3)
 
   const handleClick = value => {
     
@@ -34,8 +31,6 @@ const CommentPage = ({postIdSp}) => {
     inActive:'#a9a9a9'
   }
 
-  console.log("presentUser for comment page",presentUser)
-  console.log('post idsp',postIdSp)
 
   const [formData,setFormData] = useState({
     topic:'',rating:5,comments:'',postIdSp:postIdSp,date:new Date().toISOString(),name:presentUser?presentUser.displayName:'',
@@ -54,6 +49,7 @@ const CommentPage = ({postIdSp}) => {
       const collectionRef = collection(db,'commentDetails')
       const request = await addDoc(collectionRef,formData)
       setCommentDataError(null)
+      // window.location.reload()
 
     }catch(err){
       setCommentDataError(err.message)
@@ -63,7 +59,7 @@ const CommentPage = ({postIdSp}) => {
       })
     }
   }
-  console.log(formData)
+
   
   return (
     <div className="comment-parent-top">

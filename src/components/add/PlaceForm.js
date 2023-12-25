@@ -12,9 +12,12 @@ function PlaceForm() {
 
 const {handlePlaceToggle,districtList} = useContext(DataContext)
 
+    const {presentUser} = useContext(DataContext)
 
     const [formData,setFormData] = useState({
-        title:'',description:'',location:'',country:'',state:'',district:'',idSp:'',imgId:'',imgURL:''
+        title:'',description:'',location:'',country:'',state:'',district:'',idSp:'',imgId:'',imgURL:'',name:presentUser?presentUser.displayName:'',
+        email:presentUser?presentUser.email:'',photoURL:presentUser?presentUser.photoURL:'',token:presentUser?presentUser.stsTokenManager.accessToken:'',
+        date:new Date().toISOString()
     })
     const [imgName,setImgName] = useState()
     const [imgError,setImgError] = useState()

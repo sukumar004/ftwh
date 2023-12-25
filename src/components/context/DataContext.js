@@ -1,4 +1,5 @@
 import { useState,createContext } from "react";
+import { parseISO,formatDistanceToNow } from "date-fns";
 
 const DataContext = createContext({})
 
@@ -9,6 +10,8 @@ export const DataProvider = ({children}) => {
     const [accountShow,setAccountShow] = useState(false)
     const [profileState,setProfileState] = useState(false);
     const [presentUser,setPresentUser] = useState(null);
+    const[loadMore,setLoadMore] = useState(false)
+
 
     const handlePlaceToggle = () => {
         setPlaceState(pre=>(pre = !pre))
@@ -30,6 +33,24 @@ export const DataProvider = ({children}) => {
         setProfileState(pre => (pre = !pre))
     }
 
+    const timeChange = (date) => {
+        const actualDate = parseISO(date)
+        const timePeriod = formatDistanceToNow(actualDate)
+        return timePeriod
+    }
+
+    const changeLoadMore = () => setLoadMore(pre=>(pre = true))
+
+    const scrollToTop = () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
+      };
+    
+
+
+
 
     
     const allDistricts = ["Ariyalur","Chennai","Coimbatore","Cuddalore","Dharmapuri","Dindigul","Erode","Kanchipuram","Kanyakumari","Karur",
@@ -42,7 +63,7 @@ export const DataProvider = ({children}) => {
     return(
         <DataContext.Provider value={{
             placeState,handlePlaceToggle,districtList,hotelState,handleHotelToggle,navState,handleNavToggle,presentUser,setPresentUser,accountShow,handleAccountToggle,
-            profileState,handleProfileToggle
+            profileState,handleProfileToggle,loadMore,changeLoadMore,timeChange,scrollToTop
         }}>
             {children}
         </DataContext.Provider>

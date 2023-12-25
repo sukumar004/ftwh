@@ -114,11 +114,30 @@
 }
 
 .comment-page{
-     width: 100%;
+    width: 100%;
+    height:100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding: 1rem 0;
 
+}
+
+.comment-page-form{
+    width: 100%;
+    /* height:100%; */
+    /* border: 1px solid black; */
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+
+}
+
+.comment-page-reviews{
+    width: 100%;
+    height: 100%;
+    justify-items: flex-start;
+    overflow: hidden;
 }
 
 #no-hotel-tag{
@@ -142,6 +161,26 @@
     /* flex-wrap: wrap; */
     margin: 2rem 0;
     padding: 1rem;
+}
+
+.post-autor-details p:first-child{
+    font-size: .6rem;
+    margin:0 0 .3rem 0;
+}
+
+.post-autor-details p:last-child{
+    font-size: .8rem;
+    font-weight: 600;
+    text-transform: capitalize;
+
+}
+
+.post-autor-details p span{
+    font-size: .6rem;
+    font-style: italic;
+    margin: 0 .1rem;
+    font-weight: 300;
+    text-transform: lowercase;
 }
 
 

@@ -4,7 +4,8 @@
     margin-top: -4rem;
     z-index: 999;
     position: fixed;
-    background: rgba(255, 255, 255, .7);
+    background: rgba(255, 255, 255, 0.7);
+    background: rgba(0, 0, 0, .7);
 }
 
 .addHotel{
@@ -74,7 +75,8 @@
     right: 1rem;
     font-size: 1.5rem;
     cursor: pointer;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+
 }
 
 #note-tag{

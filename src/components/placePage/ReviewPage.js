@@ -1,21 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useContext } from 'react'
 import './reviewPage.css'
 import { useSelector } from 'react-redux'
 import { FaStar } from 'react-icons/fa6'
 import { selectPlaceReviewByIdSp } from '../../feature/user/reviewSlice'
 import { VscSearchStop } from "react-icons/vsc";
-import { parseISO,formatDistanceToNow } from 'date-fns'
+import DataContext from '../context/DataContext'
+
 
 
 function ReviewPage(postIdSp) {
 
+    const {timeChange} = useContext(DataContext)
     const reviews = useSelector((state)=>selectPlaceReviewByIdSp(state,postIdSp.postIdSp))
-
-    const timeChange = (date) => {
-        const actualDate = parseISO(date)
-        const timePeriod = formatDistanceToNow(date)
-        return timePeriod
-    }
 
     const reviewShowData = reviews.map(val=>{
         return{
@@ -24,13 +20,10 @@ function ReviewPage(postIdSp) {
         }
     })
 
-    const showArray = reviewShowData.sort(function(a,b){return (a.date).localeCompare(b.date)})
-
-    console.log("showArray",showArray)
+    const showArray = reviewShowData.sort(function(a,b){return a.date.localeCompare(b.date)})
 
     // console.log(reviews)
 
-    console.log('post id for new confirm',reviews)
     const arr = Array(5).fill(0)
 
     const starColor = {
@@ -41,7 +34,7 @@ function ReviewPage(postIdSp) {
     // maping function
 
 
-    const reviewList = reviewShowData.map((review,index)=>{
+    const reviewList = showArray.map((review,index)=>{
 
         return(
 
@@ -89,9 +82,9 @@ function ReviewPage(postIdSp) {
     })
 
   return (
-    <div className='review-parent'>
+    <div className='review-parent' id='review-parent'>
 
-    { reviews.length ? reviewList : <p><span><VscSearchStop /></span>There is no comments for this post</p>}   
+    { reviews.length ? reviewList : <p><span><VscSearchStop /></span>There is no comments for this place</p>}   
     </div>
   )
 }

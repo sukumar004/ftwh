@@ -1,3 +1,18 @@
+.top-post-parent{
+ margin: 2rem 0 0 0;   
+}
+
+.top-post-parent h3{
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    margin: 1rem 0 2rem 0;
+    color: #2E2755;
+    font-weight: 600;
+}
+
 .place{
     display: grid;
     width: 80vw;
@@ -11,7 +26,6 @@
     margin: 0 10vw;
 
 }
-
 
 
 section .place-container{
@@ -60,7 +74,6 @@ section .place-container{
     color: black;
 }
 
-
 .place-details p{
     font-size: .6rem;
     display: flex;
@@ -68,6 +81,8 @@ section .place-container{
     align-items: center;
     margin: 0 0 .2rem 0;
     text-transform:capitalize;
+    color: #717788;
+    font-weight: 800;
 
 }
 
@@ -76,11 +91,13 @@ section .place-container{
     flex-direction: row;
     flex-wrap: wrap;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 800;
     text-transform: uppercase;
     margin: 0 0 .2rem 0;
+    color: #2E2755;
 
 }
+
 
 
 .place-location{
@@ -101,11 +118,25 @@ section .place-container{
     width: max-content;
     height: max-content;
     cursor: pointer;
-    background: none;
-    padding: .2rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
     border-radius: 5px;
+    border: none;
+    padding: .5rem;
+    font-weight: 600;
+    border: 3px solid #020D21;
+    color: #020D21;
+    background: none;
+    transition: all;
+    transition-duration: 250ms;
 }
+
+.load-more-button button:hover{
+
+    background-color: #020D21;
+    color: rgba(255, 255, 255, 1);
+
+}
+
 @media only screen and (max-width: 1023px){
     .top-post-parent{
         width: 100vw;
@@ -157,19 +188,17 @@ section .place-container{
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        border: 1px solid black;
 
     }
 
     .place{
         width: 100%;
-        height: 100%;
+        height:100%;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-
     }
 
 
@@ -180,5 +209,10 @@ section .place-container{
         height: 100%;
 
     }   
+
+    .top-post-parent h3{
+        padding: 0 1rem;
+        font-size: 1.3rem;
+    }
     
 }

@@ -1,27 +1,42 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectAllPost } from '../../feature/place/placeSlice'
 import './card.css'
 import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineStarPurple500 } from "react-icons/md";
 import { Link } from 'react-router-dom';
-
+import DataContext from '../context/DataContext';
 
 const Card = () => {
     const post = useSelector(selectAllPost)
+
+    const {loadMore,changeLoadMore,timeChange,scrollToTop} = useContext(DataContext)
     
-    const[loadMore,setLoadMore] = useState(false)
 
-    const topPost = post.slice(0,6)
 
-    const changeLoadMore = () => setLoadMore(pre=>(pre = !pre))
 
- const listAllPost =(loadMore?post:topPost).map((post)=>{
+    const postActualDate = post.map((val)=>{
+        return{
+            ...val,
+            date:timeChange(val.date)
+        }
+    })
+
+    const sortArray = postActualDate.sort(function(a,b){return -a.date.localeCompare(b.date)})
+
+    const topPost = sortArray.slice(0,9)
+
+    // console.log("before",beforenArray)
+
+
+
+
+ const listAllPost =(loadMore?sortArray:topPost).map((post)=>{
         return(
             <section key={post.id}>
                 
           
-                <Link id='place-link' to={`/place/${post.idSp}`}>
+                <Link id='place-link' to={`/place/${post.idSp}`} onClick={()=>scrollToTop()}>
 
                 <div className="place-container">
                     <div className="place-img">
@@ -52,13 +67,14 @@ const Card = () => {
       {post ? 
 
     <div className="top-post-parent">
+        <h3>Here you can find some tourist spots</h3>
         <div className="place">            
             {listAllPost}
         </div>
         {!loadMore && 
             
             <div className="load-more-button">
-               {listAllPost.length > 0 && <button onClick={changeLoadMore}>Load More</button>}
+               {listAllPost.length > 0 && <button onClick={changeLoadMore}>Show More</button>}
             </div>
         }
     </div> : 

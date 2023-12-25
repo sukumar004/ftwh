@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useContext } from 'react'
 import { useSelector } from 'react-redux'
 import { selectAllHotels,selectHotelByDistrict } from '../../feature/hotel details/hotelDetailsSlice'
 import './hotelCard.css'
@@ -7,11 +7,14 @@ import { MdOutlineEventAvailable } from "react-icons/md";
 import { FaIndianRupeeSign } from "react-icons/fa6";
 import { FaLocationDot } from "react-icons/fa6";
 import { Link } from 'react-router-dom'
+import DataContext from '../context/DataContext'
 
 
 function HotelCard({districtArray,districtName}) {
 
     const [showResult,setShowResult] = useState(false)
+
+    const {scrollToTop} = useContext(DataContext)
 
 
     // const remain = useSelector((state)=>selectRemainingDistrictHotles(state,districtName))
@@ -39,7 +42,7 @@ function HotelCard({districtArray,districtName}) {
         
      
             <div className="district-hotel-parent">
-                <Link id='hotel-link' to={`/bookNow/${val.idSp}`}>
+                <Link id='hotel-link' to={`/bookNow/${val.idSp}`} onClick={()=>scrollToTop()}>
 
             <div className="hotel-cover-images" id='selected-img-div'>
                 <img src={val.imgURL} alt={`${val.title}`} id='selected-img'/>

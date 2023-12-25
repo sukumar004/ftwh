@@ -1,21 +1,17 @@
 import React, { useEffect,useState } from 'react'
-import Header from './components/header/Header'
 import Home from './components/home/Home'
-import Card from './components/card/Card'
 import PlacePage from './components/placePage/PlacePage'
 import Layout from './components/layout/Layout.js'
 import { Route,Routes } from 'react-router-dom'
-import PlaceForm from './components/add/PlaceForm.js'
-import HotelForm from './components/add/HotelForm.js'
 import BookNow from './components/book now/BookNow.js'
 import { db } from './firebaseConfig.js'
 import {collection,getDocs} from 'firebase/firestore'
 import { useDispatch } from 'react-redux';
 import { addData } from './feature/place/placeSlice.js'
 import { addHotel } from './feature/hotel details/hotelDetailsSlice.js'
+import { addPlaceReviewData } from './feature/user/reviewSlice.js'
 import { BiSolidError } from "react-icons/bi";
 import { DataProvider } from './components/context/DataContext.js'
-import { addPlaceReviewData } from './feature/user/reviewSlice.js'
 
 
 
@@ -94,10 +90,6 @@ const App = () => {
 
         <Route path='/place/:id' element = {<PlacePage />} />
 
-
-        <Route path='/hotelForm' element={<HotelForm />} />
-
-      
       </Route>
       <Route path='/bookNow/:id' element={<BookNow />} />
 

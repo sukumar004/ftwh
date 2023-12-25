@@ -31,14 +31,21 @@
 }
 
 .top-parent-cost-hotel-name h1{
-    font-size: 2rem;
+    font-size: 1.5rem;
     width: max-content;
     display: flex;
     align-items: center;
 }
 
+#amount-day{
+    font-size: .8rem;
+    margin: 0 0 0 .2rem;
+    font-weight: 300;
+}
+
 .hotel-details-name h3{
-    font-size: .9rem;
+    font-size: .7rem;
+    font-weight: 600;
 }
 
 .hotel-review-rating span{
@@ -52,9 +59,13 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-size: .9rem;
+    font-size: .6rem;
+    margin: .2rem 0 0 0;
 }
 
+#review-count{
+    font-weight: 300;
+}
 
 .hotel-dates-guest-selecting{
     display: flex;
@@ -213,7 +224,22 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    padding: 0 1rem;
 }
+
+.members-count-selecting p{
+    margin: 0 .5rem;
+}
+
+.button-members{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 100px;
+    border: 1px solid black;
+    cursor: pointer;
+    /* margin: 0 .5rem; */
+}
+
 
 .members-selecting-close{
     display: flex;
@@ -228,6 +254,7 @@
     border-bottom: 1px solid black;
     margin: 1rem;
 }
+
 
 @media screen and (max-width:1024px) {
 
