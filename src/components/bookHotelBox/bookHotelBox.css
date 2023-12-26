@@ -277,7 +277,6 @@
         font-size: .6rem;
         margin: .3rem 0;
         padding: .1rem;
-        color: red;
        }
 
     
@@ -317,10 +316,6 @@
     margin: .3rem 0;
     padding: .1rem;
     color: black;
-   }
-
-   #date-check-in,#date-check-out{
-    color: red;
    }
 
    .hotel-dates-check-in-selecting label,.hotel-dates-check-out-selecting label{
