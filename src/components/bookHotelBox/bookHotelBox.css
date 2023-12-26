@@ -273,7 +273,12 @@
     }
 
 
-    
+    .hotel-dates-check-in-selecting input,.hotel-dates-check-out-selecting input{
+        font-size: .6rem;
+        margin: .3rem 0;
+        padding: .1rem;
+        color: black;
+       }
     
 }
 
@@ -309,7 +314,7 @@
     font-size: .6rem;
     margin: .3rem 0;
     padding: .1rem;
-
+    color: black;
    }
 
    .hotel-dates-check-in-selecting label,.hotel-dates-check-out-selecting label{

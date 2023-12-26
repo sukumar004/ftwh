@@ -12,6 +12,7 @@ import { addHotel } from './feature/hotel details/hotelDetailsSlice.js'
 import { addPlaceReviewData } from './feature/user/reviewSlice.js'
 import { BiSolidError } from "react-icons/bi";
 import { DataProvider } from './components/context/DataContext.js'
+import AboutUs from './components/about us/AboutUs.js'
 
 
 
