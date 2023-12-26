@@ -308,6 +308,8 @@
    .hotel-dates-check-in-selecting input,.hotel-dates-check-out-selecting input{
     font-size: .6rem;
     margin: .3rem 0;
+    padding: .1rem;
+
    }
 
    .hotel-dates-check-in-selecting label,.hotel-dates-check-out-selecting label{
