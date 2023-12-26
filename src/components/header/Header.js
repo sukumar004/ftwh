@@ -10,8 +10,6 @@ import { IoMdMenu } from "react-icons/io";
 import { IoMdClose } from "react-icons/io"; 
 import {auth,provider} from '../../firebaseConfig.js'
 import {signInWithPopup,signOut} from 'firebase/auth'
-import {collection,addDoc} from 'firebase/firestore'
-import { db } from '../../firebaseConfig.js';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -27,7 +25,6 @@ const navigate = useNavigate()
   useEffect(()=>{
     const existingUser = JSON.parse(localStorage.getItem("user"))
     setPresentUser(existingUser)
-    console.log("presentUser",presentUser)
   },[])
 
   // User login function

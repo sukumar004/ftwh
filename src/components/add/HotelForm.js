@@ -27,7 +27,7 @@ function HotelForm() {
   const [dataConfirm,setDataConfirm] = useState()
   const [imgLoading,setImgLoading] = useState(false)
   const [imgConfirm,setImgConfirm] = useState()
-  const navigate = useNavigate()
+
 
   const dataVerify = Boolean(formData.name.length>0 && formData.location.length>0 && formData.state.length>0 && formData.district.length>0 && formData.roomRate.length>0
     && formData.tel.length===10 && formData.adultRate.length>0 && formData.childRate.length>0 && formData.idSp.length>0 && formData.imgId.length>0

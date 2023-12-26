@@ -102,8 +102,6 @@ function BookHotelBox({hotelIdSp}) {
             const finalAmount = (Number(amountWithDays) + Number(serviceAmount)).toFixed(2)
             setTotalAmount(pre => (pre =finalAmount))
 
-            console.log("actualAmount",actualAmount)
-            console.log("showAmount ",showAmount)
 
         }
 
