@@ -123,7 +123,7 @@ function HotelForm() {
     <div className="add-hotel-top-parent">
     <p id='close-icon' onClick={()=>handleHotelToggle()}><IoMdClose /></p>
     <div className="addHotel">
-      <h1>Post Your hotel here</h1>
+      <h1>Post Your favourite hotel here</h1>
       <p id='note-tag'>Note : Entered Details must be correct</p>
 
 

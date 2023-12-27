@@ -52,7 +52,7 @@ function PlacePage() {
               </div>
             </div>
 
-            <img src={invidualPost.imgURL} alt={invidualPost.title} />
+            <img src={invidualPost.imgURL} alt={invidualPost.title} id='place-page-img' />
 
             <div className="selected-post-location">
               {/* <p id='location-icon'><FaLocationDot /></p> */}

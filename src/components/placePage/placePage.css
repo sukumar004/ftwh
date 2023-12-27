@@ -245,14 +245,13 @@
     }
 
     .selected-post img{
-        width: 100%;
+        width: 100vw;
         height: 45vh;
         overflow: hidden;
         object-fit: cover;
         border-radius: 10px;
         margin: 1rem 0;
-
-
+        object-position: center;
     }
     
     .selected-post-title-rating p span{
@@ -276,7 +275,7 @@
     }
 
     #selected-post-para{
-        font-size: .6rem;
+        font-size: .7rem;
         font-weight: 600;
         line-height: 1rem;
         margin: 2rem 0 2rem 0;

@@ -2,7 +2,7 @@ import React, { useState,useContext } from 'react'
 import './placeForm.css'
 import { nanoid } from '@reduxjs/toolkit'
 import {storage,db} from '../../firebaseConfig.js'
-import { ref,uploadBytes,getDownloadURL } from 'firebase/storage'
+import { ref,uploadBytes,getDownloadURL,deleteObject } from 'firebase/storage'
 import { collection,addDoc } from 'firebase/firestore'
 import {  useNavigate } from 'react-router-dom'
 import { IoMdClose } from "react-icons/io"; 
@@ -17,7 +17,7 @@ const {handlePlaceToggle,districtList} = useContext(DataContext)
     const [formData,setFormData] = useState({
         title:'',description:'',location:'',country:'',state:'',district:'',idSp:'',imgId:'',imgURL:'',name:presentUser?presentUser.displayName:'',
         email:presentUser?presentUser.email:'',photoURL:presentUser?presentUser.photoURL:'',token:presentUser?presentUser.stsTokenManager.accessToken:'',
-        date:new Date().toISOString()
+        date:new Date().toISOString(),user:presentUser?presentUser:''
     })
     const [imgName,setImgName] = useState()
     const [imgError,setImgError] = useState()
@@ -28,6 +28,8 @@ const {handlePlaceToggle,districtList} = useContext(DataContext)
     const [imgConfirm,setImgConfirm] = useState()
 
     const navigate = useNavigate()
+
+    console.log("presentUser",presentUser)
 
     const dataVerify = Boolean(formData.title.length>0 && formData.description.length>0 && formData.location.length>0 && formData.country.length>0
     && formData.state.length>0 && formData.district.length>0 && formData.idSp.length>0 && formData.imgId.length>0 && formData.imgId.length>0)
@@ -59,6 +61,7 @@ const handleUploadImg = async(e) =>{
         const id = nanoid();
         const imageRef = ref(storage,`placeImages/${id}`)
         const uploadImage = await uploadBytes(imageRef,imgName)
+        console.log("uploadImage",uploadImage)
         getDownloadURL(uploadImage.ref).then(val=>{
             setFormData(pre=>{
                 return{
@@ -86,11 +89,21 @@ const handleUploadData = async(e) =>{
   
     e.preventDefault()
 
+    //delete storage function while data not uploaded..
+
+    const deleteStorage = async() => {
+        console.log('img ID',formData.imgId)
+        const dataRef = ref(storage,`placeImages/${formData.imgId}`)
+        deleteObject(dataRef)
+    }
+
 
     try{ 
         setDataLoading(true)
        const collectionRef = collection(db,'placeDetails');
        const uploadData = await addDoc(collectionRef,formData);
+       console.log("uploadedData",uploadData)   
+       console.log("formData",formData)
        setDataConfirm('Place Uploaded successfully')
        setDataError(null)
        handlePlaceToggle()
@@ -99,6 +112,9 @@ const handleUploadData = async(e) =>{
        
     }catch(err){
         setDataError(err.message)
+       if(err.message){
+        deleteStorage()
+       }
     }finally{
         setFormData({
             title:'',description:'',location:'',country:'',state:'',district:'',idSp:'',imgId:'',imgURL:''
@@ -115,7 +131,7 @@ const handleUploadData = async(e) =>{
     <div className="addPlace-top-parent">
     <p id='close-icon' onClick={()=>handlePlaceToggle()}><IoMdClose /></p>
     <div className="addPlace">
-        <h1>Post Your favourite place here</h1>
+        <h1>Post Your favourite Tourist place here</h1>
         <p id='note-tag'>Note : Entered Details must be correct</p>
         <form >
             <input type="text" name='title' placeholder='place title' onChange={(e)=>handleChange(e)} value={formData.title} />
