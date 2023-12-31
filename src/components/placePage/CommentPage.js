@@ -8,7 +8,7 @@ import {collection,addDoc} from 'firebase/firestore'
 
 const CommentPage = ({postIdSp}) => {
 
-  const {presentUser} = useContext(DataContext)
+  const {presentUser,presentUserUid} = useContext(DataContext)
 
   const [commentDataError,setCommentDataError] = useState(null)
 
@@ -34,7 +34,7 @@ const CommentPage = ({postIdSp}) => {
 
   const [formData,setFormData] = useState({
     topic:'',rating:5,comments:'',postIdSp:postIdSp,date:new Date().toISOString(),name:presentUser?presentUser.displayName:'',
-    email:presentUser?presentUser.email:'',photoURL:presentUser?presentUser.photoURL:''
+    email:presentUser?presentUser.email:'',photoURL:presentUser?presentUser.photoURL:'',uid:presentUserUid?presentUserUid:''
   })
 
   const dataVerify = Boolean(formData.topic.length > 0 && formData.comments.length > 0)
@@ -44,7 +44,7 @@ const CommentPage = ({postIdSp}) => {
   const handleSubmit = async(e) => {
     e.preventDefault()
     try{
-      if(!presentUser) throw Error ('Please Login in')
+      if(!presentUserUid) throw Error ('Please Login in')
       if(!dataVerify) throw Error('Please fill the fields')
       const collectionRef = collection(db,'commentDetails')
       const request = await addDoc(collectionRef,formData)

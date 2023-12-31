@@ -10,8 +10,14 @@ export const DataProvider = ({children}) => {
     const [accountShow,setAccountShow] = useState(false)
     const [profileState,setProfileState] = useState(false);
     const [presentUser,setPresentUser] = useState(null);
+    const [presentUserUid,setPresentUserUid] = useState(null)
     const [commentsMore,setCommentsMore] = useState(false)
     const[loadMore,setLoadMore] = useState(false)
+    const [editPostType,setEditPostType] = useState(null)
+    const [editPostId,setEditPostId] = useState(null)
+    const [editPostToggle,setEditPostToggle] = useState(false)
+    const [hotelId,setHotelId] = useState(null)
+    const [placeId,setPlaceId] = useState(null)
 
 
     const handlePlaceToggle = () => {
@@ -44,6 +50,10 @@ export const DataProvider = ({children}) => {
         return timePeriod
     }
 
+    const handleEditPostToggle = () => {
+        setEditPostToggle(pre => (pre = !pre))
+    }
+
     const changeLoadMore = () => setLoadMore(pre=>(pre = true))
 
     const scrollToTop = () => {
@@ -68,7 +78,7 @@ export const DataProvider = ({children}) => {
     return(
         <DataContext.Provider value={{
             placeState,handlePlaceToggle,districtList,hotelState,handleHotelToggle,navState,handleNavToggle,presentUser,setPresentUser,accountShow,handleAccountToggle,
-            profileState,handleProfileToggle,loadMore,changeLoadMore,timeChange,scrollToTop,commentsMore,handleCommentsToggle
+            profileState,handleProfileToggle,loadMore,changeLoadMore,timeChange,scrollToTop,commentsMore,handleCommentsToggle,presentUserUid,setPresentUserUid,editPostType,setEditPostType,handleEditPostToggle,editPostToggle,editPostId,setEditPostId
         }}>
             {children}
         </DataContext.Provider>

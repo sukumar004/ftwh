@@ -2,7 +2,7 @@ import React, { useEffect, useState,useContext } from 'react'
 import './reviewPage.css'
 import { useSelector } from 'react-redux'
 import { FaStar } from 'react-icons/fa6'
-import { selectPlaceReviewByIdSp } from '../../feature/user/reviewSlice'
+import { selectPlaceReviewByIdSp } from '../../feature/review/reviewSlice'
 import { VscSearchStop } from "react-icons/vsc";
 import DataContext from '../context/DataContext'
 

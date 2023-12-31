@@ -9,14 +9,13 @@ import {collection,getDocs} from 'firebase/firestore'
 import { useDispatch } from 'react-redux';
 import { addData } from './feature/place/placeSlice.js'
 import { addHotel } from './feature/hotel details/hotelDetailsSlice.js'
-import { addPlaceReviewData } from './feature/user/reviewSlice.js'
+import { addPlaceReviewData } from './feature/review/reviewSlice.js'
 import { BiSolidError } from "react-icons/bi";
 import { DataProvider } from './components/context/DataContext.js'
 import AboutUs from './components/about us/AboutUs.js'
-
-
-
-
+import { addUserData } from './feature/userDetails/userSlice.js'
+import Profile from './components/profile/Profile.js'
+import EditForm from './components/add/EditForm.js'
 
 
 
@@ -25,6 +24,9 @@ const App = () => {
     const [dataError,setDataError] = useState()
     const [loadingData,setLoadingData] = useState(false)
     const dispatch = useDispatch()
+
+
+
     
 
   useEffect(()=>{
@@ -65,6 +67,14 @@ const App = () => {
         throw Error("Data not fetched please reload the page")
       }
 
+      const collectionRef4 = collection(db,'userDetails')
+      const requestExistingData = await getDocs(collectionRef4)
+      const userDetails = requestExistingData.docs.map((val)=>{return{id:val.id,...val.data()}})
+      dispatch(addUserData(userDetails))
+      if(!userDetails.length){
+        throw Error("Data not fetched please reload the page")
+      }
+
       }catch(err){
         setDataError(err.message)
 
@@ -74,6 +84,7 @@ const App = () => {
     }
 
     (async()=>request())()
+    
   },[])
 
 
@@ -92,6 +103,10 @@ const App = () => {
         <Route path='/place/:id' element = {<PlacePage />} />
 
         <Route path='/bookNow/:id' element={<BookNow />} />
+
+        <Route path='/profile/:id' element={<Profile />} />
+
+        <Route path='/editPost/:id' element={<EditForm />} />
 
 
       </Route>

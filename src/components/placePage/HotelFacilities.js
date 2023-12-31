@@ -57,7 +57,7 @@ function HotelFacilities({hotelIdSp}) {
                } */}
             </div>
 
-            <hr />
+            <hr id='hotel-facilities-hr' />
 
             <h3 id='amenities'>Hotel Facilities</h3>
 
@@ -72,7 +72,7 @@ function HotelFacilities({hotelIdSp}) {
 
             </div>
 
-            <hr />
+            <hr id='hotel-facilities-hr' />
 
             <div className="hotel-rules-top-parent">
                 <h3>Hotel Rules</h3>
@@ -99,7 +99,7 @@ function HotelFacilities({hotelIdSp}) {
                 </div>
             </div>
 
-            <hr />
+            <hr id='hotel-facilities-hr' />
 
         </div> : 
 

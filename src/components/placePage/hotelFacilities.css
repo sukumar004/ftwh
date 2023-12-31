@@ -1,8 +1,10 @@
 .hotelDetails{
     width: 100%;
+    height: max-content;
     display: inline-flex;
     flex-direction: column;
     padding: 1rem;
+    /* overflow: hidden; */
 }
 
 h3{
@@ -116,7 +118,7 @@ h3{
 
 
 
-hr{
+#hotel-facilities-hr{
     margin: 1.5rem 0;
     width: 100%;
 }

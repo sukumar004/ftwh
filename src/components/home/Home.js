@@ -3,6 +3,8 @@ import './home.css'
 import Card from '../card/Card';
 import { useDispatch } from 'react-redux';
 import AboutUs from '../about us/AboutUs';
+import { selectAllPost } from '../../feature/place/placeSlice';
+import { useSelector } from 'react-redux';
 
 
 
@@ -15,6 +17,10 @@ const Home = () => {
   const [dataError,setDataError] = useState()
   const [loadingData,setLoadingData] = useState(false)
 
+
+  const allPost = useSelector(selectAllPost)
+
+  console.log('all post in home page',allPost)
 
   const dispatch = useDispatch()
       

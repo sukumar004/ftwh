@@ -12,9 +12,6 @@ const Card = () => {
 
     const {loadMore,changeLoadMore,timeChange,scrollToTop} = useContext(DataContext)
     
-
-
-
     const postActualDate = post.map((val)=>{
         return{
             ...val,

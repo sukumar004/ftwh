@@ -3,24 +3,27 @@ import React, { useState,useContext } from 'react'
 import './hotelForm.css'
 import { nanoid } from '@reduxjs/toolkit';
 import {storage,db} from '../../firebaseConfig.js'
-import {uploadBytes,ref,getDownloadURL} from 'firebase/storage'
+import {uploadBytes,ref,getDownloadURL,deleteObject} from 'firebase/storage'
 import {collection,addDoc} from 'firebase/firestore'
 import { useNavigate } from 'react-router-dom';
 import DataContext from '../context/DataContext.js';
 import { IoMdClose } from "react-icons/io";
 
 
+
+
 function HotelForm() {
 
-  const {handleHotelToggle,districtList} = useContext(DataContext)
+  const {handleHotelToggle,districtList,presentUser,presentUserUid} = useContext(DataContext)
+
+  const navigate = useNavigate()
 
   const [formData,setFormData] = useState({
     name:'',location:'',country:'',state:'',district:'',roomRate:'',tel:'',adultRate:'',childRate:'',IsBeachView:true,
-    IsFreeCarParking:true,IsFreeWater:true,IsHotWaterBenefit:true,IsFreeWifi:true,IsModernKitchen:true,idSp:'',imgId:'',imgURL:''
+    IsFreeCarParking:true,IsFreeWater:true,IsHotWaterBenefit:true,IsFreeWifi:true,IsModernKitchen:true,idSp:'',imgId:'',imgURL:'',date:new Date().toISOString(),uid:presentUserUid?presentUserUid:''
   })
 
   const [imgName,setImgName] = useState()
-
   const [imgError,setImgError] = useState()
   const [dataError,setDataError] = useState()
   const [dataLoading,setDataLoading] = useState(false)
@@ -74,6 +77,8 @@ function HotelForm() {
 
         setImgConfirm('Image Uploaded Successfull')
         setImgError(null)
+        setImgName(null)
+
 
 
       }catch(Error){
@@ -83,32 +88,42 @@ function HotelForm() {
       }
   }
 
+
   // Upload function for data upload
 
   
   const handleUploadData = async(e) => {
     e.preventDefault()
 
+    const deleteStorage = async() => {
+      const dataRef = ref(storage,`hotelImages/${formData.imgId}`)
+      await deleteObject(dataRef)
+      setImgName(null)
+      setFormData(pre=>{return{...pre,imgURL:'',imgId:''}})
+  }
+
     try{
       setDataLoading(true)
       const collectionRef = collection(db,'hotelDetails')
-      const updateData = addDoc(collectionRef,formData)
+      const updateData = await addDoc(collectionRef,formData)
       setDataConfirm('Data Updated Successfully')
       setDataError(null)
-      // handleHotelToggle()
+      handleHotelToggle()
       // navigate('/')
       window.location.reload()
     }catch(err){
       setDataError(err.message)
+      if(err.message){
+        deleteStorage()
+      }
 
     }finally{
       setDataLoading(false)
-      setImgName()
       setFormData({
         name:'',location:'',country:'',state:'',district:'',roomRate:'',tel:'',adultRate:'',childRate:'',IsBeachView:true,
-        IsFreeCarParking:true,IsFreeWater:true,IsHotWaterBenefit:true,IsFreeWifi:true,IsModernKitchen:true,idSp:'',imgId:'',imgURL:''
+        IsFreeCarParking:true,IsFreeWater:true,IsHotWaterBenefit:true,IsFreeWifi:true,IsModernKitchen:true,idSp:'',imgId:'',imgURL:'',uid:'',date:''
       })
-      // navigate('/')
+
 
     }
 
@@ -145,7 +160,8 @@ function HotelForm() {
 
         <select name="district" id="district" value={formData.district} onChange={handleChange}>
           <option value="">select district</option>
-          {districtList}
+          {(formData.state === 'tamilnadu') &&  districtList }
+
         </select>
 
         <input type="text" id='text-input'  placeholder='room rate' name='roomRate' value={formData.roomRate} onChange={handleChange} />
@@ -194,7 +210,7 @@ function HotelForm() {
 
         <p>{imgLoading ? `Image uploading..` : imgError ? `${imgError}` : imgConfirm}</p>
 
-        <button onClick={(e)=>handleUploadImg(e)}>Upload image</button>
+        <button disabled={!imgName} onClick={(e)=>handleUploadImg(e)}>Upload image</button>
 
         <button disabled={!dataVerify} onClick={(e)=>handleUploadData(e)}>Upload Data</button>
 

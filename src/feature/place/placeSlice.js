@@ -18,7 +18,9 @@ const placeSlice = createSlice({
 })
 
 export const selectAllPost = (state)=> state.place.datas
-export const selectPostById = (state,id) => state.place.datas.find(post => post.idSp.toUpperCase() === id.toUpperCase()) 
+export const selectPostByIdSp = (state,id) => state.place.datas.find(post => post.idSp.toUpperCase() === id.toUpperCase()) 
+export const selectPlaceById = (state,id) => state.place.datas.find(post => post.id.toUpperCase()===id.toUpperCase())
+export const selectPlaceByUid = (state,uid) => state.place.datas.filter((post)=>((post.uid) && post.uid.toUpperCase()===uid.toUpperCase()))
 
 
 export const {addData} = placeSlice.actions;

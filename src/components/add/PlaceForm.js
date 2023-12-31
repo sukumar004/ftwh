@@ -10,14 +10,12 @@ import DataContext from '../context/DataContext.js'
 
 function PlaceForm() {
 
-const {handlePlaceToggle,districtList} = useContext(DataContext)
+const {handlePlaceToggle,districtList,presentUserUid,presentUser} = useContext(DataContext)
 
-    const {presentUser} = useContext(DataContext)
 
     const [formData,setFormData] = useState({
-        title:'',description:'',location:'',country:'',state:'',district:'',idSp:'',imgId:'',imgURL:'',name:presentUser?presentUser.displayName:'',
-        email:presentUser?presentUser.email:'',photoURL:presentUser?presentUser.photoURL:'',token:presentUser?presentUser.stsTokenManager.accessToken:'',
-        date:new Date().toISOString(),user:presentUser?presentUser:''
+        title:'',description:'',location:'',country:'',state:'',district:'',idSp:'',imgId:'',imgURL:'',date:new Date().toISOString(),uid:presentUserUid?presentUserUid:''
+
     })
     const [imgName,setImgName] = useState()
     const [imgError,setImgError] = useState()
@@ -29,7 +27,6 @@ const {handlePlaceToggle,districtList} = useContext(DataContext)
 
     const navigate = useNavigate()
 
-    console.log("presentUser",presentUser)
 
     const dataVerify = Boolean(formData.title.length>0 && formData.description.length>0 && formData.location.length>0 && formData.country.length>0
     && formData.state.length>0 && formData.district.length>0 && formData.idSp.length>0 && formData.imgId.length>0 && formData.imgId.length>0)
@@ -61,7 +58,6 @@ const handleUploadImg = async(e) =>{
         const id = nanoid();
         const imageRef = ref(storage,`placeImages/${id}`)
         const uploadImage = await uploadBytes(imageRef,imgName)
-        console.log("uploadImage",uploadImage)
         getDownloadURL(uploadImage.ref).then(val=>{
             setFormData(pre=>{
                 return{
@@ -73,8 +69,9 @@ const handleUploadImg = async(e) =>{
             })
         })
 
-        setImgConfirm('uploaded Successfully')
+        setImgConfirm('Image uploaded Successfully')
         setImgError(null)
+        setImgName(null)
 
     }catch(err){
         setImgError(err.message)
@@ -92,9 +89,10 @@ const handleUploadData = async(e) =>{
     //delete storage function while data not uploaded..
 
     const deleteStorage = async() => {
-        console.log('img ID',formData.imgId)
         const dataRef = ref(storage,`placeImages/${formData.imgId}`)
-        deleteObject(dataRef)
+        await deleteObject(dataRef)
+        setImgName(null)
+        setFormData(pre=>{return{...pre,imgURL:'',imgId:''}})
     }
 
 
@@ -102,12 +100,10 @@ const handleUploadData = async(e) =>{
         setDataLoading(true)
        const collectionRef = collection(db,'placeDetails');
        const uploadData = await addDoc(collectionRef,formData);
-       console.log("uploadedData",uploadData)   
-       console.log("formData",formData)
        setDataConfirm('Place Uploaded successfully')
        setDataError(null)
        handlePlaceToggle()
-       navigate('/')
+    //    navigate('/')
        window.location.reload()
        
     }catch(err){
@@ -117,9 +113,8 @@ const handleUploadData = async(e) =>{
        }
     }finally{
         setFormData({
-            title:'',description:'',location:'',country:'',state:'',district:'',idSp:'',imgId:'',imgURL:''
+            title:'',description:'',location:'',country:'',state:'',district:'',idSp:'',imgId:'',imgURL:'',uid:'',date:''
         })
-        setImgName(null)
         setDataLoading(false)
         // navigate('/')
     }
@@ -153,7 +148,7 @@ const handleUploadData = async(e) =>{
 
             <select name="district" id="district" onChange={(e)=>handleChange(e)} value={formData.district}>
                 <option value="">select district</option>
-                {districtList}
+               {(formData.state === 'tamilnadu') &&  districtList }
             </select>
 
             <input type="file" id='file-input' placeholder='upload img' onChange={(e)=>setImgName(e.target.files[0])} />
@@ -161,7 +156,7 @@ const handleUploadData = async(e) =>{
             {<p>{imgLoading ? `Image uploading..` : imgError ? imgError : imgConfirm}</p> }
 
 
-            <button onClick={(e)=>handleUploadImg(e)}>upload image</button>
+            <button disabled={!imgName} onClick={(e)=>handleUploadImg(e)}>upload image</button>
 
 
             <button disabled={!dataVerify} onClick={(e)=>handleUploadData(e)}>upload</button>

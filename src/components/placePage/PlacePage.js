@@ -1,7 +1,7 @@
 import React, { useEffect, useState,useContext } from 'react'
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
-import { selectPostById,selectAllPost,addData } from '../../feature/place/placeSlice';
+import { selectPostByIdSp,selectAllPost,addData } from '../../feature/place/placeSlice';
 import { MdOutlineStarPurple500 } from "react-icons/md";
 import './placePage.css'
 import { FaLocationDot } from "react-icons/fa6";
@@ -23,16 +23,14 @@ function PlacePage() {
 
     const {timeChange} = useContext(DataContext)
 
- 
-
     const post = useSelector(selectAllPost)
     
-    
-    const invidualPost = useSelector((state)=>selectPostById(state,id))
+    const invidualPost = useSelector((state)=>selectPostByIdSp(state,id))
+
 
     const district = invidualPost ? invidualPost.district : null
 
-    const districtHotel = useSelector((state)=>selectHotelByDistrict(state,district))
+    const districtHotel = useSelector((state)=>selectHotelByDistrict(state,district?district:''))
     const cheapHotelSort =  districtHotel.sort((a,b)=>(Number(a.roomRate)-(b.roomRate)))
     const copy = [...cheapHotelSort]
     const cheapHotel = cheapHotelSort.length ? cheapHotelSort[0] : null

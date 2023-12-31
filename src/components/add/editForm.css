@@ -1,0 +1,198 @@
+.edit-form-top-parent{
+    width: 100vw;
+    height: 100vh;
+    margin-top: -4rem;
+    position: fixed;
+    background-color: rgba(0, 0, 0, .7) !important;
+    z-index: 999999999999;
+}
+
+
+.edit-form-parent{
+    width: 40vw;
+    height: 80vh;
+    position: fixed;
+    background: rgb(255, 255, 255);
+    top: 10%;
+    bottom: 10%;
+    right: 30%;
+    left: 30%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 3rem;
+    z-index: 9999999;
+   
+}
+
+.edit-form-parent form{
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-form-parent form input{
+    width: 100%;
+    height:2rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-indent: 5px;
+    margin: 1rem 0;
+}
+
+.edit-form-parent form textarea{
+    resize: none;
+    text-indent: 5px;
+    border-radius: 5px;
+
+}
+
+.edit-form-parent form select{
+    cursor: pointer;
+}
+
+.edit-form-parent form button{
+
+        width: 100%;
+        height: 2rem;
+        font-size: 1rem;
+        text-transform: capitalize;
+        border-radius: 5px;
+        border: 1px solid black;
+        margin: .5rem 0;
+        cursor: pointer;
+        /* background-color: rgb(2,13,33); */
+        /* color: rgb(2,13,33); */    
+}
+
+.error-tag{
+    widows: 100%;
+    font-size: .6rem;
+}
+
+#img-error-tag{
+    margin: -1rem 0 2rem .5rem;
+}
+
+#data-error-tag{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0 0 0;
+}
+
+#note-tag{
+    all: initial;
+    margin: 1rem 0;
+    font-size: .7rem;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+
+.hotel-facilities-amenities-parent{
+    margin: 1rem 0;
+}
+
+.hotel-facilities-amenities-parent{
+    display: flex;
+    flex-direction: column;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+
+#hotel-facilities-amenities-id{
+    margin: .5rem 0;
+    margin-left: -13rem;
+
+}
+
+#hotel-facilities-amenities-id input{
+    height: .8rem;
+    margin-left: -8rem;
+    cursor: pointer;
+
+}
+
+#hotel-facilities-amenities-id label{
+    margin-left: -21rem;
+}
+
+.edit-form-parent h1{
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+
+@media screen and (max-width:1024px) {
+
+    .edit-form-top-parent{
+    background-color: rgba(0, 0, 0, .7);
+
+    }
+
+    .edit-form-parent{
+        width: 60vw;
+        height: 80vh;
+        position: fixed;
+        background-color: rgba(255, 255, 255, .7);
+        top: 10%;
+        bottom: 10%;
+        right: 20%;
+        left: 20%;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        padding: 1rem;
+    }
+
+    .hotel-facilities-amenities-parent{
+        margin: 1rem 0;
+    }
+
+    #hotel-facilities-amenities-id{
+        margin: .5rem 0;
+    }
+    
+    #hotel-facilities-amenities-id input{
+        height: .8rem;
+        margin-left: -12rem;
+        cursor: pointer;
+    
+    }
+    
+    #hotel-facilities-amenities-id label{
+        margin-left: -13rem;
+    }
+    
+}
+
+@media screen and (max-width:768px) {
+
+    .edit-form-parent{
+        width: 90vw;
+        height: 70vh;
+        position: fixed;
+        background-color: rgba(255, 255, 255, .7);
+        top: 15%;
+        bottom: 15%;
+        right: 5%;
+        left: 5%;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        padding: 1rem;
+    }
+
+    #hotel-facilities-amenities-id{
+        margin: .3rem 0;
+    }
+    
+    #hotel-facilities-amenities-id input{
+        height: .8rem;
+        margin-left: -8.5rem;
+        cursor: pointer;
+    
+    }
+    
+    #hotel-facilities-amenities-id label{
+        margin-left: -8.5rem;
+    }
+    
+}

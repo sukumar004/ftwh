@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './header.css'
-import { Link } from 'react-router-dom'
+import { Link, json } from 'react-router-dom'
 import { FaRegUserCircle } from "react-icons/fa";
 import PlaceForm from '../add/PlaceForm';
 import DataContext from '../context/DataContext';
@@ -11,20 +11,30 @@ import { IoMdClose } from "react-icons/io";
 import {auth,provider} from '../../firebaseConfig.js'
 import {signInWithPopup,signOut} from 'firebase/auth'
 import { useNavigate } from 'react-router-dom';
+import { db } from '../../firebaseConfig.js';
+import {collection,addDoc} from 'firebase/firestore'
+import { useSelector } from 'react-redux';
+import { selectAllUsers } from '../../feature/userDetails/userSlice.js';
+
+
 
 
 
 
 const Header = () => {
 
-const {placeState,handlePlaceToggle,hotelState,handleHotelToggle,navState,handleNavToggle,presentUser,setPresentUser,accountShow,handleAccountToggle,
-  profileState,handleProfileToggle} = useContext(DataContext)
+const {placeState,handlePlaceToggle,hotelState,handleHotelToggle,navState,handleNavToggle,presentUser,setPresentUser,accountShow,handleAccountToggle,presentUserUid,setPresentUserUid} = useContext(DataContext)
+
+const allUsers = useSelector(selectAllUsers)
+
 
 const navigate = useNavigate()
   
   useEffect(()=>{
     const existingUser = JSON.parse(localStorage.getItem("user"))
     setPresentUser(existingUser)
+    const userUid = JSON.parse(localStorage.getItem('userUid'))
+    setPresentUserUid(userUid)
   },[])
 
   // User login function
@@ -35,9 +45,15 @@ const navigate = useNavigate()
       const request = await signInWithPopup(auth,provider)
       localStorage.setItem('token',request.user.accessToken);
       localStorage.setItem('user',JSON.stringify(request.user));
-      // const collectionRef = collection(db,'userDetails')
-      // const uploadUserData = await addDoc(collectionRef,request.user)
-      navigate('/')
+      localStorage.setItem('userUid',JSON.stringify(request.user.uid));
+
+      const user = {name:request?request.user.displayName:'',email:request?request.user.email:'',phoneNumber:request?request.user.phoneNumber:'',uid:request?request.user.uid:'',accessToken:request?request.user.accessToken:'',photoURL:request?request.user.photoURL:''}
+      const existingUid = allUsers.find(val=>(val.uid===user.uid))
+      if(!existingUid){
+      const collectionRef = collection(db,'userDetails')
+      await addDoc(collectionRef,request?user:'').then((val)=>(console.log('database response',val)))
+      }
+      // navigate('/')
       window.location.reload()
 
     }catch(err){
@@ -50,6 +66,7 @@ const navigate = useNavigate()
       await signOut(auth);
       localStorage.removeItem('token');
       localStorage.removeItem('user');
+      localStorage.removeItem('userUid')
       navigate('/')
       window.location.reload()
     }catch(err){
@@ -75,7 +92,7 @@ const navigate = useNavigate()
                 <li>About Us</li>
                 <li id='login-icon-id' onClick={()=>{!presentUser ? handleLogin() : handleAccountToggle()}}>{presentUser ? <FaRegUserCircle size='1.3rem' style={{ borderBottom: accountShow && '1px solid rgb(255,255,255)'}} /> : "Login"}</li>
                 {accountShow &&<ul id='account-show-laptop'>
-                  <li onClick={()=>handleProfileToggle()}>Profile</li>
+                  {presentUserUid && <Link to={`/profile/${presentUserUid}`} onClick={()=>handleAccountToggle()}><li>Profile</li></Link> }
                   <li onClick={()=>handleLogout()}>Logout</li>
                 </ul>}
 
@@ -93,7 +110,7 @@ const navigate = useNavigate()
             <li>About Us</li>
             <li onClick={()=>{!presentUser ? handleLogin() : handleAccountToggle()}}>{presentUser ? 'My Account' : 'Login'}</li>
             {accountShow &&<ul id='account-show-mobile'>
-              <li onClick={()=>{handleProfileToggle();handleNavToggle()}}>Profile</li>
+            {presentUserUid && <Link to={`/profile/${presentUserUid}`} onClick={()=>{handleAccountToggle();handleNavToggle()}}><li>Profile</li></Link> }
               <li onClick={()=>handleLogout()}>Logout</li>
             </ul>}
           </ul>
@@ -109,11 +126,6 @@ const navigate = useNavigate()
         {
           (hotelState && !placeState) &&
           <HotelForm />
-        }
-
-        {
-          profileState &&
-          <Profile />
         }
       </div>
     </header>

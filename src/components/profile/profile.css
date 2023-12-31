@@ -1,64 +1,105 @@
 .profile-top-parent{
-    width: 100vw;
-    height: 100vh;
-    margin-top: -4rem;
-    z-index: 999;
-    position: fixed;
-    /* background: rgba(255, 255, 255, .7); */
-    background: rgba(0, 0, 0, .7);
-}
-
-.profile{
-    width: 40vw;
-    height: 60vh;
-    position: fixed;
-    background-color: rgb(255, 255, 255);
-    top: 10%;
-    bottom: 10%;
-    right: 30%;
-    left: 30%;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    padding: 3rem;
-    z-index: 9999999999;
+    width: 80vw;
+    height: max-content;
+    margin: 3rem 10%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    padding: .5rem;
+    /* border: 1px solid black; */
+
 }
+
+
+
+.profile{
+    width: 60%;
+    height: 100%;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin: 3rem 0 1rem 0;
+
+    /* border: 1px solid black; */
+}
+
+.profile-child{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid black; */
+}
+
 
 .profile img{
     width: 5rem;
     height: 5rem;
     border-radius: 100%;
-    margin: 0 0 1rem 0
+    margin: 0 0 1rem 0;
+    object-position: center;
+    object-fit: contain;
 }
 
-.details{
-    width:100%;
-    display: grid;
-    flex-wrap: wrap;
-    grid-template-columns: repeat(2,minmax(0,1fr));
-    margin: .5rem 0rem;
+.details table{
+    width: max-content;
+    height: max-content;
+    /* border: 1px solid black; */
+    margin: 1rem 0;
+    table-layout: fixed;
+
 }
 
-.details p:nth-of-type(even){
-    font-weight: 600;
+.details table td:last-child{
+    font-weight: 800;
+ }
+
+
+.details table td{
+    /* border: 1px solid black; */
+    width: 100%;
+    padding: 1rem;
+    word-wrap: break-word;
+    /* white-space: pre; */
+}
+
+.profile-card-top-parent{
+    width: 100%;
+    height: max-content;
+    margin: 3rem 0 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profiel-card-place-parent,.profile-card-hotel-parent{
+    width: 100%;
+    height: max-content;
+    margin: 2rem 0;
+}
+
+#profile-hr-line{
+    width: 80vw;
+}
+
+#profile-heading-id {
+    width: 100%;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: flex-start;
+    font-weight: 800;
+    color: #2E2755;
 }
 
 @media screen and (max-width:1024px) {
 
     .profile{
-    width: 60vw;
-    height: 70vh;
-    position: fixed;
-    background-color: rgb(255, 255, 255);
-    top: 15%;
-    bottom: 15%;
-    right: 20%;
-    left: 20%;
+    width: 80%;
+    height: 100%;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     padding: 3rem;
-    z-index: 9999999999;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -67,16 +108,44 @@
 
     .details img{
         margin: 1rem 0;
+        object-position: center;
+        object-fit: contain;
     }
 
-    .details{
+    .details table{
+        width: max-content;
+        height: max-content;
+        /* border: 1px solid black; */
         margin: 1rem 0;
-        
+        table-layout: fixed;
+    
     }
 
-    .details p{
-        font-size: .8rem;
+    .details table td:last-child{
+        font-weight: 800;
+     }
+    
+    
+    .details table td{
+        /* border: 1px solid black; */
+        width: 100%;
+        padding: 1rem;
+        word-wrap: break-word;
+    }
 
+    .profile-card-top-parent{
+        width: 100%;
+        height: max-content;
+        margin: 2rem 0 3rem 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .profiel-card-place-parent,.profile-card-hotel-parent{
+        width: 100%;
+        height: max-content;
+        margin: 3rem 0;
     }
 
     
@@ -84,36 +153,70 @@
 
 @media screen and (max-width:768px) {
     .profile{
-        width: 90vw;
-        height: 50vh;
-        position: fixed;
-        background-color: rgb(255, 255, 255);
-        top: 25%;
-        bottom: 25%;
-        right: 5%;
-        left: 5%;
+        width: 100%;
+        height: max-content;
+        /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-        padding: 3rem;
-        z-index: 9999999999;
+        /* box-shadow: none; */
+        border-radius: 10px;
+        padding: 2rem;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-    }
-    .details{
-        width: 100%;
-        overflow: hidden;
-        height: max-content;
+        margin: 2rem 1rem;
     }
 
-    .details p{
-        font-size: .65rem;
+
+
+    .details img{
+        margin: 1rem 0;
+        object-position: center;
+        object-fit: contain;
+    }
+
+    .details table{
+        width: max-content;
+        height: max-content;
+        /* border: 1px solid black; */
+        margin: 1rem 0;
+        table-layout: fixed;
+    
+    }
+
+    .details table td:last-child{
+       font-weight: 800;
     }
     
-    .details p:nth-of-type(even){
+    
+    .details table td{
+        /* border: 1px solid black; */
+        width: 100%;
+        padding: .3rem;
+        font-size: .6rem;
+        word-wrap: break-word;
+    }
+
+    #profile-heading-id {
         width: 100%;
         display: flex;
-        flex-wrap: wrap;
+        justify-content: flex-start;
+        font-size: 1.2rem;
+        /* border: 1px solid black; */
+        /* margin: 0 0 0 20%; */
     }
+
+    .profile-card-top-parent{
+        width: 100%;
+        height: max-content;
+        margin: 1rem 0 1rem 0;
+    }
+    
+    .profiel-card-place-parent,.profile-card-hotel-parent{
+        width: 100%;
+        height: max-content;
+        margin: 2rem 0 0 0;
+    }
+   
 }
 
