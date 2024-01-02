@@ -147,7 +147,7 @@ const handleUploadEditedData = async(e,type) => {
 
     <div className="edit-form-parent">
 
-      <p id='edit-form-close-icon' style={{color:"black",right:'1.5rem',fontSize:'1.3rem',cursor:'pointer'}} onClick={()=>handleEditPostToggle()}><IoMdClose /></p>
+      <p id='edit-form-close-icon'onClick={()=>handleEditPostToggle()}><IoMdClose /></p>
 
 
         <h1>Edit Your favourite Hotel place here</h1>

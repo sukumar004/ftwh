@@ -126,21 +126,19 @@
     position: absolute;
     color: black;
     z-index: 999999999999;
+    font-size: 1.3rem;
+    cursor: pointer;
+    right: 1.5rem;
 }
 
 
 @media screen and (max-width:1024px) {
 
-    .edit-form-top-parent{
-    background-color: rgba(0, 0, 0, .7);
-
-    }
-
     .edit-form-parent{
         width: 60vw;
         height: 80vh;
         position: fixed;
-        background-color: rgba(255, 255, 255, .7);
+        background-color: rgba(255, 255, 255, 1);
         top: 10%;
         bottom: 10%;
         right: 20%;
@@ -200,4 +198,12 @@
         margin-left: -8.5rem;
     }
     
+    .edit-form-parent h1{
+        font-size: .6rem;
+        text-transform: capitalize;
+    }
+
+    #note-tag{
+        font-size: .5rem;
+    }
 }
