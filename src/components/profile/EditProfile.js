@@ -146,7 +146,7 @@ function EditProfile() {
             <button disabled={!dataVerify} onClick={(e)=>handleUploadData(e)}>confirm Changes</button>
             </div>
 
-            {<p id='edit-profile-error-confirm-loading-id'style={{fontSize:'.5rem',textTransform:'capitalize',margin:'1rem 0 0 0'}}>{imgLoading ? `Image uploading..` : dataLoading ? `Data uploading` : imgError ? imgError : dataError ? dataError : imgConfirm ? imgConfirm : dataConfirm}</p> }
+            {<p id='edit-profile-error-confirm-loading-id'  >{imgLoading ? `Image uploading..` : dataLoading ? `Data uploading` : imgError ? imgError : dataError ? dataError : imgConfirm ? imgConfirm : dataConfirm}</p> }
 
         </div>
 

@@ -113,7 +113,7 @@
     position: absolute;
     z-index: 9999;
     right: 1rem;
-    top: 1.5rem;
+    top: 2rem;
 }
 
 #profile-card-edit-delete-button li{
@@ -196,12 +196,19 @@
     color: rgba(255, 255, 255, 1);
 }
 
+#profile-card-edit-icon{
+    width: 2rem;
+    height: 2rem;
+    /* border: 1px solid black; */
+}
+
 
 
 @media screen and (max-width:1024px) {
 
     .profile-individual-card{
         margin: 1rem 1rem;
+        width: 100%;
     }
 
     .profile-card-image{
@@ -261,7 +268,7 @@
     }
     
     #profile-card-edit-delete-button{
-        top: 1rem;
+        top: 2rem;
     }
 }
 
@@ -315,6 +322,13 @@
     .profile-card-error-div p span{
         font-size: 1rem;
         margin: .1rem .2rem 0 0;
+    }
+
+    #profile-card-edit-delete-button{
+        position: absolute;
+        z-index: 9999;
+        right: 1rem;
+        top: 2.5rem;
     }
     
     

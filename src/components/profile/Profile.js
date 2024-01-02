@@ -25,7 +25,6 @@ function Profile() {
     const userPlacePosts = useSelector((state)=>selectPlaceByUid(state,id))
     const userHotelPosts = useSelector((state)=>selectHotelByUid(state,id))
 
-    console.log("user",user)
   
 
   return (
