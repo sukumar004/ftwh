@@ -76,7 +76,10 @@
     font-size: .6rem;
     font-weight: 800;
     margin: 0 0 .2rem 0;
+    color: #414756;
+    font-weight: 600;
 }
+
 
 #post-card-descrition h2{
     font-size: .8rem;
@@ -162,6 +165,11 @@
     height: 100%;
     display: flex;
     justify-content: center;
+}
+
+.profile-card-details button{
+    border: none;
+    background-color: transparent;
 }
 
 #profile-post-toggle-button{

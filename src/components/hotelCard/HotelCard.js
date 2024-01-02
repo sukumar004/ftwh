@@ -135,8 +135,8 @@ function HotelCard({districtArray,districtName}) {
 
 
         {(districtArray && !showResult && allShowHotels.length>6) &&
-            <div className="show-other-hotels-button">
-                <button onClick={()=>setShowResult(pre=>(pre=!pre))}>Show More hotels</button>
+            <div className="show-other-hotels-button" style={{margin:'1rem 0 2rem 0'}}>
+                <button onClick={()=>setShowResult(pre=>(pre=!pre))} style={{margin:'1rem 0 2rem 0'}}>Show More hotels</button>
             </div>
 
             

@@ -5,6 +5,7 @@ import { FaStar } from 'react-icons/fa6'
 import { selectPlaceReviewByIdSp } from '../../feature/review/reviewSlice'
 import { VscSearchStop } from "react-icons/vsc";
 import DataContext from '../context/DataContext'
+import { selectUserByUid } from '../../feature/userDetails/userSlice'
 
 
 
@@ -13,7 +14,9 @@ function ReviewPage(postIdSp) {
     const {timeChange,commentsMore,handleCommentsToggle} = useContext(DataContext)
     const reviews = useSelector((state)=>selectPlaceReviewByIdSp(state,postIdSp.postIdSp))
 
+
     const reviewShowData = reviews.map(val=>{
+
         return{
             ...val,
             date:timeChange(val.date)

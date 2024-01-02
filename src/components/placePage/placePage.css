@@ -95,8 +95,8 @@
 
 }   
 
-.line{
-    margin: 1rem 0;
+#line{
+    margin: 3rem 0;
 }
 
 
@@ -292,8 +292,8 @@ hr{
         letter-spacing: 1.5px;
     }
     
-    .line{
-        margin: 1rem 0;
+    #line{
+        margin: 2rem 0;
     }
 
     

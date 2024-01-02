@@ -11,6 +11,7 @@ import { SlOptionsVertical } from "react-icons/sl";
 import { BiSolidError } from "react-icons/bi";
 import EditForm from '../add/EditForm';
 import { FaIndianRupeeSign } from "react-icons/fa6";
+import EditProfile from '../profile/EditProfile';
 
 
 
@@ -31,7 +32,7 @@ function ProfileCard({posts,type}) {
 
    const compressedPost = posts.slice(0,(posts.length > 3) ? 3 : posts.length)
 
-   console.log("compressedPost",compressedPost)
+
 
 
 
@@ -77,7 +78,7 @@ function ProfileCard({posts,type}) {
 
             <div className="profile-card-details">
 
-                <p id='profile-card-edit-icon' onClick={()=>setIndexToggle(index===indexToggle ? null : index)}><SlOptionsVertical /></p>
+                <button id='profile-card-edit-icon' onClick={()=>setIndexToggle(index===indexToggle ? null : index)}><SlOptionsVertical /></button>
 
                 {indexToggle===index &&  
                 <ul id='profile-card-edit-delete-button'>
@@ -109,6 +110,7 @@ function ProfileCard({posts,type}) {
 
         <>
         {(posts.length && !deleteLoading) ?
+        
         <>
 
         {profileCardList}
@@ -139,7 +141,7 @@ function ProfileCard({posts,type}) {
         <div className="profile-toggle-button">
         <button id='profile-post-toggle-button' onClick={()=>setCompressedToggle(pre=>(pre=!pre))}>Show all Posts</button>
         </div>
-        } 
+    } 
     </>
   )
 }

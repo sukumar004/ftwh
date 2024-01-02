@@ -100,6 +100,7 @@ const handleUploadData = async(e) =>{
         setDataLoading(true)
        const collectionRef = collection(db,'placeDetails');
        const uploadData = await addDoc(collectionRef,formData);
+       setImgConfirm(null)
        setDataConfirm('Place Uploaded successfully')
        setDataError(null)
        handlePlaceToggle()
@@ -153,7 +154,7 @@ const handleUploadData = async(e) =>{
 
             <input type="file" id='file-input' placeholder='upload img' onChange={(e)=>setImgName(e.target.files[0])} />
 
-            {<p>{imgLoading ? `Image uploading..` : imgError ? imgError : imgConfirm}</p> }
+            {/* {<p>{imgLoading ? `Image uploading..` : imgError ? imgError : imgConfirm}</p> } */}
 
 
             <button disabled={!imgName} onClick={(e)=>handleUploadImg(e)}>upload image</button>
@@ -161,7 +162,7 @@ const handleUploadData = async(e) =>{
 
             <button disabled={!dataVerify} onClick={(e)=>handleUploadData(e)}>upload</button>
 
-            {<p>{dataLoading ? `Data Updating..` : dataError ? dataError : dataConfirm}</p>}
+            {<p style={{fontSize:'.5rem',textTransform:'capitalize',margin:'1rem 0 0 0'}}>{imgLoading ? `Image uploading..` : dataLoading ? `Data uploading` : imgError ? imgError : dataError ? dataError : imgConfirm ? imgConfirm : dataConfirm}</p>}
         </form>
     </div>
     </div>

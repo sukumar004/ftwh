@@ -3,7 +3,7 @@
     height: 100vh;
     margin-top: -4rem;
     position: fixed;
-    background-color: rgba(0, 0, 0, .7) !important;
+    /* background-color: rgba(0, 0, 0, .7) !important; */
     z-index: 999999999999;
 }
 
@@ -122,6 +122,11 @@
     letter-spacing: 1px;
 }
 
+#edit-form-close-icon{
+    position: absolute;
+    color: black;
+    z-index: 999999999999;
+}
 
 
 @media screen and (max-width:1024px) {

@@ -5,10 +5,15 @@ import { useContext } from 'react';
 import DataContext from '../context/DataContext';
 import { db } from '../../firebaseConfig';
 import {collection,addDoc} from 'firebase/firestore'
+import { selectUserByUid } from '../../feature/userDetails/userSlice';
+import { useSelector } from 'react-redux';
 
 const CommentPage = ({postIdSp}) => {
 
   const {presentUser,presentUserUid} = useContext(DataContext)
+  const user = useSelector((state)=>selectUserByUid(state,presentUserUid))
+
+  console.log('comment page user',user)
 
   const [commentDataError,setCommentDataError] = useState(null)
 
@@ -33,8 +38,8 @@ const CommentPage = ({postIdSp}) => {
 
 
   const [formData,setFormData] = useState({
-    topic:'',rating:5,comments:'',postIdSp:postIdSp,date:new Date().toISOString(),name:presentUser?presentUser.displayName:'',
-    email:presentUser?presentUser.email:'',photoURL:presentUser?presentUser.photoURL:'',uid:presentUserUid?presentUserUid:''
+    topic:'',rating:5,comments:'',postIdSp:postIdSp,date:new Date().toISOString(),name:user?user.name:'',
+    email:user?user.email:'',photoURL:user?user.photoURL:'',uid:presentUserUid?presentUserUid:''
   })
 
   const dataVerify = Boolean(formData.topic.length > 0 && formData.comments.length > 0)
@@ -49,7 +54,7 @@ const CommentPage = ({postIdSp}) => {
       const collectionRef = collection(db,'commentDetails')
       const request = await addDoc(collectionRef,formData)
       setCommentDataError(null)
-      // window.location.reload()
+      window.location.reload()
 
     }catch(err){
       setCommentDataError(err.message)

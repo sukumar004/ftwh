@@ -37,10 +37,10 @@
 .profile img{
     width: 5rem;
     height: 5rem;
-    border-radius: 100%;
+    border-radius: 100px;
     margin: 0 0 1rem 0;
     object-position: center;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .details table{
@@ -91,6 +91,12 @@
     justify-content: flex-start;
     font-weight: 800;
     color: #2E2755;
+}
+
+#edit-profile-icon{
+    position: absolute;
+    right: 2rem;
+    cursor: pointer;
 }
 
 @media screen and (max-width:1024px) {
@@ -146,6 +152,12 @@
         width: 100%;
         height: max-content;
         margin: 3rem 0;
+    }
+
+    #edit-profile-icon{
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
     }
 
     

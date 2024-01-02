@@ -106,6 +106,7 @@ function HotelForm() {
       setDataLoading(true)
       const collectionRef = collection(db,'hotelDetails')
       const updateData = await addDoc(collectionRef,formData)
+      setImgConfirm(null)
       setDataConfirm('Data Updated Successfully')
       setDataError(null)
       handleHotelToggle()
@@ -208,13 +209,13 @@ function HotelForm() {
 
         <input type="file" id='file-input' onChange={(e)=>setImgName(e.target.files[0])} />
 
-        <p>{imgLoading ? `Image uploading..` : imgError ? `${imgError}` : imgConfirm}</p>
+        {/* <p>{imgLoading ? `Image uploading..` : imgError ? `${imgError}` : imgConfirm}</p> */}
 
         <button disabled={!imgName} onClick={(e)=>handleUploadImg(e)}>Upload image</button>
 
         <button disabled={!dataVerify} onClick={(e)=>handleUploadData(e)}>Upload Data</button>
 
-        {<p>{dataLoading ? `Data Updating..` : dataError ? dataError : dataConfirm}</p>}
+        {<p style={{fontSize:'.5rem',textTransform:'capitalize',margin:'1rem 0 0 0'}}>{imgLoading ? `Image uploading..` : dataLoading ? `Data uploading` : imgError ? imgError : dataError ? dataError : imgConfirm ? imgConfirm : dataConfirm}</p>}
 
 
       </form>

@@ -354,5 +354,44 @@
         font-size: 1rem;
     }
 
+    #book-hotel-box-line{
+        width: 100%;
+        margin: 1rem 0;
+    }
+    .actual-amount-days{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 0 1rem 0;
+        font-size: .7rem;
+    
+    }
+    
+    .actual-amount-days h5{
+        display: flex;
+        align-items: center;
+        font-size: .7rem;
+        font-weight: 300;
+    }
+    
+    .actual-amount-days h5 span{
+        display: flex;
+        align-items: center;
+    }
+
+    .hotel-booking-amonunt-calculation h5{
+        font-size: .7rem;
+    }
+
+    #rupees{
+        font-size: .7rem;
+    }
+
+    #selected h5{
+        font-size: 1rem
+    }
+    
+
     
 }

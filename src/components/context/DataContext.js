@@ -16,8 +16,7 @@ export const DataProvider = ({children}) => {
     const [editPostType,setEditPostType] = useState(null)
     const [editPostId,setEditPostId] = useState(null)
     const [editPostToggle,setEditPostToggle] = useState(false)
-    const [hotelId,setHotelId] = useState(null)
-    const [placeId,setPlaceId] = useState(null)
+    const [editProfileToggle,setEditProfileToggle] = useState(false)
 
 
     const handlePlaceToggle = () => {
@@ -42,6 +41,10 @@ export const DataProvider = ({children}) => {
 
     const handleCommentsToggle = () => {
         setCommentsMore(pre => (pre = !pre))
+    }
+
+    const handleEditProfileToggle = () => {
+        setEditProfileToggle((pre)=>(pre = !pre))
     }
 
     const timeChange = (date) => {
@@ -78,7 +81,7 @@ export const DataProvider = ({children}) => {
     return(
         <DataContext.Provider value={{
             placeState,handlePlaceToggle,districtList,hotelState,handleHotelToggle,navState,handleNavToggle,presentUser,setPresentUser,accountShow,handleAccountToggle,
-            profileState,handleProfileToggle,loadMore,changeLoadMore,timeChange,scrollToTop,commentsMore,handleCommentsToggle,presentUserUid,setPresentUserUid,editPostType,setEditPostType,handleEditPostToggle,editPostToggle,editPostId,setEditPostId
+            profileState,handleProfileToggle,loadMore,changeLoadMore,timeChange,scrollToTop,commentsMore,handleCommentsToggle,presentUserUid,setPresentUserUid,editPostType,setEditPostType,handleEditPostToggle,editPostToggle,editPostId,setEditPostId,handleEditProfileToggle,editProfileToggle
         }}>
             {children}
         </DataContext.Provider>

@@ -13,19 +13,23 @@ import HotelFacilities from './HotelFacilities';
 import BookHotelBox from '../bookHotelBox/BookHotelBox';
 import { BsExclamationTriangle } from "react-icons/bs";
 import DataContext from '../context/DataContext';
+import { selectUserByUid } from '../../feature/userDetails/userSlice';
 
 
 
 
 function PlacePage() {
 
-    const {id} = useParams()
+    const {id,presentUserUid} = useParams()
 
     const {timeChange} = useContext(DataContext)
 
     const post = useSelector(selectAllPost)
+
     
     const invidualPost = useSelector((state)=>selectPostByIdSp(state,id))
+
+    const user = useSelector((state)=>selectUserByUid(state,presentUserUid ? presentUserUid:''))
 
 
     const district = invidualPost ? invidualPost.district : null
@@ -63,14 +67,14 @@ function PlacePage() {
 
               <div className="post-autor-details">
               <p>posted by</p>
-              <p>{invidualPost.name? invidualPost.name : 'sugu'} <span>{invidualPost.date ? timeChange(invidualPost.date) : '1 month'} ago</span></p>
+              <p>{user ? user.name : 'sugu'} <span>{invidualPost.date ? timeChange(invidualPost.date) : '1 month'} ago</span></p>
               </div>
 
             </div>
 
             {/* <p className='selected-post-para' >{invidualPost.description}</p> */}
 
-            <hr className='line' />
+            <hr id='line' />
 
             <h3 id='cheap-hotel-tag'>Here You Can Book a Cheapest Hotel</h3>
 

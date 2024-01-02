@@ -16,6 +16,7 @@ import AboutUs from './components/about us/AboutUs.js'
 import { addUserData } from './feature/userDetails/userSlice.js'
 import Profile from './components/profile/Profile.js'
 import EditForm from './components/add/EditForm.js'
+import EditProfile from './components/profile/EditProfile.js'
 
 
 

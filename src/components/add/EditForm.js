@@ -138,14 +138,17 @@ const handleUploadEditedData = async(e,type) => {
 
   
   return (
-   <div className="edit-form-top-parent" id='edit-top-bg-color' style={{background:'rgba(0, 0, 0, .7)'}}>
+   <div className="edit-form-top-parent" id='edit-top-bg-color'>
 
-  <p id='close-icon' onClick={()=>handleEditPostToggle()}><IoMdClose /></p>
+  {/* <p id='close-icon' style={{color:'black'}} onClick={()=>handleEditPostToggle()}><IoMdClose /></p> */}
 
 
     {type === 'hotel' && 
 
     <div className="edit-form-parent">
+
+      <p id='edit-form-close-icon' style={{color:"black",right:'1.5rem',fontSize:'1.3rem',cursor:'pointer'}} onClick={()=>handleEditPostToggle()}><IoMdClose /></p>
+
 
         <h1>Edit Your favourite Hotel place here</h1>
         <p id='note-tag'>Note : Entered Details must be correct</p>

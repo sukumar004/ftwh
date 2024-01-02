@@ -47,7 +47,7 @@ const navigate = useNavigate()
       localStorage.setItem('user',JSON.stringify(request.user));
       localStorage.setItem('userUid',JSON.stringify(request.user.uid));
 
-      const user = {name:request?request.user.displayName:'',email:request?request.user.email:'',phoneNumber:request?request.user.phoneNumber:'',uid:request?request.user.uid:'',accessToken:request?request.user.accessToken:'',photoURL:request?request.user.photoURL:''}
+      const user = {name:request?request.user.displayName:'',email:request?request.user.email:'',phoneNumber:request?request.user.phoneNumber:'',uid:request?request.user.uid:'',accessToken:request?request.user.accessToken:'',photoURL:request?request.user.photoURL:'',imgId:''}
       const existingUid = allUsers.find(val=>(val.uid===user.uid))
       if(!existingUid){
       const collectionRef = collection(db,'userDetails')
@@ -106,7 +106,7 @@ const navigate = useNavigate()
             <p id='nav-close-button-id' onClick={()=>{handleNavToggle()}}><IoMdClose /></p>
             <Link to='/' onClick={()=>handleNavToggle()}><li>Home</li></Link>
             {presentUser &&<li onClick={()=>{handlePlaceToggle();handleNavToggle()}}>Post Place</li>}
-            {presentUser &&<li onClick={()=>{handlePlaceToggle();handleNavToggle()}}>Post Hotel</li>}
+            {presentUser &&<li onClick={()=>{handleHotelToggle();handleNavToggle()}}>Post Hotel</li>}
             <li>About Us</li>
             <li onClick={()=>{!presentUser ? handleLogin() : handleAccountToggle()}}>{presentUser ? 'My Account' : 'Login'}</li>
             {accountShow &&<ul id='account-show-mobile'>

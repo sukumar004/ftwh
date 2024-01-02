@@ -9,11 +9,13 @@ import { selectUserByUid } from '../../feature/userDetails/userSlice';
 import { selectPlaceByUid } from '../../feature/place/placeSlice';
 import ProfileCard from '../profile card/ProfileCard';
 import { selectHotelByUid } from '../../feature/hotel details/hotelDetailsSlice'
+import EditProfile from './EditProfile'
+import { FaEdit } from "react-icons/fa";    
 
 
 
 function Profile() {
-    const {presentUser,handleAccountToggle,handleProfileToggle,presentUserUid} = useContext(DataContext)
+    const {handleEditProfileToggle,editProfileToggle} = useContext(DataContext)
 
 
     const {id} = useParams()
@@ -32,7 +34,10 @@ function Profile() {
     {/* <p id='close-icon' onClick={()=>{handleProfileToggle(); handleAccountToggle()}} ><IoMdClose /></p> */}
         <h2 id='profile-heading-id'>Personal Details</h2>
 
-        <div className="profile">
+        <div className="profile" style={{position:'relative'}}>
+
+                <p id='edit-profile-icon' onClick={()=>handleEditProfileToggle()}><FaEdit /></p>
+
                 <div className="profile-child">
 
                     <img src={user?user.photoURL:null} alt={user?user.displayName:null} />
@@ -86,6 +91,12 @@ function Profile() {
                
             </div>
 
+        </div>
+
+        <div className="edit-profile-show-parent">
+            {editProfileToggle && 
+            <EditProfile />
+            }
         </div>
 
     </div>
