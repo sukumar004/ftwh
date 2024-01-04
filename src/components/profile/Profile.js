@@ -54,7 +54,7 @@ function Profile() {
                             </tr>
                             <tr>
                                 <td>Phone Number</td>
-                                <td>{user ? user.phoneNumber === null ? "Not Available" : user.phoneNumber : null}</td>
+                                <td>{user ? user.phoneNumber === null || user.phoneNumber === '' ? "Not Available" : user.phoneNumber : null}</td>
                             </tr>
                         </table>
 

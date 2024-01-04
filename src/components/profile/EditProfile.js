@@ -26,7 +26,7 @@ function EditProfile() {
         accessToken:user?user.accessToken:'',email:user?user.email:'',id:user?user.id:'',name:user?user.name:'',phoneNumber:user?user.phoneNumber:'',photoURL:user?user.photoURL:'',uid:user?user.uid:''
     })
 
-    const dataVerify = Boolean(userData?.email?.length>0 && userData?.name?.length>0 && userData?.phoneNumber?.length===10)
+    // const dataVerify = Boolean(userData.email.length>0 && userData?.name?.length>0 && userData?.phoneNumber?.length===10)
 
     const [imgName,setImgName] = useState(null)
     const [imgLoading,setImgLoading] = useState(false)
@@ -86,6 +86,8 @@ function EditProfile() {
     try{
     
         setDataLoading(true)
+        if(userData.name.length<1) throw Error('Please enter your name')
+        if(userData.phoneNumber && userData.phoneNumber.length<10) throw Error('Please enter your mobile number')
         const collectionRef = doc(db,'userDetails',userData.id)
         const updateData = await updateDoc(collectionRef,userData)
         setImgConfirm(null)
@@ -97,9 +99,9 @@ function EditProfile() {
 
     }catch(err){
     setDataError(err.message)
-    if(err.message){
-        deleteStorage()
-       }
+    // if(err.message){
+    //     deleteStorage()
+    //    }
 
     }finally{
     setDataLoading(false)
@@ -143,10 +145,10 @@ function EditProfile() {
 
             <div className="edit-profile-buttons">
             <button disabled={!imgName} onClick={(e)=>handleUploadImage(e)}>Upload Image</button>
-            <button disabled={!dataVerify} onClick={(e)=>handleUploadData(e)}>confirm Changes</button>
+            <button  onClick={(e)=>handleUploadData(e)}>confirm Changes</button>
             </div>
 
-            {<p id='edit-profile-error-confirm-loading-id'  >{imgLoading ? `Image uploading..` : dataLoading ? `Data uploading` : imgError ? imgError : dataError ? dataError : imgConfirm ? imgConfirm : dataConfirm}</p> }
+            {<p id='edit-profile-error-confirm-loading-id' style={{fontSize:'.6rem',margin:'1rem 0 0 0'}} >{imgLoading ? `Image uploading..` : dataLoading ? `Data uploading` : imgError ? imgError : dataError ? dataError : imgConfirm ? imgConfirm : dataConfirm}</p> }
 
         </div>
 

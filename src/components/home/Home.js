@@ -20,7 +20,6 @@ const Home = () => {
 
   const allPost = useSelector(selectAllPost)
 
-  console.log('all post in home page',allPost)
 
   const dispatch = useDispatch()
       
