@@ -89,7 +89,7 @@ const navigate = useNavigate()
                 <Link to='/'><li>Home</li></Link>
                 {presentUser && <li onClick={()=>handlePlaceToggle()} style={{ borderBottom: placeState && '1px solid rgb(255,255,255)'}} >Post Place</li>}
                 {presentUser && <li onClick={()=>handleHotelToggle()} style={{ borderBottom: hotelState && '1px solid rgb(255,255,255)'}} >Post Hotel</li>}
-                <li>About Us</li>
+                <Link to={`#about`}><li>About Us</li></Link>
                 <li id='login-icon-id' onClick={()=>{!presentUser ? handleLogin() : handleAccountToggle()}}>{presentUser ? <FaRegUserCircle size='1.3rem' style={{ borderBottom: accountShow && '1px solid rgb(255,255,255)'}} /> : "Login"}</li>
                 {accountShow &&<ul id='account-show-laptop'>
                   {presentUserUid && <Link to={`/profile/${presentUserUid}`} onClick={()=>handleAccountToggle()}><li>Profile</li></Link> }

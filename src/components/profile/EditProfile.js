@@ -26,7 +26,7 @@ function EditProfile() {
         accessToken:user?user.accessToken:'',email:user?user.email:'',id:user?user.id:'',name:user?user.name:'',phoneNumber:user?user.phoneNumber:'',photoURL:user?user.photoURL:'',uid:user?user.uid:''
     })
 
-    const dataVerify = Boolean(userData.email.length>0 && userData.name.length>0 && userData.phoneNumber.length===10)
+    const dataVerify = Boolean(userData?.email?.length>0 && userData?.name?.length>0 && userData?.phoneNumber?.length===10)
 
     const [imgName,setImgName] = useState(null)
     const [imgLoading,setImgLoading] = useState(false)

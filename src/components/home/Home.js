@@ -104,7 +104,7 @@ const Home = () => {
       <div className="card-component">
           <Card />
       </div> 
-      <div className="about-us-component">
+      <div className="about-us-component" id='about'>
         <AboutUs />
       </div>
     </div> 
