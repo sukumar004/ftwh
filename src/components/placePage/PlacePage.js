@@ -29,7 +29,7 @@ function PlacePage() {
     
     const invidualPost = useSelector((state)=>selectPostByIdSp(state,id))
 
-    const user = useSelector((state)=>selectUserByUid(state,presentUserUid ? presentUserUid:''))
+    const user = useSelector((state)=>selectUserByUid(state,invidualPost ? invidualPost.uid:''))
 
 
     const district = invidualPost ? invidualPost.district : null
@@ -39,6 +39,11 @@ function PlacePage() {
     const copy = [...cheapHotelSort]
     const cheapHotel = cheapHotelSort.length ? cheapHotelSort[0] : null
     const remainingHotel = copy.shift();
+
+
+
+    console.log("invidualPost",invidualPost)
+    console.log("user",user)
  
   return (
     <section className='main-selected-post'>
