@@ -31,9 +31,9 @@ function PlacePage() {
     
     const invidualPost = useSelector((state)=>selectPostByIdSp(state,id))
 
+    const user = useSelector((state)=>selectUserByUid(state,invidualPost ? invidualPost.uid : ''))
 
-
-    const user =   useSelector((state)=>selectUserByUid(state, invidualPost ? invidualPost.hasOwnProperty("uid") ? invidualPost.uid : ''  : ''))
+    // const user = useSelector((state)=>selectUserByUid(state, invidualPost ? invidualPost.hasOwnProperty("uid") ? invidualPost.uid : ''  : ''))
     
 
     const rating = useRating(id ? id : '')

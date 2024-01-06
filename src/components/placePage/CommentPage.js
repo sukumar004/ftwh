@@ -11,7 +11,7 @@ import { useSelector } from 'react-redux';
 const CommentPage = ({postIdSp}) => {
 
   const {presentUser,presentUserUid} = useContext(DataContext)
-  const user = useSelector((state)=>selectUserByUid(state,presentUserUid))
+  const user = useSelector((state)=>selectUserByUid(state,presentUserUid ? presentUserUid : ''))
 
   const [commentDataError,setCommentDataError] = useState(null)
 
