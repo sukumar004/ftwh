@@ -14,6 +14,7 @@ import BookHotelBox from '../bookHotelBox/BookHotelBox';
 import { BsExclamationTriangle } from "react-icons/bs";
 import DataContext from '../context/DataContext';
 import { selectUserByUid } from '../../feature/userDetails/userSlice';
+import useRating from '../../hooks/useRating';
 
 
 
@@ -22,6 +23,7 @@ function PlacePage() {
 
     const {id,presentUserUid} = useParams()
 
+
     const {timeChange} = useContext(DataContext)
 
     const post = useSelector(selectAllPost)
@@ -29,8 +31,12 @@ function PlacePage() {
     
     const invidualPost = useSelector((state)=>selectPostByIdSp(state,id))
 
-    const user = useSelector((state)=>selectUserByUid(state,invidualPost ? invidualPost.uid:''))
 
+
+    const user =   useSelector((state)=>selectUserByUid(state, invidualPost ? invidualPost.hasOwnProperty("uid") ? invidualPost.uid : ''  : ''))
+    
+
+    const rating = useRating(id ? id : '')
 
     const district = invidualPost ? invidualPost.district : null
 
@@ -39,11 +45,6 @@ function PlacePage() {
     const copy = [...cheapHotelSort]
     const cheapHotel = cheapHotelSort.length ? cheapHotelSort[0] : null
     const remainingHotel = copy.shift();
-
-
-
-    console.log("invidualPost",invidualPost)
-    console.log("user",user)
  
   return (
     <section className='main-selected-post'>
@@ -54,7 +55,7 @@ function PlacePage() {
             <div className="selected-post-title">
               <h1>{invidualPost.title }</h1>
               <div className="selected-post-title-rating">
-              <p id='title-rating'><span><MdOutlineStarPurple500 /></span>{`${invidualPost.rating ? invidualPost.rating : '3.0'}`}</p> 
+              <p id='title-rating'><span><MdOutlineStarPurple500 /></span>{`${rating>0 ? Math.floor(rating): '0'}.0`}</p> 
               {/* <p id='title-review'>{rating}</p> */}
               </div>
             </div>
@@ -72,7 +73,8 @@ function PlacePage() {
 
               <div className="post-autor-details">
               <p>posted by</p>
-              <p>{user ? user.name : 'sugu'} <span>{invidualPost.date ? timeChange(invidualPost.date) : '1 month'} ago</span></p>
+              
+              <p>{user ? user.name : 'sugu' } <span>{invidualPost.date ? timeChange(invidualPost.date) : '1 month'} ago</span></p>
               </div>
 
             </div>

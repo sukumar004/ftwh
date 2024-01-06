@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectAllPost } from '../../feature/place/placeSlice'
 import './card.css'
@@ -6,6 +6,7 @@ import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineStarPurple500 } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import DataContext from '../context/DataContext';
+
 
 const Card = () => {
     const post = useSelector(selectAllPost)
@@ -27,11 +28,12 @@ const Card = () => {
 
 
 
-
  const listAllPost =(loadMore?sortArray:topPost).map((post)=>{
+
+
+
         return(
             <section key={post.id}>
-                
           
                 <Link id='place-link' to={`/place/${post.idSp}`} onClick={()=>scrollToTop()}>
 
@@ -47,9 +49,9 @@ const Card = () => {
                             <p>{`${post.state}, ${post.country}`}</p>
                         </div>
 
-                        <div className="place-rating">
-                            <p><span><MdOutlineStarPurple500/></span>{post.rating ? `${post.rating}` : `3.0`}</p>
-                        </div>
+                        {/* <div className="place-rating">
+                            <p><span><MdOutlineStarPurple500/></span>{rating>0 ? `${rating}.0` : `0.0`}</p>
+                        </div> */}
 
                         
                     </div>

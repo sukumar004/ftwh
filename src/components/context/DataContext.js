@@ -1,5 +1,8 @@
 import { useState,createContext } from "react";
 import { parseISO,formatDistanceToNow } from "date-fns";
+import { selectPlaceReviewByIdSp } from "../../feature/review/reviewSlice";
+import { useSelector } from "react-redux";
+
 
 const DataContext = createContext({})
 
@@ -65,6 +68,25 @@ export const DataProvider = ({children}) => {
           behavior: 'smooth',
         });
       };
+
+
+    // const getRatingThroughIdsp = (idSp) => {
+
+    //     const selectAllComments = useSelector((state)=>selectPlaceReviewByIdSp(state,idSp)) 
+    //     let rating = 0;
+
+    //     if(selectAllComments.length){
+    //         for(let i=0;i<selectAllComments.length;i++){
+
+    //             rating = rating + selectAllComments[i].rating
+    //         }
+
+    //     } else{
+    //         rating = 0
+    //     }
+
+    //     return rating/selectAllComments.length
+    // }
     
 
 

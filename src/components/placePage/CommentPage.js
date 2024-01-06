@@ -13,8 +13,6 @@ const CommentPage = ({postIdSp}) => {
   const {presentUser,presentUserUid} = useContext(DataContext)
   const user = useSelector((state)=>selectUserByUid(state,presentUserUid))
 
-  console.log('comment page user',user)
-
   const [commentDataError,setCommentDataError] = useState(null)
 
   const start = Array(5).fill(0)
