@@ -28,16 +28,16 @@ const Card = () => {
 
             const searchedCountryList = post.filter((post)=>(post.country.toUpperCase()===searchList.country.toUpperCase()))
             const searchedStateList = searchedCountryList.filter((post)=>(post.state.toUpperCase()===searchList.state.toUpperCase()))
-            console.log(searchedStateList)
+            // console.log(searchedStateList)
             const searchedDistrictList = searchedStateList.filter((post)=>{return post.district.toUpperCase()===searchList.district.toUpperCase()})
             searchedDistrictList.length>0 ? setSearchPost(searchedDistrictList) : setSearchPost(null)
 
         } else if(searchList.country.length>0 && searchList.state.length>0 && searchList.district.length===0){
             const searchedCountryList = post.filter((post)=>(post.country.toUpperCase()===searchList.country.toUpperCase()))
             const searchedStateList = searchedCountryList.filter((post)=>{return post.state.toUpperCase()===searchList.state.toUpperCase();})
-            console.log('search List in state',searchedStateList)
+            // console.log('search List in state',searchedStateList)
             searchedStateList.length>0 ? setSearchPost(searchedStateList) : setSearchPost(null)
-            console.log('searchlist after state only selected',searchPost)     
+            // console.log('searchlist after state only selected',searchPost)     
 
         } else if(searchList.country.length>0 && searchList.state.length===0 && searchList.district.length===0){
             const searchedCountryList = post.filter((post)=>(post.country.toUpperCase()===searchList.country.toUpperCase()))

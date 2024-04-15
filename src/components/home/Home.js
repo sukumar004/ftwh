@@ -35,7 +35,6 @@ const Home = () => {
     }
 }
 
-console.log('search list', searchList)
 // const handleDistrictValuSet = (e) => {
 //   if(searchList.country===''){
 //     return se
@@ -49,7 +48,7 @@ console.log('search list', searchList)
     Aos.init()
   },[])
   const dispatch = useDispatch()
-      console.log('search List check',searchList.country==='')
+      // console.log('search List check',searchList.country==='')
 
 //     let state = [ "Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chhattisgarh","Goa","Gujarat","Haryana","Himachal Pradesh","Jammu and Kashmir","Jharkhand",
 // "Karnataka","Kerala","Madhya Pradesh","Maharashtra","Manipur","Meghalaya","Mizoram","Nagaland","Odisha","Punjab","Rajasthan","Sikkim","tamilnadu","Telangana",
