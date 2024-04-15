@@ -1,18 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './aboutUs.css'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 function AboutUs() {
+
+  useEffect(()=>{
+    Aos.init()
+  },[])
   return (
     <div className="about-us-top-parent">
 
       {/* <h1>About us</h1> */}
 
       <div className="about-us">
-        <div className="about-us-img">
+        <div className="about-us-img" data-aos='fade-up'>
           <img src="/images/about-us.jpg" alt="About us" />
         </div>
 
-        <div className="about-us-contents">
+        <div className="about-us-contents" data-aos='fade-up'>
           <h3>About us</h3>
           <h5>FTWH is a demo website. The contents that displayed here, specifically the hotel details that are owned by airbnb.com & booking.com respectively. </h5>
           <p>This is SUKUMAR D a junior react developer from Trichy. It is developed only for entertainment and practicing.</p>

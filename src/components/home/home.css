@@ -16,10 +16,10 @@
 .home-component{
     width: 100vw;
     height: 70vh;
+    height: auto;
     background-image: url('bg-4.jpg');
     background-color: #ffffff;
-/* background-image: linear-gradient(43deg, #ffffff 0%, #6dd5fa 46%, #2980b9 100%); */
-    
+/* background-image: linear-gradient(43deg, #ffffff 0%, #6dd5fa 46%, #2980b9 100%); */  
     background-position:100%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -28,7 +28,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0 0 0 0;
+    padding: 8rem 0;
 }
 
 .heading-text{
@@ -37,6 +37,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+
 }
 
 .heading-text h1{
@@ -44,6 +45,7 @@
     font-weight: 800;
     padding: 1rem;
     text-transform: capitalize;
+    margin: 3rem 0 3rem 0;
     color: rgba(255,255,255,0.9);
 
 }
@@ -52,12 +54,13 @@
     text-align: center;
     font-size: 1rem;
     color: rgba(255,255,255,0.9);
-    margin: 1rem 0;
+    margin: 1rem 0 2rem 0;
 }
 
 .select{
     width: 75vw;
     height: 10vh;
+    /* height: auto; */
     /* background-color: white; */
     /* border: 1px solid white; */
     border-radius: 20px;
@@ -65,6 +68,7 @@
     justify-content: space-evenly;
     align-items: center;
     margin: 1rem 0;
+    overflow: hidden;
 }
 
 .select select{
@@ -76,14 +80,14 @@
     font-size: 1rem;
     cursor: pointer;
     border: 3px solid white;
-    background: none;
+    background-color:rgb(2,13,33);
     color: rgba(255,255,255,0.9);
 
 }
 
-.select select:focus{
-    color: black;
-}
+/* .select select:focus{
+    color: rgba(255,255,255,0.9);
+} */
 
 
 .high-rated-places{
@@ -164,16 +168,17 @@
 }
 
 .heading-text h1{
+    width: 90%;
     font-size: 1.6rem;
     text-align:center;
     margin: 0;
     letter-spacing: 2px;
-    line-height: 2.5rem;
+    line-height: 3rem;
     
 }
 
 .heading-text p{
-    width: 100vw;
+    width: 80%;
     font-size: .9rem;
     font-weight: 600;
     margin: 0rem 0 0 0;
@@ -187,7 +192,7 @@
 
 .home-component{
     width: 100vw;
-    height: 60vh;
+    height: auto;
     background-image: url('bg-4.jpg');
     background-position:100%;
     background-repeat: no-repeat;
@@ -198,6 +203,7 @@
     flex-direction: column;
     align-items:center;
     justify-content: flex-start;
+    padding: 5rem 0;
 }
 
 

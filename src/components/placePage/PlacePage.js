@@ -15,6 +15,8 @@ import { BsExclamationTriangle } from "react-icons/bs";
 import DataContext from '../context/DataContext';
 import { selectUserByUid } from '../../feature/userDetails/userSlice';
 import useRating from '../../hooks/useRating';
+import Aos from 'aos';
+import 'aos/dist/aos.css'
 
 
 
@@ -45,6 +47,10 @@ function PlacePage() {
     const copy = [...cheapHotelSort]
     const cheapHotel = cheapHotelSort.length ? cheapHotelSort[0] : null
     const remainingHotel = copy.shift();
+
+    useEffect(()=>{
+      Aos.init()
+    },[])
  
   return (
     <section className='main-selected-post'>
@@ -67,11 +73,11 @@ function PlacePage() {
               <p id='location-name'><span><FaLocationDot /></span>{`${invidualPost.location} (${invidualPost.district}), ${invidualPost.state}, ${invidualPost.country}`}</p>
             </div>
 
-            <p id='selected-post-para' >{invidualPost.description}</p>
+            <p id='selected-post-para' data-aos='zoom-up'>{invidualPost.description}</p>
 
             <div className="post-author-top-parent">
 
-              <div className="post-autor-details">
+              <div className="post-autor-details" data-aos='fade-left'>
               <p>posted by</p>
               
               <p>{user ? user.name : 'sugu' } <span>{invidualPost.date ? timeChange(invidualPost.date) : '1 month'} ago</span></p>
@@ -83,7 +89,7 @@ function PlacePage() {
 
             <hr id='line' />
 
-            <h3 id='cheap-hotel-tag'>Here You Can Book a Cheapest Hotel</h3>
+            <h3 id='cheap-hotel-tag' data-aos='zoom-up'>Here You Can Book a Cheapest Hotel</h3>
 
           {cheapHotel ?
             <div className="hotel-book-in-place-page">
@@ -116,7 +122,7 @@ function PlacePage() {
               />
               </div>
 
-              <h1 id='comment-section-id'>Comment section</h1>
+              <h1 id='comment-section-id' data-aos='fade-right'>Comment section</h1>
 
 
             <div className="comment-page">

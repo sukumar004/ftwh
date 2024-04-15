@@ -1,39 +1,63 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import './home.css'
 import Card from '../card/Card';
 import { useDispatch } from 'react-redux';
 import AboutUs from '../about us/AboutUs';
 import { selectAllPost } from '../../feature/place/placeSlice';
 import { useSelector } from 'react-redux';
-
-
-
-
+import DataContext from '../context/DataContext';
+import Aos from 'aos';
+import 'aos/dist/aos.css'
 
 
 
 const Home = () => {
 
+  const {searchList,setSearchList,districtList} = useContext(DataContext)
+
   const [dataError,setDataError] = useState()
   const [loadingData,setLoadingData] = useState(false)
+  // const [searchList,setSearchList] = useState({country:'',state:'',district:''})
 
+  const handleSearchValue = (e) => {
+    const name = e.target.name;
+    setSearchList((pre)=>{
+      return{
+        ...pre,
+        [name]:e.target.value
+      }
+    })  
+    
+    if(searchList.district.length>0 && searchList.state.length>0){
+      return setSearchList((pre)=>{return {...pre,state:'',district:''}})
+    } else if(searchList.district.length>0 && searchList.country.length > 0){
+      return setSearchList((pre)=>{return {...pre,district:''}})
+    }
+}
+
+console.log('search list', searchList)
+// const handleDistrictValuSet = (e) => {
+//   if(searchList.country===''){
+//     return se
+//   }
+// }
 
   const allPost = useSelector(selectAllPost)
 
 
+  useEffect(()=>{
+    Aos.init()
+  },[])
   const dispatch = useDispatch()
-      
+      console.log('search List check',searchList.country==='')
 
-    let state = [ "Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chhattisgarh","Goa","Gujarat","Haryana","Himachal Pradesh","Jammu and Kashmir","Jharkhand",
-"Karnataka","Kerala","Madhya Pradesh","Maharashtra","Manipur","Meghalaya","Mizoram","Nagaland","Odisha","Punjab","Rajasthan","Sikkim","Tamil Nadu","Telangana",
-"Tripura","Uttarakhand","Uttar Pradesh","West Bengal","Andaman and Nicobar Islands","Chandigarh","Dadra and Nagar Haveli","Daman and Diu","Delhi",
-"Lakshadweep","Puducherry"]
+//     let state = [ "Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chhattisgarh","Goa","Gujarat","Haryana","Himachal Pradesh","Jammu and Kashmir","Jharkhand",
+// "Karnataka","Kerala","Madhya Pradesh","Maharashtra","Manipur","Meghalaya","Mizoram","Nagaland","Odisha","Punjab","Rajasthan","Sikkim","tamilnadu","Telangana",
+// "Tripura","Uttarakhand","Uttar Pradesh","West Bengal","Andaman and Nicobar Islands","Chandigarh","Dadra and Nagar Haveli","Daman and Diu","Delhi",
+// "Lakshadweep","Puducherry"]
 
+//     const stateList = state.map((val,index)=>(<option key={index} value={`"${val}"`}>{val}</option>))
 
-
-
-
-    const stateList = state.map((val,index)=>(<option key={index} value={`"${val}"`}>{val}</option>))
   return (
 
 <div className="home-page">
@@ -53,26 +77,29 @@ const Home = () => {
 
           <div className="heading-text">
 
-              <h1>Here You Can Find Where You Go</h1>
-              <p>Search deals on hotels,homes and much more...</p>
+              <h1 data-aos="fade-up">Here You Can Find Where You Go</h1>
+              <p data-aos="zoom-down">Search deals on hotels,homes and much more...</p>
 
           </div>
 
           <div className="select">
 
-              <select name="country" id="country">
+              <select name="country" id="country" onChange={(e)=>handleSearchValue(e)} value={searchList.country} data-aos="fade-right">
                   <option value="">select country</option>
-                  <option value="India">India</option>
-                  <option value="Thailand">Thailand</option>
-                  <option value="Sri Lanka">Sri Lanka</option>
-
+                  <option value="india">India</option>
               </select>
-              <select name="state" id="state">
+              <select name="state" id="state" onChange={(e)=>handleSearchValue(e)} value={searchList.state} data-aos="fade-up">
                   <option value="">select state</option>
-                  {stateList}
+                  {searchList.country.length>0 &&
+                  <option value="tamilnadu">Tamil Nadu</option>}
+                  {/* {searchList.country === 'india' && stateList} */}
+                  {/* {stateList} */}
               </select>
-              <select name="district" id="district">
+              <select name="district" id="district" onChange={(e)=>handleSearchValue(e)} value={searchList.district} data-aos="fade-left">
                   <option value="">select district</option>
+                  {/* <option value="Tiruchirappalli">Tiruchirappalli</option> */}
+                  {/* {(searchList.state ==='tamilnadu') && districtListNew}*/}
+                  {searchList.state.length>0 && districtList}
               </select>
 
 
@@ -80,11 +107,11 @@ const Home = () => {
 
         
 
-          <div className="high-rated-places">
+          {/* <div className="high-rated-places">
 
-              <button>SEARCH</button>
+              <button>SEARCH</button>?
 
-          </div> 
+          </div>  */}
 
 
 

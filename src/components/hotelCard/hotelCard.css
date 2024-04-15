@@ -9,6 +9,7 @@
      display: grid;
      grid-template-columns: repeat(3,minmax(0,1fr));
      justify-items: center;
+    overflow: hidden;
  }
 
  .district-hotel-parent{
@@ -23,10 +24,6 @@
      border-radius: 10px;
      background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-
-
-     /* border: 1px solid black; */
-
  }
 
 

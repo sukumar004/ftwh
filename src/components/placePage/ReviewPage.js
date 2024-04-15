@@ -6,6 +6,8 @@ import { selectPlaceReviewByIdSp } from '../../feature/review/reviewSlice'
 import { VscSearchStop } from "react-icons/vsc";
 import DataContext from '../context/DataContext'
 import { selectUserByUid } from '../../feature/userDetails/userSlice'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 
 
@@ -36,6 +38,10 @@ function ReviewPage(postIdSp) {
         inActive:'#a9a9a9'
       }
 
+    useEffect(()=>{
+        Aos.init()
+    },[])
+
     // maping function
 
 
@@ -43,7 +49,7 @@ function ReviewPage(postIdSp) {
 
         return(
 
-        <div className="review-list" key={index}>
+        <div className="review-list" key={index} data-aos='fade-up'>
 
             <div className="review-column-list">
                 
@@ -96,7 +102,7 @@ function ReviewPage(postIdSp) {
     {reviewList}
 
     {(reviewList.length >= 3 && !commentsMore) &&
-    <div className="more-comments-button">
+    <div className="more-comments-button" data-aos='fade-up'>
     <button onClick={()=>handleCommentsToggle()}>Show More Comments</button>
     </div>}
     

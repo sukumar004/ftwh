@@ -20,6 +20,8 @@ export const DataProvider = ({children}) => {
     const [editPostId,setEditPostId] = useState(null)
     const [editPostToggle,setEditPostToggle] = useState(false)
     const [editProfileToggle,setEditProfileToggle] = useState(false)
+    const [searchList,setSearchList] = useState({country:'',state:'',district:''})
+
 
 
     const handlePlaceToggle = () => {
@@ -103,7 +105,7 @@ export const DataProvider = ({children}) => {
     return(
         <DataContext.Provider value={{
             placeState,handlePlaceToggle,districtList,hotelState,handleHotelToggle,navState,handleNavToggle,presentUser,setPresentUser,accountShow,handleAccountToggle,
-            profileState,handleProfileToggle,loadMore,changeLoadMore,timeChange,scrollToTop,commentsMore,handleCommentsToggle,presentUserUid,setPresentUserUid,editPostType,setEditPostType,handleEditPostToggle,editPostToggle,editPostId,setEditPostId,handleEditProfileToggle,editProfileToggle
+            profileState,handleProfileToggle,loadMore,changeLoadMore,timeChange,scrollToTop,commentsMore,handleCommentsToggle,presentUserUid,setPresentUserUid,editPostType,setEditPostType,handleEditPostToggle,editPostToggle,editPostId,setEditPostId,handleEditProfileToggle,editProfileToggle,searchList,setSearchList
         }}>
             {children}
         </DataContext.Provider>

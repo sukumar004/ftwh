@@ -1,4 +1,4 @@
-import React, { useState,useContext } from 'react'
+import React, { useState,useContext, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { selectAllHotels,selectHotelByDistrict } from '../../feature/hotel details/hotelDetailsSlice'
 import './hotelCard.css'
@@ -8,6 +8,8 @@ import { FaIndianRupeeSign } from "react-icons/fa6";
 import { FaLocationDot } from "react-icons/fa6";
 import { Link } from 'react-router-dom'
 import DataContext from '../context/DataContext'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 
 function HotelCard({districtArray,districtName}) {
@@ -34,14 +36,18 @@ function HotelCard({districtArray,districtName}) {
         inActive:'#a9a9a9'
       }
 
+    useEffect(()=>{
+        Aos.init()
+    },[])
+
     
-      const districtHotelList = (!showResult ? smallHotels : allShowHotels ).map(val=>{
+    const districtHotelList = (!showResult ? smallHotels : allShowHotels ).map(val=>{
 
         return(
         
         
      
-            <div className="district-hotel-parent">
+            <div className="district-hotel-parent" data-aos='fade-up'>
                 <Link id='hotel-link' to={`/bookNow/${val.idSp}`} onClick={()=>scrollToTop()}>
 
             <div className="hotel-cover-images" id='selected-img-div'>
@@ -125,7 +131,7 @@ function HotelCard({districtArray,districtName}) {
 
 
         <div className="other-district-hotels-heading">
-            <h3>Other hotels</h3>
+            <h3 data-aos='fade-right'>Other hotels</h3>
         </div>
         
         
@@ -136,7 +142,7 @@ function HotelCard({districtArray,districtName}) {
 
         {(districtArray && !showResult && allShowHotels.length>6) &&
             <div className="show-other-hotels-button" style={{margin:'1rem 0 2rem 0'}}>
-                <button onClick={()=>setShowResult(pre=>(pre=!pre))} style={{margin:'1rem 0 2rem 0'}}>Show More hotels</button>
+                <button onClick={()=>setShowResult(pre=>(pre=!pre))} style={{margin:'1rem 0 2rem 0'}} data-aos='fade-down'>Show More hotels</button>
             </div>
 
             

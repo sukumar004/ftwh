@@ -7,6 +7,8 @@ import { db } from '../../firebaseConfig';
 import {collection,addDoc} from 'firebase/firestore'
 import { selectUserByUid } from '../../feature/userDetails/userSlice';
 import { useSelector } from 'react-redux';
+import Aos from 'aos';
+import 'aos/dist/aos.css'
 
 const CommentPage = ({postIdSp}) => {
 
@@ -63,10 +65,14 @@ const CommentPage = ({postIdSp}) => {
     }
   }
 
+  useEffect(()=>{
+    Aos.init()
+  },[])
+
   
   return (
     <div className="comment-parent-top">
-      <div className="comment-parent">
+      <div className="comment-parent" data-aos='fade-up'>
           <h1>Feedback About this place</h1>
       
               <div className="star-rating">

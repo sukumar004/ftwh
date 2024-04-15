@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './hotelFacilities.css'
 import { FaLocationDot } from "react-icons/fa6";
 import { LiaUmbrellaBeachSolid } from "react-icons/lia";
@@ -11,7 +11,8 @@ import { useSelector } from 'react-redux';
 import { selectHotelByIdSp } from '../../feature/hotel details/hotelDetailsSlice';
 import { MdKey } from "react-icons/md";
 import HotelCard from '../hotelCard/HotelCard';
-
+import Aos from 'aos';
+import 'aos/dist/aos.css'
 
 function HotelFacilities({hotelIdSp}) {
 
@@ -19,6 +20,8 @@ function HotelFacilities({hotelIdSp}) {
 
 
     const hotel = selectedHotelInHotelFacilities
+
+    useEffect(()=>{Aos.init()},[])
 
   return (
     <div className="hotelDetails">
@@ -38,14 +41,14 @@ function HotelFacilities({hotelIdSp}) {
                 <p>{`${hotel.state}, ${hotel.country}`}</p>
             </div>
 
-            <h3>Image Gallery</h3>
+            <h3 data-aos='fade-right'>Image Gallery</h3>
 
-            <div className="hotel-photos">
+            <div className="hotel-photos" >
 
-                <img src={hotel.imgURL} alt={hotel.name} id='sepicifc-image-id'/>
-                <img src='/images/ht-1.jpg' alt={hotel.name} id='sepicifc-image-id'/>
-                <img src='/images/ht-2.jpg' alt={hotel.name} id='sepicifc-image-id'/>
-                <img src={hotel.imgURL} alt={hotel.name} id='sepicifc-image-id'/>
+                <img src={hotel.imgURL} alt={hotel.name} id='sepicifc-image-id' data-aos='flip-left'/>
+                <img src='/images/ht-1.jpg' alt={hotel.name} id='sepicifc-image-id' data-aos='flip-left'/>
+                <img src='/images/ht-2.jpg' alt={hotel.name} id='sepicifc-image-id' data-aos='flip-left'/>
+                <img src={hotel.imgURL} alt={hotel.name} id='sepicifc-image-id' data-aos='flip-left'/>
 
 
                {/* {
@@ -59,7 +62,7 @@ function HotelFacilities({hotelIdSp}) {
 
             <hr id='hotel-facilities-hr' />
 
-            <h3 id='amenities'>Hotel Facilities</h3>
+            <h3 id='amenities' data-aos='fade-right'>Hotel Facilities</h3>
 
             <div className="hotel-amenities">
 
@@ -75,7 +78,7 @@ function HotelFacilities({hotelIdSp}) {
             <hr id='hotel-facilities-hr' />
 
             <div className="hotel-rules-top-parent">
-                <h3>Hotel Rules</h3>
+                <h3 data-aos='fade-right'>Hotel Rules</h3>
 
                 <div className="hotel-rules">
                 

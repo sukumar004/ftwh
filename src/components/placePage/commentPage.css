@@ -4,6 +4,7 @@
     justify-content: center;
     margin: 1rem;
     padding: 2rem 0;
+    overflow: hidden;
 }
 
 .comment-parent{
@@ -13,9 +14,8 @@
    height: max-content;
    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
    margin: 0 1rem;
-   padding: 0 1.5rem;
+   padding: 1rem 1.5rem;
    border-radius: 10px;
-
 }
 
 .comment-parent h1{

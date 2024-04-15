@@ -13,6 +13,8 @@
     flex-direction: row;
     justify-content: space-around;
     align-items:center;
+    overflow: hidden;
+    padding: 2rem;
 }
 
 
@@ -105,6 +107,7 @@
         flex-direction: column-reverse;
         border: none;
         justify-content: space-evenly;
+        padding: 0;
        
     }
 
