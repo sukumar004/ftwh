@@ -191,7 +191,8 @@
 
 .members-room-parent-selecting{
     width: 73%;
-    height: max-content;
+    /* height: 16.8rem; */
+    height: auto;
     position: absolute;
     z-index: 999;
     background-color: white;
@@ -199,6 +200,7 @@
     padding: 1rem;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 10px;
+    /* border: 1px solid black; */
 }
 
 .members-room-child-selecting{
@@ -257,6 +259,7 @@
     cursor: pointer;
     border-bottom: 1px solid black;
     margin: 1rem;
+    margin-bottom:0 ;
 }
 
 
