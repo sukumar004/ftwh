@@ -20,6 +20,7 @@ import EditProfile from './components/profile/EditProfile.js'
 
 
 
+
 const App = () => {
 
     const [dataError,setDataError] = useState()
@@ -112,6 +113,8 @@ const App = () => {
         <Route path='/profile/:id' element={<Profile />} />
 
         <Route path='/editPost/:id' element={<EditForm />} />
+
+        <Route path='/#aboutUs' element={<AboutUs />} />
 
 
       </Route>

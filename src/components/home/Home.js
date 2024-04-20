@@ -129,7 +129,7 @@ const Home = () => {
       <div className="card-component">
           <Card />
       </div> 
-      <div className="about-us-component" id='about'>
+      <div className="about-us-component" id='aboutUs'>
         <AboutUs />
       </div>
     </div> 
